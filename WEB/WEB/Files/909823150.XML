@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditBookViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EditBookViewModel Id="3">
+    <Title>TestInsert</Title>
+    <Author>TestInsert author</Author>
+    <YearOfPublish>2018-01-16T00:00:00</YearOfPublish>
+    <PublishingHouse>test Publish House</PublishingHouse>
+    <Price>3432</Price>
+    <DateInsert>2018-01-17T00:00:00</DateInsert>
+    <Genre>3</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="4">
+    <Title>testeditNEW</Title>
+    <Author>qqqqqqq</Author>
+    <YearOfPublish>1969-07-30T00:00:00</YearOfPublish>
+    <PublishingHouse>awfasd</PublishingHouse>
+    <Price>23432</Price>
+    <DateInsert>2018-01-17T00:00:00</DateInsert>
+    <Genre>3</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="5">
+    <Title>sadgsd</Title>
+    <Author>asdgasd</Author>
+    <YearOfPublish>2018-01-30T00:00:00</YearOfPublish>
+    <PublishingHouse>dasgsdg</PublishingHouse>
+    <Price>32432</Price>
+    <DateInsert>2018-01-17T00:00:00</DateInsert>
+    <Genre>2</Genre>
+  </EditBookViewModel>
+</ArrayOfEditBookViewModel><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditNewsPaperViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EditNewsPaperViewModel Id="1">
+    <Title>TitlePapers1</Title>
+    <PublishHouse>1</PublishHouse>
+    <PrindDate>2018-01-09T19:32:43.5</PrindDate>
+    <Price>3232</Price>
+    <DateInsert>2018-01-09T19:32:43.537</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="2">
+    <Title>TitlePapers2</Title>
+    <PublishHouse>2</PublishHouse>
+    <PrindDate>2000-01-12T00:00:00</PrindDate>
+    <Price>335</Price>
+    <DateInsert>2018-01-03T14:12:51</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="3">
+    <Title>TestEdit</Title>
+    <PublishHouse>1</PublishHouse>
+    <PrindDate>2017-07-13T00:00:00</PrindDate>
+    <Price>11111</Price>
+    <DateInsert>2018-01-12T00:00:00</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="6">
+    <Title>sdfsd</Title>
+    <PublishHouse>3</PublishHouse>
+    <PrindDate>2018-01-10T00:00:00</PrindDate>
+    <Price>312</Price>
+    <DateInsert>2018-01-12T10:06:03.733</DateInsert>
+  </EditNewsPaperViewModel>
+</ArrayOfEditNewsPaperViewModel>

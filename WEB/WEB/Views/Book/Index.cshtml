@@ -1,0 +1,84 @@
+﻿<script>
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("ReadFunction", "Book")",
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    fields:
+                    {
+                        Id: {},
+                        Title: {},
+                        Author: {},
+                        YearOfPublish: { type: "date" },
+                        PublishingHouse: {},
+                        Price: {},
+                        DateInsert: { type: "date" },
+                        Genre: {}
+                    }
+                }
+            }
+        });
+        var grid = $("#KendoGridId").kendoGrid({
+                        dataSource: dataSource,
+                        groupable: true,
+                        height:'700px',
+                        sortable: true,
+                        persistSelection: true,
+                        pageable: {
+                            refresh: true,
+                            pageSizes: true,
+                            buttonCount: 5
+                        },
+                        toolbar: [
+                            {
+                                name: "SaveXML", text: "Save as XML", className: "XMLsave", iconClass: "k-icon k-i-save"
+                            },
+                            {
+                                name: "SaveJSON", text: "Save as JSON", className: "JSONsave", iconClass: "k-icon k-i-save"
+                            }
+                        ],
+                        columns: [{
+                            selectable: true
+                        },
+                        {
+                            field: "Id",
+                            title: "Id",
+                            hidden: true
+                            },
+                            {
+                            field: "Title",
+                            title: "Title"
+                        },
+                        {
+                            field: "Author",
+                            title: "Author"
+                            },
+                            {
+                            field: "YearOfPublish",
+                            title: "Year of publish",
+                            format: "{0:dd/MM/yyyy}"
+                        },
+                            {
+                                field: "PublishingHouse",
+                                title: "PublishingHouse"
+                            },
+                            {
+                                    field: "Price",
+                                    title: "Price"
+                            },
+                            {
+                            field: "DateInsert",
+                            title: "Date Insert",
+                            format: "{0:dd/MM/yyyy}"
+                            },
+                            {
+                                field: "Genre",
+                                title: "Genre"
+                            },
+                        ],
+        });
+</script>

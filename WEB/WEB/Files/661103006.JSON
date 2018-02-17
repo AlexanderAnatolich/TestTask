@@ -1,0 +1,1034 @@
+[
+  [
+    {
+      "Id": 1,
+      "Title": "BookTitle1",
+      "Author": "Author1",
+      "YearOfPublish": "1993-11-05T00:00:00",
+      "PublishingHouse": "PublishHouse1t",
+      "Price": 324,
+      "DateInsert": "2018-02-02T00:00:00",
+      "Genre": 1,
+      "Gener": {
+        "Id": 1,
+        "Genre": "Genre1",
+        "Books": [
+          {
+            "Id": 1,
+            "Title": "BookTitle1",
+            "Author": "Author1",
+            "YearOfPublish": "1993-11-05T00:00:00",
+            "PublishingHouse": "PublishHouse1t",
+            "Price": 324,
+            "DateInsert": "2018-02-02T00:00:00",
+            "Genre": 1
+          },
+          {
+            "Id": 6,
+            "Title": "TESTNEWINSERT",
+            "Author": "TESTNEWINSERT",
+            "YearOfPublish": "2010-09-27T00:00:00",
+            "PublishingHouse": "TESTNEWINSERT",
+            "Price": 1111111,
+            "DateInsert": "2018-01-17T00:00:00",
+            "Genre": 1
+          }
+        ]
+      },
+      "ListGeners": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "Title": "BookTitle2",
+      "Author": "Author2",
+      "YearOfPublish": "1999-12-03T00:00:00",
+      "PublishingHouse": "PublishHouse2",
+      "Price": 302,
+      "DateInsert": "2018-01-03T14:27:37.21",
+      "Genre": 2,
+      "Gener": {
+        "Id": 2,
+        "Genre": "Genre2",
+        "Books": [
+          {
+            "Id": 2,
+            "Title": "BookTitle2",
+            "Author": "Author2",
+            "YearOfPublish": "1999-12-03T00:00:00",
+            "PublishingHouse": "PublishHouse2",
+            "Price": 302,
+            "DateInsert": "2018-01-03T14:27:37.21",
+            "Genre": 2
+          },
+          {
+            "Id": 5,
+            "Title": "sadgsd",
+            "Author": "asdgasd",
+            "YearOfPublish": "2018-01-30T00:00:00",
+            "PublishingHouse": "dasgsdg",
+            "Price": 32432,
+            "DateInsert": "2018-01-17T00:00:00",
+            "Genre": 2
+          }
+        ]
+      },
+      "ListGeners": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "Title": "TestInsert",
+      "Author": "TestInsert author",
+      "YearOfPublish": "2018-01-16T00:00:00",
+      "PublishingHouse": "test Publish House",
+      "Price": 3432,
+      "DateInsert": "2018-01-17T00:00:00",
+      "Genre": 3,
+      "Gener": {
+        "Id": 3,
+        "Genre": "Genre3",
+        "Books": [
+          {
+            "Id": 3,
+            "Title": "TestInsert",
+            "Author": "TestInsert author",
+            "YearOfPublish": "2018-01-16T00:00:00",
+            "PublishingHouse": "test Publish House",
+            "Price": 3432,
+            "DateInsert": "2018-01-17T00:00:00",
+            "Genre": 3
+          },
+          {
+            "Id": 4,
+            "Title": "testeditNEW",
+            "Author": "qqqqqqq",
+            "YearOfPublish": "1969-07-30T00:00:00",
+            "PublishingHouse": "awfasd",
+            "Price": 23432,
+            "DateInsert": "2018-01-17T00:00:00",
+            "Genre": 3
+          }
+        ]
+      },
+      "ListGeners": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "Title": "testeditNEW",
+      "Author": "qqqqqqq",
+      "YearOfPublish": "1969-07-30T00:00:00",
+      "PublishingHouse": "awfasd",
+      "Price": 23432,
+      "DateInsert": "2018-01-17T00:00:00",
+      "Genre": 3,
+      "Gener": {
+        "Id": 3,
+        "Genre": "Genre3",
+        "Books": [
+          {
+            "Id": 3,
+            "Title": "TestInsert",
+            "Author": "TestInsert author",
+            "YearOfPublish": "2018-01-16T00:00:00",
+            "PublishingHouse": "test Publish House",
+            "Price": 3432,
+            "DateInsert": "2018-01-17T00:00:00",
+            "Genre": 3
+          },
+          {
+            "Id": 4,
+            "Title": "testeditNEW",
+            "Author": "qqqqqqq",
+            "YearOfPublish": "1969-07-30T00:00:00",
+            "PublishingHouse": "awfasd",
+            "Price": 23432,
+            "DateInsert": "2018-01-17T00:00:00",
+            "Genre": 3
+          }
+        ]
+      },
+      "ListGeners": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "Title": "sadgsd",
+      "Author": "asdgasd",
+      "YearOfPublish": "2018-01-30T00:00:00",
+      "PublishingHouse": "dasgsdg",
+      "Price": 32432,
+      "DateInsert": "2018-01-17T00:00:00",
+      "Genre": 2,
+      "Gener": {
+        "Id": 2,
+        "Genre": "Genre2",
+        "Books": [
+          {
+            "Id": 2,
+            "Title": "BookTitle2",
+            "Author": "Author2",
+            "YearOfPublish": "1999-12-03T00:00:00",
+            "PublishingHouse": "PublishHouse2",
+            "Price": 302,
+            "DateInsert": "2018-01-03T14:27:37.21",
+            "Genre": 2
+          },
+          {
+            "Id": 5,
+            "Title": "sadgsd",
+            "Author": "asdgasd",
+            "YearOfPublish": "2018-01-30T00:00:00",
+            "PublishingHouse": "dasgsdg",
+            "Price": 32432,
+            "DateInsert": "2018-01-17T00:00:00",
+            "Genre": 2
+          }
+        ]
+      },
+      "ListGeners": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "Title": "TESTNEWINSERT",
+      "Author": "TESTNEWINSERT",
+      "YearOfPublish": "2010-09-27T00:00:00",
+      "PublishingHouse": "TESTNEWINSERT",
+      "Price": 1111111,
+      "DateInsert": "2018-01-17T00:00:00",
+      "Genre": 1,
+      "Gener": {
+        "Id": 1,
+        "Genre": "Genre1",
+        "Books": [
+          {
+            "Id": 1,
+            "Title": "BookTitle1",
+            "Author": "Author1",
+            "YearOfPublish": "1993-11-05T00:00:00",
+            "PublishingHouse": "PublishHouse1t",
+            "Price": 324,
+            "DateInsert": "2018-02-02T00:00:00",
+            "Genre": 1
+          },
+          {
+            "Id": 6,
+            "Title": "TESTNEWINSERT",
+            "Author": "TESTNEWINSERT",
+            "YearOfPublish": "2010-09-27T00:00:00",
+            "PublishingHouse": "TESTNEWINSERT",
+            "Price": 1111111,
+            "DateInsert": "2018-01-17T00:00:00",
+            "Genre": 1
+          }
+        ]
+      },
+      "ListGeners": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "Genre3",
+          "Value": "3"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "Id": 1,
+      "Title": "TitlePapers1",
+      "PublishHouse": 1,
+      "PrindDate": "2018-01-09T19:32:43.5",
+      "Price": 3232,
+      "DateInsert": "2018-01-09T19:32:43.537",
+      "PaperPublishHous": {
+        "Id": 1,
+        "PublishHouse": "PublishHouse1",
+        "NewsPapers": [
+          {
+            "Id": 1,
+            "Title": "TitlePapers1",
+            "PublishHouse": 1,
+            "PrindDate": "2018-01-09T19:32:43.5",
+            "Price": 3232,
+            "DateInsert": "2018-01-09T19:32:43.537"
+          },
+          {
+            "Id": 3,
+            "Title": "TestEdit",
+            "PublishHouse": 1,
+            "PrindDate": "2017-07-13T00:00:00",
+            "Price": 11111,
+            "DateInsert": "2018-01-12T00:00:00"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "Title": "TitlePapers2",
+      "PublishHouse": 2,
+      "PrindDate": "2000-01-12T00:00:00",
+      "Price": 335,
+      "DateInsert": "2018-01-03T14:12:51",
+      "PaperPublishHous": {
+        "Id": 2,
+        "PublishHouse": "PublishHouse2",
+        "NewsPapers": [
+          {
+            "Id": 2,
+            "Title": "TitlePapers2",
+            "PublishHouse": 2,
+            "PrindDate": "2000-01-12T00:00:00",
+            "Price": 335,
+            "DateInsert": "2018-01-03T14:12:51"
+          },
+          {
+            "Id": 4,
+            "Title": "testinsert",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-09T19:32:43.87",
+            "Price": 3232,
+            "DateInsert": "2018-01-09T19:32:43.903"
+          },
+          {
+            "Id": 5,
+            "Title": "hkghjk",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-11T00:00:00",
+            "Price": 867876,
+            "DateInsert": "2018-01-12T10:05:40.88"
+          },
+          {
+            "Id": 8,
+            "Title": "sdfgsdf",
+            "PublishHouse": 2,
+            "PrindDate": "1997-01-01T00:00:00",
+            "Price": 3453454,
+            "DateInsert": "2018-01-17T17:17:13.577"
+          },
+          {
+            "Id": 9,
+            "Title": "sdaf",
+            "PublishHouse": 2,
+            "PrindDate": "1999-01-01T00:00:00",
+            "Price": 23434,
+            "DateInsert": "2018-01-17T17:30:29.707"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "Title": "TestEdit",
+      "PublishHouse": 1,
+      "PrindDate": "2017-07-13T00:00:00",
+      "Price": 11111,
+      "DateInsert": "2018-01-12T00:00:00",
+      "PaperPublishHous": {
+        "Id": 1,
+        "PublishHouse": "PublishHouse1",
+        "NewsPapers": [
+          {
+            "Id": 1,
+            "Title": "TitlePapers1",
+            "PublishHouse": 1,
+            "PrindDate": "2018-01-09T19:32:43.5",
+            "Price": 3232,
+            "DateInsert": "2018-01-09T19:32:43.537"
+          },
+          {
+            "Id": 3,
+            "Title": "TestEdit",
+            "PublishHouse": 1,
+            "PrindDate": "2017-07-13T00:00:00",
+            "Price": 11111,
+            "DateInsert": "2018-01-12T00:00:00"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "Title": "testinsert",
+      "PublishHouse": 2,
+      "PrindDate": "2018-01-09T19:32:43.87",
+      "Price": 3232,
+      "DateInsert": "2018-01-09T19:32:43.903",
+      "PaperPublishHous": {
+        "Id": 2,
+        "PublishHouse": "PublishHouse2",
+        "NewsPapers": [
+          {
+            "Id": 2,
+            "Title": "TitlePapers2",
+            "PublishHouse": 2,
+            "PrindDate": "2000-01-12T00:00:00",
+            "Price": 335,
+            "DateInsert": "2018-01-03T14:12:51"
+          },
+          {
+            "Id": 4,
+            "Title": "testinsert",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-09T19:32:43.87",
+            "Price": 3232,
+            "DateInsert": "2018-01-09T19:32:43.903"
+          },
+          {
+            "Id": 5,
+            "Title": "hkghjk",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-11T00:00:00",
+            "Price": 867876,
+            "DateInsert": "2018-01-12T10:05:40.88"
+          },
+          {
+            "Id": 8,
+            "Title": "sdfgsdf",
+            "PublishHouse": 2,
+            "PrindDate": "1997-01-01T00:00:00",
+            "Price": 3453454,
+            "DateInsert": "2018-01-17T17:17:13.577"
+          },
+          {
+            "Id": 9,
+            "Title": "sdaf",
+            "PublishHouse": 2,
+            "PrindDate": "1999-01-01T00:00:00",
+            "Price": 23434,
+            "DateInsert": "2018-01-17T17:30:29.707"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "Title": "hkghjk",
+      "PublishHouse": 2,
+      "PrindDate": "2018-01-11T00:00:00",
+      "Price": 867876,
+      "DateInsert": "2018-01-12T10:05:40.88",
+      "PaperPublishHous": {
+        "Id": 2,
+        "PublishHouse": "PublishHouse2",
+        "NewsPapers": [
+          {
+            "Id": 2,
+            "Title": "TitlePapers2",
+            "PublishHouse": 2,
+            "PrindDate": "2000-01-12T00:00:00",
+            "Price": 335,
+            "DateInsert": "2018-01-03T14:12:51"
+          },
+          {
+            "Id": 4,
+            "Title": "testinsert",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-09T19:32:43.87",
+            "Price": 3232,
+            "DateInsert": "2018-01-09T19:32:43.903"
+          },
+          {
+            "Id": 5,
+            "Title": "hkghjk",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-11T00:00:00",
+            "Price": 867876,
+            "DateInsert": "2018-01-12T10:05:40.88"
+          },
+          {
+            "Id": 8,
+            "Title": "sdfgsdf",
+            "PublishHouse": 2,
+            "PrindDate": "1997-01-01T00:00:00",
+            "Price": 3453454,
+            "DateInsert": "2018-01-17T17:17:13.577"
+          },
+          {
+            "Id": 9,
+            "Title": "sdaf",
+            "PublishHouse": 2,
+            "PrindDate": "1999-01-01T00:00:00",
+            "Price": 23434,
+            "DateInsert": "2018-01-17T17:30:29.707"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "Title": "sdfsd",
+      "PublishHouse": 3,
+      "PrindDate": "2018-01-10T00:00:00",
+      "Price": 312,
+      "DateInsert": "2018-01-12T10:06:03.733",
+      "PaperPublishHous": {
+        "Id": 3,
+        "PublishHouse": "PublishHouse3",
+        "NewsPapers": [
+          {
+            "Id": 6,
+            "Title": "sdfsd",
+            "PublishHouse": 3,
+            "PrindDate": "2018-01-10T00:00:00",
+            "Price": 312,
+            "DateInsert": "2018-01-12T10:06:03.733"
+          },
+          {
+            "Id": 7,
+            "Title": "sdfsdf",
+            "PublishHouse": 3,
+            "PrindDate": "2013-08-30T00:00:00",
+            "Price": 1213,
+            "DateInsert": "2018-01-12T17:09:20.09"
+          },
+          {
+            "Id": 10,
+            "Title": "TESTNEWINSERT",
+            "PublishHouse": 3,
+            "PrindDate": "2018-01-30T00:00:00",
+            "Price": 111111,
+            "DateInsert": "2018-01-17T18:25:35.7"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 7,
+      "Title": "sdfsdf",
+      "PublishHouse": 3,
+      "PrindDate": "2013-08-30T00:00:00",
+      "Price": 1213,
+      "DateInsert": "2018-01-12T17:09:20.09",
+      "PaperPublishHous": {
+        "Id": 3,
+        "PublishHouse": "PublishHouse3",
+        "NewsPapers": [
+          {
+            "Id": 6,
+            "Title": "sdfsd",
+            "PublishHouse": 3,
+            "PrindDate": "2018-01-10T00:00:00",
+            "Price": 312,
+            "DateInsert": "2018-01-12T10:06:03.733"
+          },
+          {
+            "Id": 7,
+            "Title": "sdfsdf",
+            "PublishHouse": 3,
+            "PrindDate": "2013-08-30T00:00:00",
+            "Price": 1213,
+            "DateInsert": "2018-01-12T17:09:20.09"
+          },
+          {
+            "Id": 10,
+            "Title": "TESTNEWINSERT",
+            "PublishHouse": 3,
+            "PrindDate": "2018-01-30T00:00:00",
+            "Price": 111111,
+            "DateInsert": "2018-01-17T18:25:35.7"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "Title": "sdfgsdf",
+      "PublishHouse": 2,
+      "PrindDate": "1997-01-01T00:00:00",
+      "Price": 3453454,
+      "DateInsert": "2018-01-17T17:17:13.577",
+      "PaperPublishHous": {
+        "Id": 2,
+        "PublishHouse": "PublishHouse2",
+        "NewsPapers": [
+          {
+            "Id": 2,
+            "Title": "TitlePapers2",
+            "PublishHouse": 2,
+            "PrindDate": "2000-01-12T00:00:00",
+            "Price": 335,
+            "DateInsert": "2018-01-03T14:12:51"
+          },
+          {
+            "Id": 4,
+            "Title": "testinsert",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-09T19:32:43.87",
+            "Price": 3232,
+            "DateInsert": "2018-01-09T19:32:43.903"
+          },
+          {
+            "Id": 5,
+            "Title": "hkghjk",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-11T00:00:00",
+            "Price": 867876,
+            "DateInsert": "2018-01-12T10:05:40.88"
+          },
+          {
+            "Id": 8,
+            "Title": "sdfgsdf",
+            "PublishHouse": 2,
+            "PrindDate": "1997-01-01T00:00:00",
+            "Price": 3453454,
+            "DateInsert": "2018-01-17T17:17:13.577"
+          },
+          {
+            "Id": 9,
+            "Title": "sdaf",
+            "PublishHouse": 2,
+            "PrindDate": "1999-01-01T00:00:00",
+            "Price": 23434,
+            "DateInsert": "2018-01-17T17:30:29.707"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "Title": "sdaf",
+      "PublishHouse": 2,
+      "PrindDate": "1999-01-01T00:00:00",
+      "Price": 23434,
+      "DateInsert": "2018-01-17T17:30:29.707",
+      "PaperPublishHous": {
+        "Id": 2,
+        "PublishHouse": "PublishHouse2",
+        "NewsPapers": [
+          {
+            "Id": 2,
+            "Title": "TitlePapers2",
+            "PublishHouse": 2,
+            "PrindDate": "2000-01-12T00:00:00",
+            "Price": 335,
+            "DateInsert": "2018-01-03T14:12:51"
+          },
+          {
+            "Id": 4,
+            "Title": "testinsert",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-09T19:32:43.87",
+            "Price": 3232,
+            "DateInsert": "2018-01-09T19:32:43.903"
+          },
+          {
+            "Id": 5,
+            "Title": "hkghjk",
+            "PublishHouse": 2,
+            "PrindDate": "2018-01-11T00:00:00",
+            "Price": 867876,
+            "DateInsert": "2018-01-12T10:05:40.88"
+          },
+          {
+            "Id": 8,
+            "Title": "sdfgsdf",
+            "PublishHouse": 2,
+            "PrindDate": "1997-01-01T00:00:00",
+            "Price": 3453454,
+            "DateInsert": "2018-01-17T17:17:13.577"
+          },
+          {
+            "Id": 9,
+            "Title": "sdaf",
+            "PublishHouse": 2,
+            "PrindDate": "1999-01-01T00:00:00",
+            "Price": 23434,
+            "DateInsert": "2018-01-17T17:30:29.707"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "Title": "TESTNEWINSERT",
+      "PublishHouse": 3,
+      "PrindDate": "2018-01-30T00:00:00",
+      "Price": 111111,
+      "DateInsert": "2018-01-17T18:25:35.7",
+      "PaperPublishHous": {
+        "Id": 3,
+        "PublishHouse": "PublishHouse3",
+        "NewsPapers": [
+          {
+            "Id": 6,
+            "Title": "sdfsd",
+            "PublishHouse": 3,
+            "PrindDate": "2018-01-10T00:00:00",
+            "Price": 312,
+            "DateInsert": "2018-01-12T10:06:03.733"
+          },
+          {
+            "Id": 7,
+            "Title": "sdfsdf",
+            "PublishHouse": 3,
+            "PrindDate": "2013-08-30T00:00:00",
+            "Price": 1213,
+            "DateInsert": "2018-01-12T17:09:20.09"
+          },
+          {
+            "Id": 10,
+            "Title": "TESTNEWINSERT",
+            "PublishHouse": 3,
+            "PrindDate": "2018-01-30T00:00:00",
+            "Price": 111111,
+            "DateInsert": "2018-01-17T18:25:35.7"
+          }
+        ]
+      },
+      "ListPublichHouse": [
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse1",
+          "Value": "1"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse2",
+          "Value": "2"
+        },
+        {
+          "Disabled": false,
+          "Group": null,
+          "Selected": false,
+          "Text": "PublishHouse3",
+          "Value": "3"
+        }
+      ]
+    }
+  ]
+]

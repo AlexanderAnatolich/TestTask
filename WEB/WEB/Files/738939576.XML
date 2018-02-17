@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditBookViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EditBookViewModel Id="1">
+    <Title>BookTitle1</Title>
+    <Author>Author1</Author>
+    <YearOfPublish>1993-11-05T00:00:00</YearOfPublish>
+    <PublishingHouse>PublishHouse1t</PublishingHouse>
+    <Price>324</Price>
+    <DateInsert>2018-02-02T00:00:00</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="2">
+    <Title>BookTitle2</Title>
+    <Author>Author2</Author>
+    <YearOfPublish>1999-12-03T00:00:00</YearOfPublish>
+    <PublishingHouse>PublishHouse2</PublishingHouse>
+    <Price>302</Price>
+    <DateInsert>2018-01-03T14:27:37.21</DateInsert>
+    <Genre>2</Genre>
+  </EditBookViewModel>
+</ArrayOfEditBookViewModel><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditNewsPaperViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />

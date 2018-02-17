@@ -1,0 +1,22 @@
+﻿@model BLL.Models.PaperPublishHouseViewModel
+<div>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishHouse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublishHouse)
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Back to List", "Index", "Base")
+            </p>
+        </dd>
+    </dl>
+
+</div>
+
+<div>
+    @{Html.RenderPartial("~/Views/NewsPapers/Index.cshtml", Model.NewsPapers);}
+</div>

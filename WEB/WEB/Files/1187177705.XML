@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditBookViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EditBookViewModel Id="1">
+    <Title>BookTitle1</Title>
+    <Author>Author1</Author>
+    <YearOfPublish>1993-11-05T00:00:00</YearOfPublish>
+    <PublishingHouse>PublishHouse1t</PublishingHouse>
+    <Price>324</Price>
+    <DateInsert>2018-02-02T00:00:00</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="4">
+    <Title>testeditNEW</Title>
+    <Author>qqqqqqq</Author>
+    <YearOfPublish>1969-07-30T00:00:00</YearOfPublish>
+    <PublishingHouse>awfasd</PublishingHouse>
+    <Price>23432</Price>
+    <DateInsert>2018-01-17T00:00:00</DateInsert>
+    <Genre>3</Genre>
+  </EditBookViewModel>
+</ArrayOfEditBookViewModel><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditNewsPaperViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EditNewsPaperViewModel Id="1">
+    <Title>TitlePapers1</Title>
+    <PublishHouse>1</PublishHouse>
+    <PrindDate>2018-01-09T19:32:43.5</PrindDate>
+    <Price>3232</Price>
+    <DateInsert>2018-01-09T19:32:43.537</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="4">
+    <Title>testinsert</Title>
+    <PublishHouse>2</PublishHouse>
+    <PrindDate>2018-01-09T19:32:43.87</PrindDate>
+    <Price>3232</Price>
+    <DateInsert>2018-01-09T19:32:43.903</DateInsert>
+  </EditNewsPaperViewModel>
+</ArrayOfEditNewsPaperViewModel>

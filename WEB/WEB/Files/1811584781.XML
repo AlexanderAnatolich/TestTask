@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditBookViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EditBookViewModel Id="1">
+    <Title>BookTitle1</Title>
+    <Author>Author1</Author>
+    <YearOfPublish>1993-11-05T00:00:00</YearOfPublish>
+    <PublishingHouse>PublishHouse1t</PublishingHouse>
+    <Price>324</Price>
+    <DateInsert>2018-02-02T00:00:00</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="2">
+    <Title>BookTitle2</Title>
+    <Author>Author2</Author>
+    <YearOfPublish>1999-12-03T00:00:00</YearOfPublish>
+    <PublishingHouse>PublishHouse2</PublishingHouse>
+    <Price>302</Price>
+    <DateInsert>2018-01-03T14:27:37.21</DateInsert>
+    <Genre>2</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="3">
+    <Title>TestInsert</Title>
+    <Author>TestInsert author</Author>
+    <YearOfPublish>2018-01-16T00:00:00</YearOfPublish>
+    <PublishingHouse>test Publish House</PublishingHouse>
+    <Price>3432</Price>
+    <DateInsert>2018-01-17T00:00:00</DateInsert>
+    <Genre>3</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="4">
+    <Title>testeditNEW</Title>
+    <Author>qqqqqqq</Author>
+    <YearOfPublish>1969-07-30T00:00:00</YearOfPublish>
+    <PublishingHouse>awfasd</PublishingHouse>
+    <Price>23432</Price>
+    <DateInsert>2018-01-17T00:00:00</DateInsert>
+    <Genre>3</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="5">
+    <Title>sadgsd</Title>
+    <Author>asdgasd</Author>
+    <YearOfPublish>2018-01-30T00:00:00</YearOfPublish>
+    <PublishingHouse>dasgsdg</PublishingHouse>
+    <Price>32432</Price>
+    <DateInsert>2018-01-17T00:00:00</DateInsert>
+    <Genre>2</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="6">
+    <Title>TESTNEWINSERT</Title>
+    <Author>TESTNEWINSERT</Author>
+    <YearOfPublish>2010-09-27T00:00:00</YearOfPublish>
+    <PublishingHouse>TESTNEWINSERT</PublishingHouse>
+    <Price>1111111</Price>
+    <DateInsert>2018-01-17T00:00:00</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+</ArrayOfEditBookViewModel><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditNewsPaperViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EditNewsPaperViewModel Id="1">
+    <Title>TitlePapers1</Title>
+    <PublishHouse>1</PublishHouse>
+    <PrindDate>2018-01-09T19:32:43.5</PrindDate>
+    <Price>3232</Price>
+    <DateInsert>2018-01-09T19:32:43.537</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="2">
+    <Title>TitlePapers2</Title>
+    <PublishHouse>2</PublishHouse>
+    <PrindDate>2000-01-12T00:00:00</PrindDate>
+    <Price>335</Price>
+    <DateInsert>2018-01-03T14:12:51</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="3">
+    <Title>TestEdit</Title>
+    <PublishHouse>1</PublishHouse>
+    <PrindDate>2017-07-13T00:00:00</PrindDate>
+    <Price>11111</Price>
+    <DateInsert>2018-01-12T00:00:00</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="4">
+    <Title>testinsert</Title>
+    <PublishHouse>2</PublishHouse>
+    <PrindDate>2018-01-09T19:32:43.87</PrindDate>
+    <Price>3232</Price>
+    <DateInsert>2018-01-09T19:32:43.903</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="5">
+    <Title>hkghjk</Title>
+    <PublishHouse>2</PublishHouse>
+    <PrindDate>2018-01-11T00:00:00</PrindDate>
+    <Price>867876</Price>
+    <DateInsert>2018-01-12T10:05:40.88</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="6">
+    <Title>sdfsd</Title>
+    <PublishHouse>3</PublishHouse>
+    <PrindDate>2018-01-10T00:00:00</PrindDate>
+    <Price>312</Price>
+    <DateInsert>2018-01-12T10:06:03.733</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="7">
+    <Title>sdfsdf</Title>
+    <PublishHouse>3</PublishHouse>
+    <PrindDate>2013-08-30T00:00:00</PrindDate>
+    <Price>1213</Price>
+    <DateInsert>2018-01-12T17:09:20.09</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="8">
+    <Title>sdfgsdf</Title>
+    <PublishHouse>2</PublishHouse>
+    <PrindDate>1997-01-01T00:00:00</PrindDate>
+    <Price>3453454</Price>
+    <DateInsert>2018-01-17T17:17:13.577</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="9">
+    <Title>sdaf</Title>
+    <PublishHouse>2</PublishHouse>
+    <PrindDate>1999-01-01T00:00:00</PrindDate>
+    <Price>23434</Price>
+    <DateInsert>2018-01-17T17:30:29.707</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="10">
+    <Title>TESTNEWINSERT</Title>
+    <PublishHouse>3</PublishHouse>
+    <PrindDate>2018-01-30T00:00:00</PrindDate>
+    <Price>111111</Price>
+    <DateInsert>2018-01-17T18:25:35.7</DateInsert>
+  </EditNewsPaperViewModel>
+</ArrayOfEditNewsPaperViewModel>

@@ -1,0 +1,103 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
+using BLL.Services;
+using BLL.Models;
+using System.Net;
+using System.Configuration;
+using Kendo.Mvc.UI;
+
+namespace WEB.Controllers
+{
+    public class BookController : Controller
+    {
+        BookService bookService;
+        GenreService genreService;
+        public BookController()
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString();
+            bookService = new BookService(connectionString);
+            genreService = new GenreService(connectionString);
+        }
+        // GET: Book
+        public ActionResult Index()
+        {
+            //IEnumerable<BookViewModel> book = await bookService.GelAllBooksAsync();
+            //return PartialView(book.ToList());
+            return PartialView();
+        }
+        public ActionResult Create()
+        {
+            var tempBook = bookService.BeforeCreateBook();
+            return View(tempBook);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(CreateBookViewModel book)
+        {
+            if (ModelState.IsValid)
+            {
+                await bookService.CreateBookAsync(book);
+                return RedirectToAction("Index", "Base");
+            }
+            return View(book);
+        }
+        public async Task<ActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            EditBookViewModel book = await bookService.GetBookAsync(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(EditBookViewModel book)
+        {
+            if (ModelState.IsValid)
+            {
+                await bookService.UpdateBookAsync(book);
+                return RedirectToAction("Index", "Base");
+            }           
+            return View(book);
+        }
+        public async Task<ActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            EditBookViewModel book = await bookService.GetBookAsync(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(int id)
+        {
+            EditBookViewModel book = await bookService.GetBookAsync(id);
+            await bookService.DeleteAsync(id);
+            return RedirectToAction("Index", "Base");
+        }
+        //------------------------------------------------------------------------------
+        public async Task<JsonResult> ReadFunction([DataSourceRequest]DataSourceRequest request)
+        {
+            var tempBooks = await bookService.GelAllBooksAsync();
+            var tempResult = Json(tempBooks, JsonRequestBehavior.AllowGet);
+            return tempResult;
+        }
+    }
+}
