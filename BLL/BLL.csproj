@@ -111,6 +111,7 @@
     <Compile Include="Models\BookAndPaperViewModel.cs" />
     <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\Enum\FormatFile.cs" />
+    <Compile Include="Models\FileModel\DataFileViewModel.cs" />
     <Compile Include="Models\GenerViewModel.cs" />
     <Compile Include="Models\NewsPaperViewModel.cs" />
     <Compile Include="Models\PaperPublishHouseViewModel.cs" />

@@ -15,27 +15,18 @@ using Kendo.Mvc.UI;
 using Microsoft.Ajax.Utilities;
 using Microsoft.SqlServer.Server;
 using Newtonsoft.Json;
-
+using BLL.Models.FileModel;
 namespace WEB.Controllers
 {
-    public class MyClass
-    {
-        public MyClass()
-        {
-
-        }
-        public int[] CId { get; set; }
-        public string[] CT { get; set; }
-    }
     public class SaveController : Controller
     {
         private BookService bookService = new BookService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
         private NewsPaperService paperService = new NewsPaperService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
 
         [HttpGet]
-        public FileResult SaveAsXML(string data)
+        public FileResult SaveAsXML(DataFileViewModel data)
         {
-            var model = JsonConvert.DeserializeObject<MyClass>(data);
+            var model = data;
             var formatedData = FormatInputData(model);
             var rand = new Random();
             var indexFormatFile = FormatFile.XML;
@@ -55,9 +46,9 @@ namespace WEB.Controllers
             return SendFile(currFile, indexFormatFile);
         }
         [HttpGet]
-        public ActionResult SaveAsJSON(string data)
+        public ActionResult SaveAsJSON(DataFileViewModel data)
         {
-            var model = JsonConvert.DeserializeObject<MyClass>(data);
+            var model = data;
             var formatedData = FormatInputData(model);
             var rand = new Random();
             var indexFormatFile = FormatFile.JSON;
@@ -72,7 +63,7 @@ namespace WEB.Controllers
                 return SendFile(currFile, indexFormatFile);
             }
         }
-        public IList FormatInputData(MyClass model)
+        public IList FormatInputData(DataFileViewModel model)
         {
             IList[] returnedValue = new IList[2];
             returnedValue[0] = new List<EditBookViewModel>();

@@ -17,8 +17,9 @@
     <script src="~/Scripts/kendo/kendo.all.js"></script>
     <script>
         $('#KendoGridId').load('/Base/RenderGrid');
+
         $(document).ready(function () {
-            SwitchMenu();
+            SwitchMenu('#KendoGridId');
         });
     </script>
 }

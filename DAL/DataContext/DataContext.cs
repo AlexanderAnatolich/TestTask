@@ -39,7 +39,5 @@ namespace DAL.DataContext
                 .WillCascadeOnDelete(false);
             base.OnModelCreating(modelBuilder);
         }
-
-        object placeHolderVariable;
     }
 }

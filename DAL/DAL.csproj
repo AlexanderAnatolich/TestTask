@@ -122,7 +122,8 @@
     <Compile Include="AuthorizationManagers\ApplicationSignInManager.cs" />
     <Compile Include="AuthorizationManagers\ApplicationUserManager.cs" />
     <Compile Include="DataContext\DataContext.cs" />
-    <Compile Include="Interface\IGenericRepository.cs" />
+    <Compile Include="DataContext\Interface\IGenericRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthorizationModel\ApplicationRole.cs" />
     <Compile Include="Models\AuthorizationModel\ApplicationUser.cs" />
     <Compile Include="Models\Book.cs" />

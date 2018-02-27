@@ -1,8 +1,8 @@
-﻿function SwitchMenu() {
+﻿function SwitchMenu(target) {
 $('.book-load').click(function () {
-    $('#KendoGridId').load('/Book/Index');
+    $(target).load('/Book/Index');
     });
 $('.Summary-load').click(function () {
-    $('#KendoGridId').load('/Base/RenderGrid');
+    $(target).load('/Base/RenderGrid');
     });
 }
