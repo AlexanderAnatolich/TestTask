@@ -2,25 +2,54 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using System.Threading.Tasks;
+using BLL.Services;
+using BLL.Models;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
+using System.Configuration;
 
 namespace WEB.Controllers.apiController
 {
-    public class BookController : ApiController
+    [System.Web.Http.RoutePrefix("api/ApiBook")]
+    public class ApiBookController : ApiController
     {
+        BookService _bookService;
+        public ApiBookController()
+        {
+            _bookService = new BookService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
+        }
 
-       /* public IHttpActionResult ()
+        [HttpPost]
+        public async Task<IHttpActionResult> Read([DataSourceRequest]DataSourceRequest request)
         {
             try
-            { 
-                var tempBooks = await bookService.GelAllBooksAsync();
+            {
+                var tempBooks = await _bookService.GelAllBooksAsync();
                 return Ok(tempBooks);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
-        }*/
+        }
+        [HttpPost]
+        public async Task<IHttpActionResult> Create(CreateBookViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Send Data incorrect!");
+            }
+            try
+            {
+                await _bookService.CreateBookAsync(model);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

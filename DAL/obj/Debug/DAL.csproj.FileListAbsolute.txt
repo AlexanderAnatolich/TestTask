@@ -89,3 +89,4 @@ C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\Twilio.xml
 C:\Work\TestTask\MVC\TestTask\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Work\TestTask\MVC\TestTask\DAL\obj\Debug\DAL.dll
 C:\Work\TestTask\MVC\TestTask\DAL\obj\Debug\DAL.pdb
+C:\Work\TestTask\MVC\TestTask\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

@@ -11,6 +11,8 @@ namespace BLL.Models
     public partial class BookViewModel
     {
         [Key]
+        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }

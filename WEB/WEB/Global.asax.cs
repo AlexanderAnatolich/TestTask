@@ -5,7 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using BLL.AutoMapperProfile;
+using BLL.Services;
 using System.Web.Routing;
+using System.Configuration;
+using System.Web.Http;
 
 namespace WEB
 {
@@ -15,10 +18,17 @@ namespace WEB
         {
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            //---------------myconf---------------------
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            //----------------endmyconf--------------------
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            //---------------myconf---------------------
             MapperProfile.InitAutoMapper();
+            //----------------endmyconf--------------------
         }
     }
 }

@@ -24,11 +24,14 @@ namespace WEB.Controllers
             bookService = new BookService(connectionString);
             genreService = new GenreService(connectionString);
         }
+        public BookController(string connectionString)
+        {
+            bookService = new BookService(connectionString);
+            genreService = new GenreService(connectionString);
+        }
         // GET: Book
         public ActionResult Index()
         {
-            //IEnumerable<BookViewModel> book = await bookService.GelAllBooksAsync();
-            //return PartialView(book.ToList());
             return PartialView();
         }
         public ActionResult Create()
@@ -91,13 +94,6 @@ namespace WEB.Controllers
             EditBookViewModel book = await bookService.GetBookAsync(id);
             await bookService.DeleteAsync(id);
             return RedirectToAction("Index", "Base");
-        }
-        //------------------------------------------------------------------------------
-        public async Task<JsonResult> ReadFunction([DataSourceRequest]DataSourceRequest request)
-        {
-            var tempBooks = await bookService.GelAllBooksAsync();
-            var tempResult = Json(tempBooks, JsonRequestBehavior.AllowGet);
-            return tempResult;
         }
     }
 }

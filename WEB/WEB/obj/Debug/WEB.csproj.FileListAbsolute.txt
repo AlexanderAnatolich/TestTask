@@ -572,3 +572,11 @@ C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\System.Web.Http.WebHost.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\System.Net.Http.Formatting.xml
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\System.Web.Http.xml
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\System.Web.Http.WebHost.xml
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Common.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Common.WebHost.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Mvc.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.xml
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Common.xml
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Common.WebHost.xml
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Mvc.xml
