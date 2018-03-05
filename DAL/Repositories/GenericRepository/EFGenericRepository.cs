@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL.Interface;
@@ -39,7 +40,6 @@ namespace DAL.GenericRepository
             var tempValue = await _dbSet.FindAsync(id);
             return tempValue;
         }
-
         public IEnumerable<TEntity> Get()
         {
             var tempValue = _dbSet.AsEnumerable();
@@ -56,6 +56,7 @@ namespace DAL.GenericRepository
             var tempValue = _dbSet.Where(predicate);
             return tempValue;
         }
+
         public async Task<IEnumerable<TEntity>> GetAsync(Func<TEntity, bool> predicate)
         {
             var tempValue = await Task.Run(() => _dbSet.Where(predicate));
@@ -75,9 +76,26 @@ namespace DAL.GenericRepository
             TEntity findItem = await _dbSet.FindAsync(item);
             if (findItem != null)
             {
-                _dbSet.Remove(findItem);
+               var t = _dbSet.Remove(findItem);
             }
             await _context.SaveChangesAsync();
+        }
+        public async Task<Boolean> RemoveAsync(int? item)
+        {
+            var findItem = await _dbSet.FindAsync(item);
+            if (findItem != null)
+            {
+                var t = _dbSet.Remove(findItem);
+            }
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        public async Task<Boolean> RemoveRangeAsync(Func<TEntity, bool> predicate)
+        {
+            var tempValue = _dbSet.Where(predicate);
+            var result = _dbSet.RemoveRange(tempValue);
+            await _context.SaveChangesAsync();
+            return true;
         }
         public void Update(TEntity item)
         {

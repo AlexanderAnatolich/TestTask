@@ -96,8 +96,13 @@ namespace BLL.Services
         }
         public async Task DeleteAsync(int id)
         {
-            var tebpBook = await _bookRepository.FindByIdAsync(id);
-            await _bookRepository.RemoveAsync(tebpBook);
+            var item = await _bookRepository.FindByIdAsync(id);
+            await _bookRepository.RemoveAsync(item);
+        }
+        public async Task<Boolean> DeleteRangeAsync(List<int> id)
+        {
+            var result = await _bookRepository.RemoveRangeAsync(x => id.Contains(x.Id));
+            return result;
         }
     }
 }

@@ -20,7 +20,6 @@ namespace DAL.Interface
 
         void Remove(TEntity item);
         Task RemoveAsync(TEntity item);
-
         void Update(TEntity item);
         Task UpdateAsync(TEntity item);
     }

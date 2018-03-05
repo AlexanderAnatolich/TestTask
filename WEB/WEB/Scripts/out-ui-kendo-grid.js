@@ -1,16 +1,19 @@
 ﻿'use strict'
 var CheckedType = [];
 var CheckedId = [];
+var CheckedRow = [];
+var Target;
 
 function onChange(e) {
     CheckedType = [];
     CheckedId = [];
     var rows = e.sender.select();
     rows.each(function (e) {
-        var grid = $("#KendoGridId").data("kendoGrid");
+        var grid = $(Target).data("kendoGrid");
         var dataItem = grid.dataItem(this);
         CheckedType.push(dataItem['Type']);
         CheckedId.push(dataItem['Id']);
+        CheckedRow.push(dataItem);
     });
 };
 
@@ -18,14 +21,13 @@ function showDetails(e) {
     var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
 };
 
-$("#grid .k-grid-content").on("change", "input.chkbx", function (e) {
-    var grid = $("#KendoGridId").data("kendoGrid"),
+$(Target+" .k-grid-content").on("change", "input.chkbx", function (e) {
+    var grid = $(Target).data("kendoGrid"),
         dataItem = grid.dataItem($(e.target).closest("tr"));
     dataItem.set("Check", this.checked);
 });
 
 function SaveAsXML() {
-    debugger
     var url = 'Save/SaveAsXML' + "?";
 
     for (var i = 0; i < CheckedId.length; ++i) {
@@ -71,13 +73,6 @@ function SummaryDataSource() {
 var _dateToString = function (date) {
     return kendo.toString(kendo.parseDate(date), "G");
 };
-function test(e) {
-    console.log('aga');
-    url: "api/ApiBook/Create";
-    dataType: "json";
-    type: "POST";
-    e.success();
-}
 function BookDataSource() {
     var datasource = new kendo.data.DataSource({
         transport: {
@@ -86,21 +81,24 @@ function BookDataSource() {
                 dataType: "json",
                 type:"POST"
             },
-            create: {
-                url: 'api/ApiBook/Create',
-                dataType: "json",
-                type: 'POST'
-            },
-            error: function (e) {
-                alert("Status: " + e.status + "; Error message: " + e.errorThrown);
-            },
-            parameterMap: function (data, operation) {
-                if (operation == "update" || operation == "create") {
-                    data.YearOfPublish = _dateToString(data.YearOfPublish);
-                    data.DateInsert = _dateToString(data.DateInsert);
-                    }
-                return data;
-            }
+            //create: {
+            //    url: 'api/ApiBook/Create',
+            //    dataType: "json",
+            //    type: 'POST'
+            //},
+            //remove: function () {
+            //    alert("nihera");
+            //},
+            //error: function (e) {
+            //    alert("Status: " + e.status + "; Error message: " + e.errorThrown);
+            //},
+            //parameterMap: function (data, operation) {
+            //    if (operation === "update" || operation === "create") {
+            //        data.YearOfPublish = _dateToString(data.YearOfPublish);
+            //        data.DateInsert = _dateToString(data.DateInsert);
+            //        }
+            //    return data;
+            //}
         },
 
         schema: {
@@ -125,37 +123,69 @@ function BookDataSource() {
     });
     return datasource;
 }
+function DeleteSelected() {
+    if (CheckedId.length === 0) {
+        return;
+    }
+    $.ajax({
+        url: 'api/ApiBook/Delete',
+        method: 'POST',
+        data: { Id: CheckedId },
+        success: function (data) {
+            $(Target).data("kendoGrid").refresh();
+        },
+        error: function () {
+            alert('chet ne tak');
+            $(Target).data("kendoGrid").cancelRow();
+        },
+    });
+}
+function removeSelectedRow() {
+    var grid = $(Target).kendoGrid().data("kendoGrid");
+    $("#grid").find("input:checked").each(function () {
+        grid.removeRow($(this).closest('tr'));
+    })
+}
 function GetBookGrid(target) {
+    Target = target;
     return $(target).kendoGrid({
         dataSource: BookDataSource(),
         groupable: true,
         height: '700px',
         sortable: true,
+        change: onChange,
         persistSelection: true,
-        editable: {
-            mode: "popup"
-        },
-        edit:function(e) {
-                e.container.find("input:first").hide();
-                e.container.find("label:first").hide();
-        },
-        save: function (e) {
-            $.ajax({                
-                success: function (data) {
-                    this.refresh();
-                },
-                error: function (data) { 
-                    this.cancelRow();
-                }
+        //editable: {
+        //    mode: "popup"
+        //},
+        //edit:function(e) {
+        //        e.container.find("input:first").hide();
+        //        e.container.find("label:first").hide();
+        //},
+        //save: function (e) {
+        //    var that = this;
+        //    $.ajax({                
+        //        success: function (data) {
+        //            that.refresh();
+        //        },
+        //        error: function (data) { 
+        //            that.cancelRow();
+        //        }
 
-            });
-        },
+        //    });
+        //},
         pageable: {
             refresh: true,
             pageSizes: true,
             buttonCount: 5
         },
         toolbar: [
+            {
+                template: "<button type='button' class='k-button' onclick='removeSelectedRow()'><a class='k-icon k-i-delete'/></span>Delete</button>"
+            },
+            {
+                template: '<button type="button" class="k-button" onclick="DeleteSelected()"><a class="k-icon k-i-delete"/>Delete selected</button>'
+            },
             {
                 name:"create"
             },
@@ -167,8 +197,9 @@ function GetBookGrid(target) {
             }
         ],
         columns: [
-            {
-                selectable: true,
+            {                           
+                template: "<input type='checkbox'/>",
+                selectable:true,
                 width: '30px'
             },
             {
@@ -207,11 +238,19 @@ function GetBookGrid(target) {
             {
                 field: "Genre",
                 title: "Genre"
-            }]
+            },
+            {
+                command: {
+                    text: "Delete",
+                    click: removeSelectedRow
+                }
+            }
+        ]
     });
 }
 
 function GetSummaryGrid(target) {
+    Target = target;
     return $(target).kendoGrid({
         dataSource: SummaryDataSource(),
         groupable: true,
@@ -278,3 +317,40 @@ function GetSummaryGrid(target) {
         ]
     });
 };
+<script src="https://demos.telerik.com/kendo-ui/content/shared/js/people.js"></script>
+    <div id="example" class="k-content">
+        <div id="grid"></div>
+
+        <div id="details"></div>
+
+        <script>
+
+            $(document).ready(function () {
+          var grid = $("#grid").kendoGrid({
+                dataSource: {
+                pageSize: 20,
+              data: createRandomData(50)
+            },
+            pageable: true,
+            height: 430,
+            columns: [
+              {field: "FirstName", title: "First Name", width: "140px" },
+              {field: "LastName", title: "Last Name", width: "140px" },
+              {field: "Title" },
+              {
+                field : "Select",
+                title : "Select",
+                width : "16%",
+                template: "<input type='checkbox' class='sel' />"},
+              {command: {text: "Delete", click: whenYourDeleteButtonIsClicked }, title: " ", width: "140px" }]
+          }).data("kendoGrid");
+
+        });
+
+        function whenYourDeleteButtonIsClicked(){
+          var grid = $("#grid").data("kendoGrid");
+          $("#grid").find("input:checked").each(function(){
+                grid.removeRow($(this).closest('tr'));
+            })
+        }
+      </script>

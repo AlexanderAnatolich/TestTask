@@ -15,7 +15,7 @@ using Kendo.Mvc.UI;
 using Microsoft.Ajax.Utilities;
 using Microsoft.SqlServer.Server;
 using Newtonsoft.Json;
-using BLL.Models.FileModel;
+using BLL.Models.DTO;
 namespace WEB.Controllers
 {
     public class SaveController : Controller

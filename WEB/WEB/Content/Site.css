@@ -197,3 +197,10 @@ textarea {
         background-color: rgb(255,255,255);
     }
 }
+/*------------------------------------------------------------------*/
+.ob-marked-to-delete {
+    color: #ff6347 !important;
+}
+.ob-marked-to-delete > td {
+    color: #daa520 !important;
+}
