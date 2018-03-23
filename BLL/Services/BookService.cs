@@ -32,18 +32,38 @@ namespace BLL.Services
             Book tempBook = Mapper.Map<BookViewModel, Book>(inputModel);
             _bookRepository.Create(tempBook);
         }
-        public IEnumerable<BookViewModel> GelAllBooks()
+        public List<BookViewModel> GelAllBooks()
         {
-            IEnumerable<Book> tempBooks = _bookRepository.Get();
-            return Mapper.Map<IEnumerable<Book>, IEnumerable<BookViewModel>>(tempBooks);
+            var tempBooks =  _bookRepository.Get();
+            var listGeners = _generRepository.Get();
+
+            var result = _bookGenerRelationsRepository.Get(x =>
+            tempBooks.Select((y => y.Id)).Contains(x.BookId))
+            .GroupBy(x => x.BookId).Select(g => new BookViewModel
+            {
+                Author = tempBooks.Where(n => n.Id == g.Key).Select(n => n.Author).First(),
+                DateInsert = tempBooks.Where(n => n.Id == g.Key).Select(n => n.DateInsert).First(),
+                Price = tempBooks.Where(n => n.Id == g.Key).Select(n => n.Price).First(),
+                PublishHouse = Mapper.Map<PublishHouse, PublishHouseViewModel>(
+                    tempBooks.Where(n => n.Id == g.Key).
+                    Select(n => n.PublishHouse).First()),
+                Title = tempBooks.Where(n => n.Id == g.Key).Select(n => n.Title).First(),
+                YearOfPublish = tempBooks.Where(n => n.Id == g.Key).Select(n => n.YearOfPublish).First(),
+                Id = g.Key,
+                Genre = Mapper.Map<List<Gener>, List<GenerViewModel>>(listGeners.Where(b => g.Where(f => f.BookId == g.Key).
+                 Select(u => u.GenreId).Contains(b.Id))
+                .Select(i => i).ToList()),
+            }
+            ).ToList();
+
+            return result;
         }
-        public async Task<IEnumerable<BookViewModel>> GelAllBooksAsync()
+        public async Task<List<BookViewModel>> GelAllBooksAsync()
         {
             List<Book> tempBooks = await _bookRepository.GetAsync();
             List<Gener> listGeners = await _generRepository.GetAsync();
-            List<BookGenerRelations> relation= new List<BookGenerRelations>();
-           
-            var nm = _bookGenerRelationsRepository.Get(x =>
+            
+            var result = _bookGenerRelationsRepository.Get(x =>
             tempBooks.Select((y => y.Id)).Contains(x.BookId))
             .GroupBy(x => x.BookId).Select(g => new BookViewModel
             {
@@ -60,8 +80,7 @@ namespace BLL.Services
                 Select(u => u.GenreId).Contains(b.Id))
                 .Select(i => i).ToList()),
             }
-            );
-            var result = nm.ToList();
+            ).ToList();
             return result;
         }
         public async Task CreateBookAsync(CreateBookViewModel inputModel)
@@ -90,21 +109,45 @@ namespace BLL.Services
             Mapper.Map(tempNewsPaper, newsBook);
             await _bookRepository.UpdateAsync(newsBook);
         }
-        public BookViewModel GetBook(int? id)
-        {
-            Book tempBook = _bookRepository.FindById(id);
-            BookViewModel book = new BookViewModel();
-
-            Mapper.Map(tempBook, book);
-
-            return book;
-        }
         public async Task<BookViewModel> GetBookAsync(int? id)
         {
             Book tempBook = await _bookRepository.FindByIdAsync(id);
+
+            if (tempBook == null) return null;
+
             BookViewModel book = new BookViewModel();
 
             Mapper.Map(tempBook, book);
+
+            var nm = from q in _bookGenerRelationsRepository.Get()
+                     where q.BookId== book.Id
+                     select q;
+            var t = from q in nm
+                    where q.BookId == book.Id
+                    select q.Gener;
+            var g = t.ToList();
+
+            book.Genre = Mapper.Map<IEnumerable<Gener>, List<GenerViewModel>>(g);
+
+            return book;
+        }
+        public BookViewModel GetBook(int? id)
+        {
+            Book tempBook = _bookRepository.FindById(id);
+
+            BookViewModel book = new BookViewModel();
+
+            Mapper.Map(tempBook, book);
+
+            var nm = from q in _bookGenerRelationsRepository.Get()
+                     where q.BookId == book.Id
+                     select q;
+            var t = from q in nm
+                    where q.BookId == book.Id
+                    select q.Gener;
+            var g = t.ToList();
+
+            book.Genre = Mapper.Map<IEnumerable<Gener>, List<GenerViewModel>>(g);
 
             return book;
         }

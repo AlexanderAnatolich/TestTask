@@ -24,10 +24,10 @@ namespace WEB.Controllers
         private NewsPaperService paperService = new NewsPaperService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
 
         [HttpGet]
-        public FileResult SaveAsXML(DataFileViewModel data)
+        public async Task<FileResult> SaveAsXML(DataFileViewModel data)
         {
             var model = data;
-            var formatedData = FormatInputData(model);
+            var formatedData = await FormatInputData(model);
             var rand = new Random();
             var indexFormatFile = FormatFile.XML;
 
@@ -46,10 +46,10 @@ namespace WEB.Controllers
             return SendFile(currFile, indexFormatFile);
         }
         [HttpGet]
-        public ActionResult SaveAsJSON(DataFileViewModel data)
+        public async Task<ActionResult> SaveAsJSON(DataFileViewModel data)
         {
             var model = data;
-            var formatedData = FormatInputData(model);
+            var formatedData = await FormatInputData(model);
             var rand = new Random();
             var indexFormatFile = FormatFile.JSON;
 
@@ -63,24 +63,30 @@ namespace WEB.Controllers
                 return SendFile(currFile, indexFormatFile);
             }
         }
-        public IList FormatInputData(DataFileViewModel model)
+        public async Task<IList> FormatInputData(DataFileViewModel model)
         {
             IList[] returnedValue = new IList[2];
             returnedValue[0] = new List<BookViewModel>();
             returnedValue[1] = new List<NewsPaperViewModel>();
-
-            for (int i = 0; i < model.CT.Length; i++)
+            try
             {
-                if (model.CT[i] == "Book")
+                for (int i = 0; i < model.CT.Length; i++)
                 {
-                    var item = bookService.GetBook(model.CId[i]);
-                    returnedValue[0].Add(item);
+                    if (model.CT[i] == "Book")
+                    {
+                        var item = await bookService.GetBookAsync(model.CId[i]);
+                        returnedValue[0].Add(item);
+                    }
+                    else
+                    {
+                        var item = paperService.GetNewsPaper(model.CId[i]);
+                        returnedValue[1].Add(item);
+                    }
                 }
-                else
-                {
-                    var item = paperService.GetNewsPaper(model.CId[i]);
-                    returnedValue[1].Add(item);
-                }
+            }
+            catch(Exception ex)
+            {
+                Console.Write(ex.Message);
             }
             return returnedValue;
         }

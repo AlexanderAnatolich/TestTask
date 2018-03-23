@@ -60,7 +60,7 @@ namespace WEB.Controllers
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return PartialView(book);
         }
         //[HttpPost]
         //[ValidateAntiForgeryToken]

@@ -479,8 +479,10 @@
     <Compile Include="Controllers\APIController\ApiNewsPaperController.cs" />
     <Compile Include="Controllers\APIController\ApiPublishHouseController.cs" />
     <Compile Include="Controllers\APIController\ApiJournalController.cs" />
+    <Compile Include="Controllers\APIController\ApiSearchController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\JournalController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsPapersController.cs" />
     <Compile Include="Controllers\PaperPublishHouseController.cs" />

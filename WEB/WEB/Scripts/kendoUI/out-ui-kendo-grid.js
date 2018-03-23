@@ -153,7 +153,7 @@ function GetSummaryGrid(target) {
         },
         {
             field: "Author",
-            title: "Who publish"
+            title: "Author"
         },
         {
             field: "YearOfPublish",

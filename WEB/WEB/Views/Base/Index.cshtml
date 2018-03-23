@@ -1,10 +1,29 @@
-﻿<ul class="nav nav-tabs">
-    <li data-toggle="tab" class="active"><a class="Summary-load nav_link">All products</a></li>
-    <li data-toggle="tab"><a class="News-Paper nav_link">News papers</a></li>
-    <li data-toggle="tab"><a class="book-load nav_link">Books</a></li>
-    <li data-toggle="tab"><a class="Journal-load nav_link">Journal</a></li>
-</ul>
-<div class="tab-content">
+﻿<div class="tab-content">
+    <div class="navbar-search" style="border:solid">
+        <h5>Search</h5>
+        <select id="dropdown">
+            <option value="Newspapers">News papers</option>
+            <option value="Books">Books</option>
+            <option value="Journal">Journal</option>
+        </select>
+        <input id="SeachInput" type="text" />
+        <div id="resultSearchContainer">
+            <h5>Search Result</h5>
+            <select id="resultSearch">
+                <option selected disabled>Don't find products</option>
+            </select>
+        </div>
+        <button id="search">Search</button>
+        <div id="searchResults">
+        </div>
+    </div>
+    <h5> </h5>
+    <ul class="nav nav-tabs">
+        <li data-toggle="tab" class="active"><a class="Summary-load nav_link">All products</a></li>
+        <li data-toggle="tab"><a class="News-Paper nav_link">News papers</a></li>
+        <li data-toggle="tab"><a class="book-load nav_link">Books</a></li>
+        <li data-toggle="tab"><a class="Journal-load nav_link">Journal</a></li>
+    </ul>
     <div class="tab-pane fade in active">
         <div id="ContentDiv">
             <div id='KendoGridId'></div>
@@ -17,10 +36,66 @@
     <script src="~/Scripts/kendo/jszip.min.js"></script>
     <script src="~/Scripts/kendo/kendo.all.js"></script>
     <script>
+        var url = '@Url.Action("Edit", "Book")';
+        $('#search').click(function ()
+        {
+            var t = document.getElementById("resultSearch").options[document.getElementById("resultSearch").selectedIndex].value;
+            $('#searchResults').load(url, { id: t });
+        })
+    </script>
+    <script>
         $('#KendoGridId').load('/Base/RenderGrid');
 
         $(document).ready(function () {
             SwitchMenu('#KendoGridId');
         });
     </script>
-}
+    <script>           
+        $(function () {
+            $("#SeachInput").keyup(function (e) {
+                var t = $("#dropdown").val();
+                var n = $("#SeachInput").val();
+                $.ajax({
+                    url: "api/ApiSearch/Search",
+                    dataType: 'json',
+                    type: "POST",
+                    data: { 'Name':n, 'Type':t},
+                    success: function (data)
+                    {
+                        var select = document.getElementById("resultSearch");
+                        select.onchange = changeColor();
+                        while (select.firstChild) {
+                            select.removeChild(select.firstChild);
+                        }
+                        if (data.length === 0) {
+                            var el = document.createElement("option");
+                            el.textContent = "Don't find products";
+                            el.selected = true;
+                            el.disabled = true;
+                            select.appendChild(el);
+                            return;
+                        }
+                        for (var i = 0; i < data.length; i++) {
+                            var opt = data[i];
+                            var el = document.createElement("option");
+                            el.textContent = opt.Title;
+                            el.value = opt.Id;
+                            select.appendChild(el);
+
+                        }
+                    }
+                });
+            });
+            //$('#resultSearch').click(function (v) {
+            //    console.log(v.target.value);
+            //});
+            function changeColor() {
+                var eID = document.getElementById("resultSearch");
+                var colorVal = eID.options[eID.selectedIndex].value;
+                var colortxt = eID.options[eID.selectedIndex].text;
+                console.log(colorVal);
+            }
+        });
+    </script>
+
+    }
