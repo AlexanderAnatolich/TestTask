@@ -7,8 +7,7 @@ namespace DAL.Interface
     public interface IGenericRepository<TEntity> where TEntity : class
     {
         void Create(TEntity item);
-        Task CreateAsync(TEntity item);
-
+        Task<TEntity> CreateAsync(TEntity item);
         TEntity FindById(int? id);
         Task<TEntity> FindByIdAsync(int? id);
 

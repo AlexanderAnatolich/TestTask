@@ -35,12 +35,12 @@ namespace WEB.Controllers
 
             using (var file = System.IO.File.CreateText(currFile))
             {
-                var serializer = new XmlSerializer(typeof(List<EditBookViewModel>));
+                var serializer = new XmlSerializer(typeof(List<BookViewModel>));
                 serializer.Serialize(file, formatedData[0]);
             }
             using (var file = System.IO.File.AppendText(currFile))
             {
-                var serializer = new XmlSerializer(typeof(List<EditNewsPaperViewModel>));
+                var serializer = new XmlSerializer(typeof(List<NewsPaperViewModel>));
                 serializer.Serialize(file, formatedData[1]);
             }
             return SendFile(currFile, indexFormatFile);
@@ -66,8 +66,8 @@ namespace WEB.Controllers
         public IList FormatInputData(DataFileViewModel model)
         {
             IList[] returnedValue = new IList[2];
-            returnedValue[0] = new List<EditBookViewModel>();
-            returnedValue[1] = new List<EditNewsPaperViewModel>();
+            returnedValue[0] = new List<BookViewModel>();
+            returnedValue[1] = new List<NewsPaperViewModel>();
 
             for (int i = 0; i < model.CT.Length; i++)
             {

@@ -123,24 +123,99 @@
     <Compile Include="AuthorizationManagers\ApplicationUserManager.cs" />
     <Compile Include="DataContext\DataContext.cs" />
     <Compile Include="DataContext\Interface\IGenericRepository.cs" />
+    <Compile Include="Migrations\201803191052427_first.cs" />
+    <Compile Include="Migrations\201803191052427_first.Designer.cs">
+      <DependentUpon>201803191052427_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803191120380_test.cs" />
+    <Compile Include="Migrations\201803191120380_test.Designer.cs">
+      <DependentUpon>201803191120380_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803191126443_test_2.cs" />
+    <Compile Include="Migrations\201803191126443_test_2.Designer.cs">
+      <DependentUpon>201803191126443_test_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803191130050_test_3.cs" />
+    <Compile Include="Migrations\201803191130050_test_3.Designer.cs">
+      <DependentUpon>201803191130050_test_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803191131227_test_4.cs" />
+    <Compile Include="Migrations\201803191131227_test_4.Designer.cs">
+      <DependentUpon>201803191131227_test_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803191132276_test_5.cs" />
+    <Compile Include="Migrations\201803191132276_test_5.Designer.cs">
+      <DependentUpon>201803191132276_test_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211430061_test_7.cs" />
+    <Compile Include="Migrations\201803211430061_test_7.Designer.cs">
+      <DependentUpon>201803211430061_test_7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211702304_stf.cs" />
+    <Compile Include="Migrations\201803211702304_stf.Designer.cs">
+      <DependentUpon>201803211702304_stf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211742224_np1.cs" />
+    <Compile Include="Migrations\201803211742224_np1.Designer.cs">
+      <DependentUpon>201803211742224_np1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803230718037_Journal.cs" />
+    <Compile Include="Migrations\201803230718037_Journal.Designer.cs">
+      <DependentUpon>201803230718037_Journal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthorizationModel\ApplicationRole.cs" />
     <Compile Include="Models\AuthorizationModel\ApplicationUser.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookGenerRelations.cs" />
     <Compile Include="Models\Gener.cs" />
+    <Compile Include="Models\Journal.cs" />
     <Compile Include="Models\NewsPaper.cs" />
-    <Compile Include="Models\PaperPublishHouse.cs" />
+    <Compile Include="Models\PublishHouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BookGenerRelationsRepository.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
     <Compile Include="Repositories\GenericRepository\EFGenericRepository.cs" />
     <Compile Include="Repositories\GenerRepository.cs" />
+    <Compile Include="Repositories\JournalRepository.cs" />
     <Compile Include="Repositories\NewsPaperRepository.cs" />
-    <Compile Include="Repositories\PaperPublishHouseRepository.cs" />
+    <Compile Include="Repositories\PublishHouseRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803191052427_first.resx">
+      <DependentUpon>201803191052427_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803191120380_test.resx">
+      <DependentUpon>201803191120380_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803191126443_test_2.resx">
+      <DependentUpon>201803191126443_test_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803191130050_test_3.resx">
+      <DependentUpon>201803191130050_test_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803191131227_test_4.resx">
+      <DependentUpon>201803191131227_test_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803191132276_test_5.resx">
+      <DependentUpon>201803191132276_test_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211430061_test_7.resx">
+      <DependentUpon>201803211430061_test_7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211702304_stf.resx">
+      <DependentUpon>201803211702304_stf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211742224_np1.resx">
+      <DependentUpon>201803211742224_np1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803230718037_Journal.resx">
+      <DependentUpon>201803230718037_Journal.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

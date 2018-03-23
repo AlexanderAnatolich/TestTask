@@ -12,10 +12,11 @@ namespace BLL.Models
         public string Type { get; set; }
         public int Id { get; set; }//ID
         public string Title { get; set; }//Title
-        public string Author { get; set; }//PublishHouse
-        public DateTime YearOfPublish { get; set; }//PrintDate
-        public int Price { get; set; }//Prise
-        public DateTime DateInsert { get; set; }//DateInsert
+        public string Author { get; set; }
+        public DateTime YearOfPublish { get; set; }
+        public int Price { get; set; }
+        public DateTime DateInsert { get; set; }
+        public virtual PublishHouseViewModel PublishHouse { get; set; }
 
     }
 }

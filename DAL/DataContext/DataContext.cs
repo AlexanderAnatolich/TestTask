@@ -20,23 +20,15 @@ namespace DAL.DataContext
             return new DataContex();
         }
         public virtual DbSet<NewsPaper> NewsPapers { get; set; }
-        public virtual DbSet<PaperPublishHouses> PaperPublishHouses { get; set; }
+        public virtual DbSet<PublishHouse> PublishHouses { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Gener> Geners { get; set; }
 
+        public virtual DbSet<Journal> Journals { get; set; }
+        public virtual DbSet<BookGenerRelations> BookGenerRelations { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PaperPublishHouses>()
-                .HasMany(e => e.NewsPapers)
-                .WithRequired(e => e.PaperPublishHous)
-                .HasForeignKey(e => e.PublishHouse)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Gener>()
-                .HasMany(e => e.Books)
-                .WithRequired(e => e.Gener)
-                .HasForeignKey(e => e.Genre)
-                .WillCascadeOnDelete(false);
             base.OnModelCreating(modelBuilder);
         }
     }

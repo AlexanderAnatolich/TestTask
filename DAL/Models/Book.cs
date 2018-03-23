@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DAL.Models
 {
@@ -9,10 +9,10 @@ namespace DAL.Models
         public string Title { get; set; }
         public string Author { get; set; }
         public DateTime YearOfPublish { get; set; }
-        public string PublishingHouse { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
         public DateTime DateInsert { get; set; }
-        public virtual Gener Gener { get; set; }
-        public int Genre { get; set; }
+        [ForeignKey("PublishHouse")]
+        public int PublishHouseId { get; set; }
+        public virtual PublishHouse PublishHouse { get; set; }
     }
 }

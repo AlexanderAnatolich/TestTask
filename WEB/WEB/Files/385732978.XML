@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditBookViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EditBookViewModel Id="6">
+    <Title>Title1</Title>
+    <Author>Author1</Author>
+    <YearOfPublish>1995-02-01T00:00:00</YearOfPublish>
+    <PublishingHouse>Pub1</PublishingHouse>
+    <Price>1569</Price>
+    <DateInsert>2018-02-27T12:35:35.68</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="8">
+    <Title>Title2</Title>
+    <Author>Author2</Author>
+    <YearOfPublish>2014-04-02T00:00:00</YearOfPublish>
+    <PublishingHouse>Pub2</PublishingHouse>
+    <Price>12</Price>
+    <DateInsert>2018-02-27T12:36:25.34</DateInsert>
+    <Genre>2</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="54">
+    <Title>sdgsdfg</Title>
+    <Author>sdfgdsfg</Author>
+    <YearOfPublish>2018-03-05T16:02:03</YearOfPublish>
+    <PublishingHouse>dsfgsdfg</PublishingHouse>
+    <Price>1</Price>
+    <DateInsert>2018-03-05T16:02:03</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="55">
+    <Title>Test Edit</Title>
+    <Author>sdfgdsfg</Author>
+    <YearOfPublish>2018-03-05T16:02:03</YearOfPublish>
+    <PublishingHouse>dsfgsdfg</PublishingHouse>
+    <Price>1</Price>
+    <DateInsert>2018-03-05T16:02:03</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="56">
+    <Title>sdfgsdf</Title>
+    <Author>gsdfgsdf</Author>
+    <YearOfPublish>2018-03-05T16:02:03</YearOfPublish>
+    <PublishingHouse>gdsfgsd</PublishingHouse>
+    <Price>1111</Price>
+    <DateInsert>2018-03-05T16:02:03</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="57">
+    <Title>sdgsdfg</Title>
+    <Author>sdfgdsfg</Author>
+    <YearOfPublish>2018-03-05T16:02:03</YearOfPublish>
+    <PublishingHouse>dsfgsdfg</PublishingHouse>
+    <Price>1</Price>
+    <DateInsert>2018-03-05T16:02:03</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="58">
+    <Title>dfgsdfg</Title>
+    <Author>dsfgsdfg</Author>
+    <YearOfPublish>2018-03-05T16:02:03</YearOfPublish>
+    <PublishingHouse>sdfgsdf</PublishingHouse>
+    <Price>23</Price>
+    <DateInsert>2018-03-05T16:02:03</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="59">
+    <Title>sdfgsdf</Title>
+    <Author>gsdfgsdf</Author>
+    <YearOfPublish>2018-03-05T16:02:03</YearOfPublish>
+    <PublishingHouse>gdsfgsd</PublishingHouse>
+    <Price>1111</Price>
+    <DateInsert>2018-03-05T16:02:03</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="60">
+    <Title>dsfgdfg</Title>
+    <Author>dsfgsdf</Author>
+    <YearOfPublish>2018-03-05T16:02:03</YearOfPublish>
+    <PublishingHouse>gsdfgsd</PublishingHouse>
+    <Price>1</Price>
+    <DateInsert>2018-03-05T16:02:03</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="61">
+    <Title>sdfgsdf</Title>
+    <Author>gsdfgsdf</Author>
+    <YearOfPublish>2018-03-05T16:02:03</YearOfPublish>
+    <PublishingHouse>gdsfgsd</PublishingHouse>
+    <Price>1111</Price>
+    <DateInsert>2018-03-05T16:02:03</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="62">
+    <Title>dfgsdfg</Title>
+    <Author>dsfgsdfg</Author>
+    <YearOfPublish>2018-03-05T16:02:03</YearOfPublish>
+    <PublishingHouse>sdfgsdf</PublishingHouse>
+    <Price>23</Price>
+    <DateInsert>2018-03-05T16:02:03</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+  <EditBookViewModel Id="67">
+    <Title>sdfsd</Title>
+    <Author>asdfasd</Author>
+    <YearOfPublish>2018-03-08T16:36:30</YearOfPublish>
+    <PublishingHouse>112</PublishingHouse>
+    <Price>1</Price>
+    <DateInsert>2018-03-08T16:36:30</DateInsert>
+    <Genre>1</Genre>
+  </EditBookViewModel>
+</ArrayOfEditBookViewModel><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEditNewsPaperViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EditNewsPaperViewModel Id="1">
+    <Title>Title1</Title>
+    <PublishHouse>1</PublishHouse>
+    <PrindDate>2018-01-12T00:00:00</PrindDate>
+    <Price>235</Price>
+    <DateInsert>2018-02-27T12:37:45.98</DateInsert>
+  </EditNewsPaperViewModel>
+  <EditNewsPaperViewModel Id="2">
+    <Title>Title2</Title>
+    <PublishHouse>3</PublishHouse>
+    <PrindDate>2017-12-01T00:00:00</PrindDate>
+    <Price>11</Price>
+    <DateInsert>2018-02-27T12:38:09.413</DateInsert>
+  </EditNewsPaperViewModel>
+</ArrayOfEditNewsPaperViewModel>

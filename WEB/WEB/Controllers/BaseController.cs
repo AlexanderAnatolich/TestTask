@@ -29,10 +29,6 @@ namespace WEB.Controllers
         {
             return RedirectToAction("Index", "NewsPapers");              
         }
-        public ActionResult ToPublishHouse()
-        {
-            return RedirectToAction("Index", "PaperPublishHouse");
-        }
         public ActionResult ToBooks()
         {
             return PartialView("Index", "Book");

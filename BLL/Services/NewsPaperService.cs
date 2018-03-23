@@ -10,32 +10,25 @@ using BLL.Models;
 using AutoMapper;
 using System.Net;
 using System.Web.Mvc;
+using System.Threading.Tasks;
 
 namespace BLL.Services
 {
     public class NewsPaperService
     {
         DataContex _modelsContext;
-        PaperPublishHouseRepository _publishHouseRepository;
+        PublishHouseRepository _publishHouseRepository;
         NewsPapersRepository _newsPapersRepository;
         public NewsPaperService(string connectionString)
         {
             _modelsContext = new DataContex(connectionString);
-            _publishHouseRepository = new PaperPublishHouseRepository(_modelsContext);
+            _publishHouseRepository = new PublishHouseRepository(_modelsContext);
             _newsPapersRepository = new NewsPapersRepository(_modelsContext);
-        }
-        public CreateNewsPaperViewModel BeforeCreateNewsPaper()
-        {
-            var tempNewsPaper = new CreateNewsPaperViewModel();
-
-            tempNewsPaper.ListPublichHouse = new SelectList(_publishHouseRepository.Get(), "Id", "PublishHouse");
-
-            return tempNewsPaper;
         }
         public void CreateNewsPaper(CreateNewsPaperViewModel cNPDTO)
         {
             NewsPaper tempPaper = Mapper.Map<NewsPaper>(cNPDTO);
-
+            tempPaper.PublishHouse = null;
             _newsPapersRepository.Create(tempPaper);
         }
         public IEnumerable<NewsPaperViewModel> ShowNewsPapers()
@@ -48,20 +41,22 @@ namespace BLL.Services
             var NewsPaper = _newsPapersRepository.FindById(id);
             _newsPapersRepository.Remove(NewsPaper);
         }
-        public void UpdateNewsPapers(EditNewsPaperViewModel tempNewsPaper)
+        public async Task<Boolean> DeleteRangeNewsPaper(List<int> id)
+        {
+            var result = await _newsPapersRepository.RemoveRangeAsync(x => id.Contains(x.Id));
+            return result;
+        }
+        public void UpdateNewsPapers(NewsPaperViewModel tempNewsPaper)
         {
             var newsPaper = new NewsPaper();
             Mapper.Map(tempNewsPaper, newsPaper);
             _newsPapersRepository.Update(newsPaper);
         }
-        public EditNewsPaperViewModel GetNewsPaper(int? id)
+        public NewsPaperViewModel GetNewsPaper(int? id)
         {
             NewsPaper tempPaper = _newsPapersRepository.FindById(id);
-            EditNewsPaperViewModel newsPaper = new EditNewsPaperViewModel();
 
-            Mapper.Map(tempPaper, newsPaper);
-
-            newsPaper.ListPublichHouse = new SelectList(_publishHouseRepository.Get(), "Id", "PublishHouse");
+            var newsPaper = Mapper.Map<NewsPaperViewModel>(tempPaper);
 
             return newsPaper;
         }

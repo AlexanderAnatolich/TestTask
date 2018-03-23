@@ -9,8 +9,6 @@ namespace BLL.Models
         public int Id { get; set; }
         [Required]
         public string Genre { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookViewModel> Books { get; set; }
     }
     public partial class EditGenerViewModel
     {
@@ -23,8 +21,6 @@ namespace BLL.Models
     {
         [Required]
         public string Genre { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookViewModel> Books { get; set; }
     }
     public partial class DeleteGenerViewModel
     {

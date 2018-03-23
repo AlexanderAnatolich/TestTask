@@ -11,12 +11,12 @@ using Kendo.Mvc.Extensions;
 using System.Configuration;
 using BLL.Models.DTO;
 
-namespace WEB.Controllers.apiController
+namespace WEB.Controllers.APIController
 {
     [System.Web.Http.RoutePrefix("api/ApiBook")]
     public class ApiBookController : ApiController
     {
-        BookService _bookService;
+        private BookService _bookService;
         public ApiBookController()
         {
             _bookService = new BookService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
@@ -53,6 +53,23 @@ namespace WEB.Controllers.apiController
             }
         }
         [HttpPost]
+        public async Task<IHttpActionResult> Update(BookViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Send Data incorrect!");
+            }
+            try
+            {
+                await _bookService.UpdateBookAsync(model);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost]
         public async Task<IHttpActionResult> Delete(DeleteDTO model)
         {
             if (!ModelState.IsValid)
@@ -61,7 +78,7 @@ namespace WEB.Controllers.apiController
             }
             try
             {
-                //var x = await _bookService.DeleteRangeAsync(model.Id);
+                await _bookService.DeleteRangeAsync(model.Id);
                 return Ok();
             }
             catch (Exception ex)

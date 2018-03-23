@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DAL.Models
 {
@@ -6,10 +8,11 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public int PublishHouse { get; set; }
-        public DateTime PrindDate { get; set; }
-        public int Price { get; set; }
+        public DateTime PrintDate { get; set; }
+        public double Price { get; set; }
         public DateTime DateInsert { get; set; }
-        public virtual PaperPublishHouses PaperPublishHous { get; set; }
+        [ForeignKey("PublishHouse")]
+        public int PublishHouseId { get; set; }
+        public virtual PublishHouse PublishHouse { get; set; }
     }
 }

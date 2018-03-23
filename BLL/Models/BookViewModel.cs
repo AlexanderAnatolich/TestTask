@@ -11,30 +11,7 @@ namespace BLL.Models
     public partial class BookViewModel
     {
         [Key]
-        [ScaffoldColumn(false)]
         [HiddenInput(DisplayValue = false)]
-        public int Id { get; set; }
-        [Required]
-        public string Title { get; set; }
-        [Required]
-        public string Author { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime YearOfPublish { get; set; }
-        [Required]
-        public string PublishingHouse { get; set; }
-        public int Price { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime DateInsert { get; set; }
-        public int Genre { get; set; }
-        [JsonIgnore]
-        [ScriptIgnore]
-        public virtual GenerViewModel Gener { get; set; }
-    }
-    public partial class EditBookViewModel
-    {
-        [Key]
         [XmlAttribute()]
         public int Id { get; set; }
         [Required]
@@ -43,21 +20,17 @@ namespace BLL.Models
         public string Author { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime YearOfPublish { get; set; }
         [Required]
-        public string PublishingHouse { get; set; }
-        public int Price { get; set; }
+        public virtual PublishHouseViewModel PublishHouse { get; set; }
+        [Required]
+        public double Price { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime DateInsert { get; set; }
-        public int Genre { get; set; }
-        [XmlIgnore]
-        [JsonIgnore]
-        public virtual GenerViewModel Gener { get; set; }
-        [XmlIgnore]
-        [JsonIgnore]
-        [ScriptIgnore]
-        public IEnumerable<SelectListItem> ListGeners { get; set; }
+        public List<GenerViewModel> Genre { get; set; }//TODO
     }
     public partial class CreateBookViewModel
     {
@@ -65,20 +38,18 @@ namespace BLL.Models
         public string Title { get; set; }
         [Required]
         public string Author { get; set; }
-        [Required]
-        public int Genre { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime YearOfPublish { get; set; }
         [Required]
-        public string PublishingHouse { get; set; }
-        public int Price { get; set; }
+        public virtual PublishHouseViewModel PublishHouse { get; set; }
+        [Required]
+        public double Price { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime DateInsert { get; set; }      
-        public virtual GenerViewModel Gener { get; set; }
-        public IEnumerable<SelectListItem> ListGeners { get; set; }
+        [Required]
+        public DateTime DateInsert { get; set; }
+        public List<GenerViewModel> Genre { get; set; }//TODO
     }
-
-
 }

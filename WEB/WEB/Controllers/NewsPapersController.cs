@@ -13,12 +13,12 @@ namespace WEB.Controllers
     public class NewsPapersController : Controller
     {
         NewsPaperService paperService;
-        PaperPublishHouseService publishHouseService;
+        PublishHouseService publishHouseService;
         public NewsPapersController() :base()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString();
             paperService = new NewsPaperService(connectionString);
-            publishHouseService = new PaperPublishHouseService(connectionString);
+            publishHouseService = new PublishHouseService(connectionString);
             var t = publishHouseService.ShowPublishHouse().ToList();
         }
         public PartialViewResult Index()
@@ -67,7 +67,7 @@ namespace WEB.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditNewsPaperViewModel newsPaper)
+        public ActionResult Edit(NewsPaperViewModel newsPaper)
         {
             if (ModelState.IsValid)
             {
@@ -78,8 +78,8 @@ namespace WEB.Controllers
         }
         public ActionResult Create()
         {
-            var tempNewsPaper = paperService.BeforeCreateNewsPaper();
-            return View(tempNewsPaper);
+         
+            return RedirectToAction("");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -92,11 +92,5 @@ namespace WEB.Controllers
             }
             return View();
         }
-        //--------------------------------------------------------------
-        //public JsonResult Test([DataSourceRequest]DataSourceRequest request)
-        //{
-        //    var temp = Json(b.GelAllBooks(), JsonRequestBehavior.AllowGet);
-        //    return temp;
-        //}
     }
 }

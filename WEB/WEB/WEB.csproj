@@ -474,7 +474,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ApiController\ApiBookController.cs" />
+    <Compile Include="Controllers\APIController\ApiBookController.cs" />
+    <Compile Include="Controllers\APIController\ApiGenreController.cs" />
+    <Compile Include="Controllers\APIController\ApiNewsPaperController.cs" />
+    <Compile Include="Controllers\APIController\ApiPublishHouseController.cs" />
+    <Compile Include="Controllers\APIController\ApiJournalController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -484,7 +488,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\LoadHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -543,13 +546,14 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\kendoUI\journal.ui-kendo.grid.js" />
     <Content Include="Scripts\kendo\jszip.min.js" />
     <Content Include="Scripts\kendo\kendo.all.js" />
     <Content Include="Scripts\kendo\kendo.all.min.js" />
     <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\kendo\kendo.grid.min.js" />
     <Content Include="Scripts\kendo\kendo.timezones.min.js" />
-    <Content Include="Scripts\out-ui-kendo-grid.js" />
+    <Content Include="Scripts\kendoUI\out-ui-kendo-grid.js" />
     <Content Include="Scripts\switch-menu.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -593,10 +597,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Base\RenderGrid.cshtml" />
+    <Content Include="Scripts\kendoUI\news.paper-ui-kendo.grid.js" />
+    <Content Include="Views\NewsPapers\Index - Copy.cshtml" />
+    <Content Include="Views\Journal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Files\" />
+    <Folder Include="Helper\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

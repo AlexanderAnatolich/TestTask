@@ -36,8 +36,7 @@ namespace WEB.Controllers
         }
         public ActionResult Create()
         {
-            var tempBook = bookService.BeforeCreateBook();
-            return View(tempBook);
+            return RedirectToAction("");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -56,31 +55,31 @@ namespace WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EditBookViewModel book = await bookService.GetBookAsync(id);
+            BookViewModel book = await bookService.GetBookAsync(id);
             if (book == null)
             {
                 return HttpNotFound();
             }
             return View(book);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(EditBookViewModel book)
-        {
-            if (ModelState.IsValid)
-            {
-                await bookService.UpdateBookAsync(book);
-                return RedirectToAction("Index", "Base");
-            }           
-            return View(book);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Edit(BookViewModel book)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        await bookService.UpdateBookAsync(book);
+        //        return RedirectToAction("Index", "Base");
+        //    }           
+        //    return View(book);
+        //}
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EditBookViewModel book = await bookService.GetBookAsync(id);
+            BookViewModel book = await bookService.GetBookAsync(id);
             if (book == null)
             {
                 return HttpNotFound();
@@ -91,7 +90,7 @@ namespace WEB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            EditBookViewModel book = await bookService.GetBookAsync(id);
+            BookViewModel book = await bookService.GetBookAsync(id);
             await bookService.DeleteAsync(id);
             return RedirectToAction("Index", "Base");
         }

@@ -28,66 +28,54 @@ namespace BLL.AutoMapperProfile
         public BaseModelProfile()
         {
 
-            CreateMap<EditNewsPaperViewModel, NewsPaper>();
             CreateMap<NewsPaperViewModel, NewsPaper>();
-            CreateMap<CreateNewsPaperViewModel, NewsPaper>()
-                .ForMember(q => q.DateInsert, x => x.ResolveUsing(c => DateTime.Now))
-                .ForMember(item => item.Id, opt => opt.Ignore());
-
             CreateMap<NewsPaper, NewsPaperViewModel>();
-            CreateMap<NewsPaper, EditNewsPaperViewModel>()
-              .ForMember(item => item.ListPublichHouse, opt => opt.Ignore());
-            CreateMap<NewsPaper, CreateNewsPaperViewModel>()
-                .ForMember(item => item.ListPublichHouse, opt => opt.Ignore());
+           
+            CreateMap<CreatePublishHousViewModel, PublishHouse>()
+                .ForMember(item => item.Id, opt => opt.Ignore()); 
+            CreateMap<PublishHouse, PublishHouseViewModel>();
+            CreateMap<PublishHouse, CreatePublishHousViewModel>();
+            CreateMap<PublishHouseViewModel, PublishHouse>();
 
-
-            CreateMap<PaperPublishHouseViewModel, PaperPublishHouses>();
-            CreateMap<CreatePaperPublishHousViewModel, PaperPublishHouses>()
-                .ForMember(item => item.Id, opt => opt.Ignore());
-            CreateMap<EditPaperPublishHouseViewModel, PaperPublishHouses>()
-               .ForMember(item => item.NewsPapers, opt => opt.Ignore());
-
-
-            CreateMap<PaperPublishHouses, PaperPublishHouseViewModel>();
-            CreateMap<PaperPublishHouses, EditPaperPublishHouseViewModel>();
-            CreateMap<PaperPublishHouses, CreatePaperPublishHousViewModel>();
-
+            CreateMap<BookViewModel, Book>()
+                .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id));
+            CreateMap<Book, BookViewModel>()
+                .ForMember(item => item.Genre, opt => opt.Ignore());
             CreateMap<CreateBookViewModel, Book>()
-                .ForMember(item => item.Id, opt => opt.Ignore());
-            CreateMap<EditBookViewModel, Book>();
-            CreateMap<BookViewModel, Book>();
+                .ForMember(item => item.Id, opt => opt.Ignore())
+                .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id));
 
-            CreateMap<Book, CreateBookViewModel>()
-                .ForMember(item => item.ListGeners, opt => opt.Ignore());
-            CreateMap<Book, EditBookViewModel>()
-                .ForMember(item => item.ListGeners, opt=>opt.Ignore());
-            CreateMap<Book, BookViewModel>();
-
-            CreateMap<Gener, GenerViewModel>();
+            CreateMap<Gener, GenerViewModel>()
+                .ForMember(item => item.Genre, opt => opt.MapFrom(src => src.Genre));
             CreateMap<Gener, CreateGenerViewModel>();
-            CreateMap<Gener, EditGenerViewModel>();
-
-            CreateMap<GenerViewModel, Gener>();
+            CreateMap<GenerViewModel, Gener>()
+                .ForMember(item => item.Genre, opt => opt.MapFrom(src => src.Genre));
             CreateMap<CreateGenerViewModel, Gener>()
-                 .ForMember(item => item.Id, opt => opt.Ignore())
-                 .ForMember(item => item.Books, opt => opt.Ignore());
-            CreateMap<EditGenerViewModel, Gener>()
-                .ForMember(item => item.Books, opt => opt.Ignore());
+                 .ForMember(item => item.Id, opt => opt.Ignore());
 
             CreateMap<RegisterViewModel, ApplicationUser>()
                 .ForMember(item=>item.Email, opt=>opt.MapFrom(src=>src.Email))
                 .ForMember(item => item.UserName, opt => opt.MapFrom(src => src.Email))
                 .ForAllOtherMembers(opt=>opt.Ignore());
 
+            CreateMap<CreateNewsPaperViewModel, NewsPaper>()
+                 .ForMember(item => item.Id, opt => opt.Ignore())
+                 .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id));
+
             CreateMap<BookViewModel, BookAndPaperViewModel>()
                 .ForMember(item => item.Type, opt => opt.UseValue("Book"))
                 .ForMember(item => item.Check, opt => opt.UseValue(false));
-
             CreateMap<NewsPaperViewModel, BookAndPaperViewModel>()
                 .ForMember(item => item.Type, opt => opt.UseValue("News Paper"))
-                .ForMember(item => item.Author, opt => opt.MapFrom(src => src.PublishHouse))
-                .ForMember(item => item.YearOfPublish, opt => opt.MapFrom(src => src.PrindDate))
+                .ForMember(item => item.Author, opt => opt.UseValue("-"))
+                .ForMember(item => item.YearOfPublish, opt => opt.MapFrom(src => src.PrintDate))
                 .ForMember(item => item.Check, opt => opt.UseValue(false));
+
+            CreateMap<CreateJournalViewModel, Journal>()
+                .ForMember(item => item.Id, opt => opt.Ignore())
+                .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id));
+            CreateMap<JournalViewModel, Journal>();
+            CreateMap<Journal, JournalViewModel>();
         }
     }
 }

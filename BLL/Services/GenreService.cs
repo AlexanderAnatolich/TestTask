@@ -38,16 +38,16 @@ namespace BLL.Services
             var temGener = _generRepository.FindById(Id);
             _generRepository.Remove(temGener);
         }
-        public void UpdateGener(EditGenerViewModel tempNewsPaper)
+        public void UpdateGener(GenerViewModel tempNewsPaper)
         {
             var newsGener = new Gener();
             Mapper.Map(tempNewsPaper, newsGener);
             _generRepository.Update(newsGener);
         }
-        public EditGenerViewModel GetGener(int? id)
+        public GenerViewModel GetGener(int? id)
         {
             Gener tempGener = _generRepository.FindById(id);
-            EditGenerViewModel gener = new EditGenerViewModel();
+            GenerViewModel gener = new GenerViewModel();
 
             Mapper.Map(tempGener, gener);
 

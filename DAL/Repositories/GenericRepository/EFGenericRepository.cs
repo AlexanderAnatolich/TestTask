@@ -24,12 +24,17 @@ namespace DAL.GenericRepository
             _dbSet.Add(item);
             _context.SaveChanges();
         }
-        public async Task CreateAsync(TEntity item)
+        public async Task<TEntity> CreateAsync(TEntity item)
         {
             _dbSet.Add(item);
             await _context.SaveChangesAsync();
+            return item;
         }
-
+        public async Task CreateAsync(IEnumerable<TEntity> item)
+        {
+            _dbSet.AddRange(item);
+            await _context.SaveChangesAsync();
+        }
         public TEntity FindById(int? id)
         {
             var tempValue = _dbSet.Find(id);

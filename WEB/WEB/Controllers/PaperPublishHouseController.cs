@@ -10,13 +10,13 @@ using System.Configuration;
 
 namespace WEB.Controllers
 {
-    public class PaperPublishHouseController : Controller
+    public class PublishHouseController : Controller
     {
-        private PaperPublishHouseService _publishHouseService;
-        public PaperPublishHouseController()
+        private PublishHouseService _publishHouseService;
+        public PublishHouseController()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString();
-            _publishHouseService = new PaperPublishHouseService(connectionString);
+            _publishHouseService = new PublishHouseService(connectionString);
         }
         public PartialViewResult Index()
         {
@@ -29,7 +29,7 @@ namespace WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PaperPublishHouseViewModel paperPublishHous = _publishHouseService.GetPaperPublishHosuse(id);
+            PublishHouseViewModel paperPublishHous = _publishHouseService.GetPublishHouse(id);
             if (paperPublishHous == null)
             {
                 return HttpNotFound();
@@ -42,11 +42,11 @@ namespace WEB.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreatePaperPublishHousViewModel paperPublishHous)
+        public ActionResult Create(CreatePublishHousViewModel paperPublishHous)
         {
             if (ModelState.IsValid)
             {
-                _publishHouseService.CreatePaperPublichHouse(paperPublishHous);               
+                _publishHouseService.CreatePublichHouse(paperPublishHous);               
                 return RedirectToAction("Index","Base");
             }
             return View(paperPublishHous);
@@ -57,7 +57,7 @@ namespace WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PaperPublishHouseViewModel paperPublishHous = _publishHouseService.GetPaperPublishHosuse(id);
+            PublishHouseViewModel paperPublishHous = _publishHouseService.GetPublishHouse(id);
             if (paperPublishHous == null)
             {
                 return HttpNotFound();
@@ -66,11 +66,11 @@ namespace WEB.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditPaperPublishHouseViewModel paperPublishHous)
+        public ActionResult Edit(PublishHouseViewModel paperPublishHous)
         {
             if (ModelState.IsValid)
             {
-                _publishHouseService.UpdatePaperPublishHouse(paperPublishHous);
+                _publishHouseService.UpdatePublishHouse(paperPublishHous);
                 return RedirectToAction("Index", "Base");
             }
             return View(paperPublishHous);
@@ -81,7 +81,7 @@ namespace WEB.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var paperPublishHous = _publishHouseService.GetPaperPublishHosuse(id);
+            var paperPublishHous = _publishHouseService.GetPublishHouse(id);
             if (paperPublishHous == null)
             {
                 return HttpNotFound();
@@ -90,7 +90,7 @@ namespace WEB.Controllers
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(PaperPublishHouseViewModel model)
+        public ActionResult DeleteConfirmed(PublishHouseViewModel model)
         {
             _publishHouseService.DeletePublishHouse(model.Id);
             return RedirectToAction("Index", "Base");

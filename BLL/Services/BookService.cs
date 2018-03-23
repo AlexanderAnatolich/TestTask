@@ -18,32 +18,19 @@ namespace BLL.Services
         private DataContex _modelsContext;
         private BookRepository _bookRepository;
         private GenerRepository _generRepository;
+        private BookGenerRelationsRepository _bookGenerRelationsRepository;
+
         public BookService(string connectionString)
         {
             _modelsContext = new DataContex(connectionString);
             _bookRepository = new BookRepository(_modelsContext);
             _generRepository = new GenerRepository(_modelsContext);
+            _bookGenerRelationsRepository = new BookGenerRelationsRepository(_modelsContext);
         }
-        public CreateBookViewModel BeforeCreateBook()
+        public void CreateBook(BookViewModel inputModel)
         {
-            var tempBookModel = new CreateBookViewModel();
-
-            tempBookModel.ListGeners = new SelectList(_generRepository.Get(), "Id", "Genre");
-            tempBookModel.DateInsert = DateTime.Now.Date;
-
-            return tempBookModel;
-        }
-        public async Task CreateBookAsync(CreateBookViewModel cNPDTO)
-        {
-            Book tempPaper = Mapper.Map<CreateBookViewModel,Book> (cNPDTO);
-
-            await _bookRepository.CreateAsync(tempPaper);
-        }
-        public void CreateBook(CreateBookViewModel cNPDTO)
-        {
-            Book tempPaper = Mapper.Map<CreateBookViewModel, Book>(cNPDTO);
-
-            _bookRepository.Create(tempPaper);
+            Book tempBook = Mapper.Map<BookViewModel, Book>(inputModel);
+            _bookRepository.Create(tempBook);
         }
         public IEnumerable<BookViewModel> GelAllBooks()
         {
@@ -52,40 +39,72 @@ namespace BLL.Services
         }
         public async Task<IEnumerable<BookViewModel>> GelAllBooksAsync()
         {
-            IEnumerable<Book> tempBooks = await _bookRepository.GetAsync();
-            return Mapper.Map<IEnumerable<Book>, IEnumerable<BookViewModel>>(tempBooks);
+            List<Book> tempBooks = await _bookRepository.GetAsync();
+            List<Gener> listGeners = await _generRepository.GetAsync();
+            List<BookGenerRelations> relation= new List<BookGenerRelations>();
+           
+            var nm = _bookGenerRelationsRepository.Get(x =>
+            tempBooks.Select((y => y.Id)).Contains(x.BookId))
+            .GroupBy(x => x.BookId).Select(g => new BookViewModel
+            {
+                Author = tempBooks.Where(n=>n.Id==g.Key).Select(n=>n.Author).First(),
+                DateInsert= tempBooks.Where(n => n.Id == g.Key).Select(n => n.DateInsert).First(),
+                Price=tempBooks.Where(n => n.Id == g.Key).Select(n => n.Price).First(),               
+                PublishHouse = Mapper.Map<PublishHouse,PublishHouseViewModel>(
+                    tempBooks.Where(n => n.Id == g.Key).
+                    Select(n => n.PublishHouse).First()),
+                Title= tempBooks.Where(n => n.Id == g.Key).Select(n => n.Title).First(),
+                YearOfPublish = tempBooks.Where(n => n.Id == g.Key).Select(n => n.YearOfPublish).First(),
+                Id = g.Key,
+                Genre = Mapper.Map<List<Gener>,List<GenerViewModel>>(listGeners.Where(b => g.Where(f => f.BookId == g.Key).
+                Select(u => u.GenreId).Contains(b.Id))
+                .Select(i => i).ToList()),
+            }
+            );
+            var result = nm.ToList();
+            return result;
         }
-        public void UpdateBook(EditBookViewModel tempNewsPaper)
+        public async Task CreateBookAsync(CreateBookViewModel inputModel)
+        {
+            Book tempBook = Mapper.Map<Book>(inputModel);
+            tempBook.PublishHouse = null;
+            var item = await _bookRepository.CreateAsync(tempBook);
+            
+            var relations = inputModel.Genre.Select(x => new BookGenerRelations()
+            {
+                BookId = item.Id,
+                GenreId = x.Id
+            });
+
+            await _bookGenerRelationsRepository.CreateAsync(relations);
+        }
+        public void UpdateBook(BookViewModel tempNewsPaper)
         {
             var newsBook = new Book();
             Mapper.Map(tempNewsPaper, newsBook);
             _bookRepository.Update(newsBook);
         }
-        public async Task UpdateBookAsync(EditBookViewModel tempNewsPaper)
+        public async Task UpdateBookAsync(BookViewModel tempNewsPaper)
         {
             var newsBook = new Book();
             Mapper.Map(tempNewsPaper, newsBook);
             await _bookRepository.UpdateAsync(newsBook);
         }
-        public EditBookViewModel GetBook(int? id)
+        public BookViewModel GetBook(int? id)
         {
             Book tempBook = _bookRepository.FindById(id);
-            EditBookViewModel book = new EditBookViewModel();
+            BookViewModel book = new BookViewModel();
 
             Mapper.Map(tempBook, book);
-
-            book.ListGeners = new SelectList(_generRepository.Get(), "Id", "Genre");
 
             return book;
         }
-        public async Task<EditBookViewModel> GetBookAsync(int? id)
+        public async Task<BookViewModel> GetBookAsync(int? id)
         {
             Book tempBook = await _bookRepository.FindByIdAsync(id);
-            EditBookViewModel book = new EditBookViewModel();
+            BookViewModel book = new BookViewModel();
 
             Mapper.Map(tempBook, book);
-
-            book.ListGeners = new SelectList(await _generRepository.GetAsync(), "Id", "Genre");
 
             return book;
         }
