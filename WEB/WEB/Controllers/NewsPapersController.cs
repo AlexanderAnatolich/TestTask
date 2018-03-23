@@ -21,6 +21,23 @@ namespace WEB.Controllers
             publishHouseService = new PublishHouseService(connectionString);
             var t = publishHouseService.ShowPublishHouse().ToList();
         }
+        public ActionResult GetSearchResult(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var tempNewPaper = paperService.GetNewsPaper(id);
+
+            if (tempNewPaper == null)
+            {
+                return HttpNotFound();
+            }
+
+            return PartialView(tempNewPaper);
+        }
         public PartialViewResult Index()
         {           
             var papers = paperService.ShowNewsPapers();

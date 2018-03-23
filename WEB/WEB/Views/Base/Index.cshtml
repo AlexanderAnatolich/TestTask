@@ -13,7 +13,8 @@
                 <option selected disabled>Don't find products</option>
             </select>
         </div>
-        <button id="search">Search</button>
+        <h2></h2>
+        <button id="search">Show select product</button>
         <div id="searchResults">
         </div>
     </div>
@@ -36,16 +37,24 @@
     <script src="~/Scripts/kendo/jszip.min.js"></script>
     <script src="~/Scripts/kendo/kendo.all.js"></script>
     <script>
-        var url = '@Url.Action("Edit", "Book")';
         $('#search').click(function ()
         {
+            var t = $("#dropdown").val();
+        if (t === "Books") {
+            var url = '@Url.Action("Edit", "Book")';
+        }
+        if (t === "Newspapers") {
+            var url = '@Url.Action("GetSearchResult", "NewsPapers")';
+        }
+        if (t === "Journal") {
+            var url = '@Url.Action("GetSearchResult", "Journal")';
+        }
             var t = document.getElementById("resultSearch").options[document.getElementById("resultSearch").selectedIndex].value;
             $('#searchResults').load(url, { id: t });
         })
     </script>
     <script>
         $('#KendoGridId').load('/Base/RenderGrid');
-
         $(document).ready(function () {
             SwitchMenu('#KendoGridId');
         });
@@ -55,6 +64,8 @@
             $("#SeachInput").keyup(function (e) {
                 var t = $("#dropdown").val();
                 var n = $("#SeachInput").val();
+                if (n === "") return;
+                document.getElementById("SeachInput").disabled = true;
                 $.ajax({
                     url: "api/ApiSearch/Search",
                     dataType: 'json',
@@ -63,7 +74,6 @@
                     success: function (data)
                     {
                         var select = document.getElementById("resultSearch");
-                        select.onchange = changeColor();
                         while (select.firstChild) {
                             select.removeChild(select.firstChild);
                         }
@@ -73,6 +83,7 @@
                             el.selected = true;
                             el.disabled = true;
                             select.appendChild(el);
+                            document.getElementById("SeachInput").disabled = false;
                             return;
                         }
                         for (var i = 0; i < data.length; i++) {
@@ -81,20 +92,11 @@
                             el.textContent = opt.Title;
                             el.value = opt.Id;
                             select.appendChild(el);
-
                         }
+                        document.getElementById("SeachInput").disabled = false;
                     }
                 });
             });
-            //$('#resultSearch').click(function (v) {
-            //    console.log(v.target.value);
-            //});
-            function changeColor() {
-                var eID = document.getElementById("resultSearch");
-                var colorVal = eID.options[eID.selectedIndex].value;
-                var colortxt = eID.options[eID.selectedIndex].text;
-                console.log(colorVal);
-            }
         });
     </script>
 
