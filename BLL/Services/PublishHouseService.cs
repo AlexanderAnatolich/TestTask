@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using DAL.Interface;
 using DAL.Models;
-using BLL.Models;
+using Model.Models;
 using DAL.Repositories;
 using DAL.DataContext;
 using AutoMapper;

@@ -101,3 +101,6 @@ C:\Work\TestTask\MVC\TestTask\DAL\obj\Debug\DAL.Migrations.stf.resources
 C:\Work\TestTask\MVC\TestTask\DAL\obj\Debug\DAL.Migrations.np1.resources
 C:\Work\TestTask\MVC\TestTask\DAL\obj\Debug\DAL.Migrations.Journal.resources
 C:\Work\TestTask\MVC\TestTask\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\Model.dll
+C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\Model.pdb
+C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\Model.dll.config

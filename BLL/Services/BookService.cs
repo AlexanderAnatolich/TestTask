@@ -6,7 +6,7 @@ using System.Web;
 using DAL.Repositories;
 using DAL.Models;
 using DAL.DataContext;
-using BLL.Models;
+using Model.Models;
 using AutoMapper;
 using System.Net;
 using System.Web.Mvc;
@@ -86,7 +86,6 @@ namespace BLL.Services
         public async Task CreateBookAsync(CreateBookViewModel inputModel)
         {
             Book tempBook = Mapper.Map<Book>(inputModel);
-            tempBook.PublishHouse = null;
             var item = await _bookRepository.CreateAsync(tempBook);
             
             var relations = inputModel.Genre.Select(x => new BookGenerRelations()

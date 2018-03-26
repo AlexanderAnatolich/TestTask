@@ -580,3 +580,6 @@ C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.xml
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Common.xml
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Common.WebHost.xml
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Mvc.xml
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.pdb
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.dll.config

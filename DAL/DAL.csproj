@@ -217,5 +217,11 @@
       <DependentUpon>201803230718037_Journal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WEB\Model\Model.csproj">
+      <Project>{e63e86e5-0c49-46cb-810d-e6ca3c5742ee}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

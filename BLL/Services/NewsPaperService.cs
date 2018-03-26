@@ -6,7 +6,7 @@ using DAL.Interface;
 using DAL.Repositories;
 using DAL.Models;
 using DAL.DataContext;
-using BLL.Models;
+using Model.Models;
 using AutoMapper;
 using System.Net;
 using System.Web.Mvc;

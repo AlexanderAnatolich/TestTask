@@ -1,5 +1,5 @@
-﻿using BLL.Models;
-using BLL.Models.DTO;
+﻿using Model.Models;
+using Model.Models.DTO;
 using BLL.Services;
 using Kendo.Mvc.UI;
 using System;

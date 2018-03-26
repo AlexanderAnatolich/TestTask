@@ -1,14 +1,18 @@
 ﻿function SwitchMenu(target) {
+
 $('.book-load').click(function () {
-    $(target).load('/Book/Index');
+    var grid = GetBookGrid(target);
     });
+
 $('.Summary-load').click(function () {
     $(target).load('/Base/RenderGrid');
 });
+
 $('.News-Paper').click(function () {
-    $(target).load('/NewsPapers/Index');
+    var grid = GetNewsPaperGrid(target);
 });
+
 $('.Journal-load').click(function () {
-    $(target).load('/Journal/Index');
+    var grid = GetJournalGrid(target);
 });
 }

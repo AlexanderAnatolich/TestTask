@@ -1,7 +1,7 @@
 ﻿using DAL.DataContext;
 using DAL.Repositories;
 using DAL.Models;
-using BLL.Models;
+using Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,6 @@ namespace BLL.Services
         public void Create(CreateJournalViewModel inputItem)
         {
             Journal tempJournal = Mapper.Map<Journal>(inputItem);
-            tempJournal.PublishHouse = null;
             _journalRepository.Create(tempJournal);
         }
         public List<JournalViewModel> GetAll()

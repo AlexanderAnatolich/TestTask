@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml.Serialization;
-using BLL.Models;
-using BLL.Models.Enum;
+using Model.Models;
+using Model.Models.Enum;
 using BLL.Services;
 using Kendo.Mvc.UI;
 using Microsoft.Ajax.Utilities;
 using Microsoft.SqlServer.Server;
 using Newtonsoft.Json;
-using BLL.Models.DTO;
+using Model.Models.DTO;
 namespace WEB.Controllers
 {
     public class SaveController : Controller

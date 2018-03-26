@@ -5,7 +5,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using DAL.Models.AuthorizationModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using BLL.Models.AuthorizationViewModel;
+using Model.Models.AuthorizationViewModel;
 using AutoMapper;
 using System.Security.Claims;
 using Microsoft.Owin.Security;

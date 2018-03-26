@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BLL.Services;
-using BLL.Models.AuthorizationViewModel;
+using Model.Models.AuthorizationViewModel;
 
 namespace WEB.Controllers
 {

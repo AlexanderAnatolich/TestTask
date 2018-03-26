@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using AutoMapper;
-using BLL.Models;
-using BLL.Models.AuthorizationViewModel;
+using Model.Models;
+using Model.Models.AuthorizationViewModel;
 using DAL.Models;
 using DAL.Models.AuthorizationModel;
 using Microsoft.AspNet.Identity;
@@ -43,7 +43,8 @@ namespace BLL.AutoMapperProfile
                 .ForMember(item => item.Genre, opt => opt.Ignore());
             CreateMap<CreateBookViewModel, Book>()
                 .ForMember(item => item.Id, opt => opt.Ignore())
-                .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id));
+                .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id))
+                .ForMember(item => item.PublishHouse, opt => opt.Ignore());
 
             CreateMap<Gener, GenerViewModel>()
                 .ForMember(item => item.Genre, opt => opt.MapFrom(src => src.Genre));
@@ -73,7 +74,8 @@ namespace BLL.AutoMapperProfile
 
             CreateMap<CreateJournalViewModel, Journal>()
                 .ForMember(item => item.Id, opt => opt.Ignore())
-                .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id));
+                .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id))
+                .ForMember(item => item.PublishHouse, opt => opt.Ignore());
             CreateMap<JournalViewModel, Journal>();
             CreateMap<Journal, JournalViewModel>();
         }

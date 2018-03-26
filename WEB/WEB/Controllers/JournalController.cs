@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BLL.Services;
-using BLL.Models;
+using Model.Models;
 using System.Configuration;
 using System.Net;
 

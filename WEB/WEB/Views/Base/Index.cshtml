@@ -20,10 +20,11 @@
     </div>
     <h5> </h5>
     <ul class="nav nav-tabs">
-        <li data-toggle="tab" class="active"><a class="Summary-load nav_link">All products</a></li>
+        <li data-toggle="tab"><a class="Summary-load nav_link">All products</a></li>
         <li data-toggle="tab"><a class="News-Paper nav_link">News papers</a></li>
         <li data-toggle="tab"><a class="book-load nav_link">Books</a></li>
         <li data-toggle="tab"><a class="Journal-load nav_link">Journal</a></li>
+
     </ul>
     <div class="tab-pane fade in active">
         <div id="ContentDiv">
@@ -36,68 +37,13 @@
     <link href="~/Content/kendo.bootstrap-v4.min.css" rel="stylesheet" />
     <script src="~/Scripts/kendo/jszip.min.js"></script>
     <script src="~/Scripts/kendo/kendo.all.js"></script>
+    <script src="~/Scripts/live-search.js"></script>
+    <script src="~/Scripts/kendoUI/out-ui-kendo-grid.js"></script>
+    <script src="~/Scripts/kendoUI/journal.ui-kendo.grid.js"></script>
+    <script src="~/Scripts/kendoUI/news.paper-ui-kendo.grid.js"></script>
     <script>
-        $('#search').click(function ()
-        {
-            var t = $("#dropdown").val();
-        if (t === "Books") {
-            var url = '@Url.Action("Edit", "Book")';
-        }
-        if (t === "Newspapers") {
-            var url = '@Url.Action("GetSearchResult", "NewsPapers")';
-        }
-        if (t === "Journal") {
-            var url = '@Url.Action("GetSearchResult", "Journal")';
-        }
-            var t = document.getElementById("resultSearch").options[document.getElementById("resultSearch").selectedIndex].value;
-            $('#searchResults').load(url, { id: t });
-        })
-    </script>
-    <script>
-        $('#KendoGridId').load('/Base/RenderGrid');
         $(document).ready(function () {
             SwitchMenu('#KendoGridId');
         });
     </script>
-    <script>           
-        $(function () {
-            $("#SeachInput").keyup(function (e) {
-                var t = $("#dropdown").val();
-                var n = $("#SeachInput").val();
-                if (n === "") return;
-                document.getElementById("SeachInput").disabled = true;
-                $.ajax({
-                    url: "api/ApiSearch/Search",
-                    dataType: 'json',
-                    type: "POST",
-                    data: { 'Name':n, 'Type':t},
-                    success: function (data)
-                    {
-                        var select = document.getElementById("resultSearch");
-                        while (select.firstChild) {
-                            select.removeChild(select.firstChild);
-                        }
-                        if (data.length === 0) {
-                            var el = document.createElement("option");
-                            el.textContent = "Don't find products";
-                            el.selected = true;
-                            el.disabled = true;
-                            select.appendChild(el);
-                            document.getElementById("SeachInput").disabled = false;
-                            return;
-                        }
-                        for (var i = 0; i < data.length; i++) {
-                            var opt = data[i];
-                            var el = document.createElement("option");
-                            el.textContent = opt.Title;
-                            el.value = opt.Id;
-                            select.appendChild(el);
-                        }
-                        document.getElementById("SeachInput").disabled = false;
-                    }
-                });
-            });
-        });
-    </script>
-
-    }
+}

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using BLL.Services;
-using BLL.Models;
+using Model.Models;
 using System.Net;
 using System.Configuration;
 using Kendo.Mvc.UI;

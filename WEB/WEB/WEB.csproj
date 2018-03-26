@@ -480,7 +480,7 @@
     <Compile Include="Controllers\APIController\ApiPublishHouseController.cs" />
     <Compile Include="Controllers\APIController\ApiJournalController.cs" />
     <Compile Include="Controllers\APIController\ApiSearchController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\JournalController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -556,6 +556,7 @@
     <Content Include="Scripts\kendo\kendo.grid.min.js" />
     <Content Include="Scripts\kendo\kendo.timezones.min.js" />
     <Content Include="Scripts\kendoUI\out-ui-kendo-grid.js" />
+    <Content Include="Scripts\live-search.js" />
     <Content Include="Scripts\switch-menu.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -580,28 +581,16 @@
     <Content Include="Views\PaperPublishHouse\Index.cshtml" />
     <Content Include="Views\NewsPapers\About.cshtml" />
     <Content Include="Views\NewsPapers\Contact.cshtml" />
-    <Content Include="Views\NewsPapers\Create.cshtml" />
-    <Content Include="Views\NewsPapers\Delete.cshtml" />
-    <Content Include="Views\NewsPapers\Edit.cshtml" />
     <Content Include="Views\NewsPapers\Index.cshtml" />
-    <Content Include="Views\Book\Create.cshtml" />
-    <Content Include="Views\Book\Delete.cshtml" />
-    <Content Include="Views\Book\Details.cshtml" />
-    <Content Include="Views\Book\Edit.cshtml" />
-    <Content Include="Views\Book\Index_old.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Base\Index.cshtml" />
-    <Content Include="Views\Base\Preview.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\Loskout.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Book\Index.cshtml" />
-    <Content Include="Views\Base\RenderGrid.cshtml" />
     <Content Include="Scripts\kendoUI\news.paper-ui-kendo.grid.js" />
-    <Content Include="Views\NewsPapers\Index - Copy.cshtml" />
-    <Content Include="Views\Journal\Index.cshtml" />
     <Content Include="Views\Journal\GetSearchResult.cshtml" />
     <Content Include="Views\NewsPapers\GetSearchResult.cshtml" />
   </ItemGroup>
@@ -624,6 +613,10 @@
     <ProjectReference Include="..\..\DAL\DAL.csproj">
       <Project>{7616EA8B-EF32-4690-AEDF-5AC21512AC29}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{e63e86e5-0c49-46cb-810d-e6ca3c5742ee}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

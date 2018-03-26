@@ -108,3 +108,6 @@ C:\Work\TestTask\MVC\TestTask\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.c
 C:\Work\TestTask\MVC\TestTask\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 C:\Work\TestTask\MVC\TestTask\BLL\obj\Debug\BLL.dll
 C:\Work\TestTask\MVC\TestTask\BLL\obj\Debug\BLL.pdb
+C:\Work\TestTask\MVC\TestTask\BLL\bin\Debug\Model.dll
+C:\Work\TestTask\MVC\TestTask\BLL\bin\Debug\Model.pdb
+C:\Work\TestTask\MVC\TestTask\BLL\bin\Debug\Model.dll.config

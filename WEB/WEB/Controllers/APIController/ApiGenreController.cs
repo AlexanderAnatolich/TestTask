@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using BLL.Services;
-using BLL.Models;
+using Model.Models;
 using System.Configuration;
 using System.Threading.Tasks;
 using Kendo.Mvc.UI;

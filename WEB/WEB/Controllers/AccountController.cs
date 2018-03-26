@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using BLL.Services;
 using System.Diagnostics;
-using BLL.Models.AuthorizationViewModel;
+using Model.Models.AuthorizationViewModel;
 using System.Data.SqlClient;
 
 namespace WEB.Controllers

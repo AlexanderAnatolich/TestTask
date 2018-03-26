@@ -5,11 +5,11 @@ using System.Net;
 using System.Web.Http;
 using System.Threading.Tasks;
 using BLL.Services;
-using BLL.Models;
+using Model.Models;
 using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
 using System.Configuration;
-using BLL.Models.DTO;
+using Model.Models.DTO;
 
 namespace WEB.Controllers.APIController
 {

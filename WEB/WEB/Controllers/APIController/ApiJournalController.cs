@@ -3,8 +3,8 @@ using System.Configuration;
 using System.Threading.Tasks;
 using System.Web.Http;
 using BLL.Services;
-using BLL.Models;
-using BLL.Models.DTO;
+using Model.Models;
+using Model.Models.DTO;
 using Kendo.Mvc.UI;
 
 namespace WEB.Controllers.APIController

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using BLL.Models;
+using Model.Models;
 using BLL.AutoMapperProfile;
 using AutoMapper;
 using Newtonsoft.Json;
