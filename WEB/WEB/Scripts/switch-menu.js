@@ -5,7 +5,7 @@ $('.book-load').click(function () {
     });
 
 $('.Summary-load').click(function () {
-    $(target).load('/Base/RenderGrid');
+    var grid = GetSummaryGrid(target);
 });
 
 $('.News-Paper').click(function () {

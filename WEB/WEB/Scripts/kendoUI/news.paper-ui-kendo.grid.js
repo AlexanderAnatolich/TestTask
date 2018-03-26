@@ -89,7 +89,6 @@ function GetNewsPaperGrid(target) {
 		dataSource: NewsPaperDataSource(),
 		groupable: true,
         height: '700px',
-        sortable: true,
         change: onChange,
         pageable: {
             refresh: true,

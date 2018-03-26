@@ -89,7 +89,6 @@ function GetJournalGrid(target) {
         dataSource: JournalDataSource(),
         groupable: true,
         height: '700px',
-        sortable: true,
         change: onChange,
         pageable: {
             refresh: true,
