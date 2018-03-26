@@ -22,11 +22,12 @@ namespace WEB.Controllers.APIController
         }
 
         [HttpPost]
-        public IHttpActionResult Read([DataSourceRequest]DataSourceRequest request)
+        public async Task<IHttpActionResult> Read([DataSourceRequest]DataSourceRequest request)
         {
             try
             {
-                var tempPaper = _newsPaperService.ShowNewsPapers();
+                var tempPaper = await _newsPaperService.GetAllAsync();
+                tempPaper = tempPaper.ToList();
                 return Ok(tempPaper);
             }
             catch (Exception ex)
@@ -35,7 +36,7 @@ namespace WEB.Controllers.APIController
             }
         }
         [HttpPost]
-        public IHttpActionResult Create(CreateNewsPaperViewModel model)
+        public async Task<IHttpActionResult> Create(CreateNewsPaperViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -43,7 +44,7 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                _newsPaperService.CreateNewsPaper(model);
+                await _newsPaperService.CreateAsync(model);
                 return Ok();
             }
             catch (Exception ex)
@@ -52,7 +53,7 @@ namespace WEB.Controllers.APIController
             }
         }
         [HttpPost]
-        public IHttpActionResult Update(NewsPaperViewModel model)
+        public async Task<IHttpActionResult> Update(NewsPaperViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -60,7 +61,7 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                _newsPaperService.UpdateNewsPapers(model);
+                await _newsPaperService.UpdateAsync(model);
                 return Ok();
             }
             catch (Exception ex)
@@ -77,7 +78,7 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                await _newsPaperService.DeleteRangeNewsPaper(model.Id);
+                await _newsPaperService.DeleteAsync(model.Id);
                 return Ok();
             }
             catch (Exception ex)

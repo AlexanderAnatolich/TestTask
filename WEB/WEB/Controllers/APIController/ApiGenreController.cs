@@ -22,11 +22,12 @@ namespace WEB.Controllers.APIController
         }
 
         [HttpPost]
-        public IHttpActionResult Read([DataSourceRequest]DataSourceRequest request)
+        public async Task<IHttpActionResult> Read([DataSourceRequest]DataSourceRequest request)
         {
             try
             {
-                var tempBooks = _genreService.ShowAllGeners().ToList();
+                var tempBooks = await _genreService.GetAllAsync();
+                tempBooks = tempBooks.ToList();
                 return Ok(tempBooks);
             }
             catch (Exception ex)

@@ -15,7 +15,7 @@ namespace Model.Models
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public DateTime PrintDate { get; set; }
         [Required]
-        public int Price { get; set; }
+        public double Price { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateInsert { get; set; }

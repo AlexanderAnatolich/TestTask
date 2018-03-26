@@ -74,12 +74,12 @@ namespace WEB.Controllers
                 {
                     if (model.CT[i] == "Book")
                     {
-                        var item = await bookService.GetBookAsync(model.CId[i]);
+                        var item = await bookService.GetAsync(model.CId[i]);
                         returnedValue[0].Add(item);
                     }
                     else
                     {
-                        var item = paperService.GetNewsPaper(model.CId[i]);
+                        var item = paperService.GetAsync(model.CId[i]);
                         returnedValue[1].Add(item);
                     }
                 }

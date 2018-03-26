@@ -19,11 +19,12 @@ namespace WEB.Controllers.APIController
             _publishHouseService = new PublishHouseService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
         }
         [HttpPost]
-        public IHttpActionResult Read([DataSourceRequest]DataSourceRequest request)
+        public async Task<IHttpActionResult> Read([DataSourceRequest]DataSourceRequest request)
         {
             try
             {
-                var pulishHouse = _publishHouseService.ShowPublishHouse().ToList();
+                var pulishHouse = await _publishHouseService.GetAllAsync();
+                pulishHouse = pulishHouse.ToList();
                 return Ok(pulishHouse);
             }
             catch (Exception ex)

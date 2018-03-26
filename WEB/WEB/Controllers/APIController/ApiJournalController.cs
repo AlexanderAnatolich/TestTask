@@ -23,7 +23,7 @@ namespace WEB.Controllers.APIController
         {
             try
             {
-                var tempPaper = _journalService.GetAll();
+                var tempPaper = _journalService.GetAllAsync();
                 return Ok(tempPaper);
             }
             catch (Exception ex)
@@ -32,7 +32,7 @@ namespace WEB.Controllers.APIController
             }
         }
         [HttpPost]
-        public IHttpActionResult Create(CreateJournalViewModel model)
+        public async Task<IHttpActionResult> Create(CreateJournalViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -40,7 +40,7 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                _journalService.Create(model);
+                await _journalService.CreateAsync(model);
                 return Ok();
             }
             catch (Exception ex)
@@ -49,7 +49,7 @@ namespace WEB.Controllers.APIController
             }
         }
         [HttpPost]
-        public IHttpActionResult Update(JournalViewModel model)
+        public async Task<IHttpActionResult> Update(JournalViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                _journalService.Update(model);
+                await _journalService.UpdateAsync(model);
                 return Ok();
             }
             catch (Exception ex)
@@ -74,7 +74,7 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                await _journalService.DeleteRange(model.Id);
+                await _journalService.DeleteRangeAsync(model.Id);
                 return Ok();
             }
             catch (Exception ex)

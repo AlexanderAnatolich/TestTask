@@ -113,6 +113,7 @@
     <Compile Include="Services\JournalService.cs" />
     <Compile Include="Services\NewsPaperService.cs" />
     <Compile Include="Services\PublishHouseService.cs" />
+    <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\SummaryService.cs" />
     <Compile Include="Services\TempInit.cs" />
   </ItemGroup>

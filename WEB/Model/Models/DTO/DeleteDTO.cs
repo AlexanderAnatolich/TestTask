@@ -8,10 +8,6 @@ namespace Model.Models.DTO
 {
     public class DeleteDTO
     {
-        public DeleteDTO()
-        {
-
-        }
         public List<int> Id { get; set; }
     }
 }

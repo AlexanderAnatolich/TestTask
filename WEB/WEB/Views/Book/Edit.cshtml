@@ -31,12 +31,12 @@
             @Html.LabelFor(model => model.Genre, "Genre", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <ul>
-                    @{
-                        foreach (var t in Model.Genre)
+
+                        @foreach (var t in Model.Genre)
                         {
                             <li>@t.Genre</li>
                         }
-                    }
+
                 </ul>
             </div>
         </div>

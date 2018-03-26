@@ -25,40 +25,41 @@ namespace BLL.Services
             _publishHouseRepository = new PublishHouseRepository(_modelsContext);
             _newsPapersRepository = new NewsPapersRepository(_modelsContext);
         }
-        public void CreateNewsPaper(CreateNewsPaperViewModel cNPDTO)
+        public async Task CreateAsync(CreateNewsPaperViewModel cNPDTO)
         {
             NewsPaper tempPaper = Mapper.Map<NewsPaper>(cNPDTO);
             tempPaper.PublishHouse = null;
-            _newsPapersRepository.Create(tempPaper);
+            await _newsPapersRepository.CreateAsync(tempPaper);
         }
-        public IEnumerable<NewsPaperViewModel> ShowNewsPapers()
+        public async Task<IEnumerable<NewsPaperViewModel>> GetAllAsync()
         {
-            List<NewsPaper> tempNewsPapers = _newsPapersRepository.Get().ToList();
-            return Mapper.Map<List<NewsPaper>, List<NewsPaperViewModel>>(tempNewsPapers);
+            List<NewsPaper> tempNewsPapers = await _newsPapersRepository.GetAsync();
+            var result = Mapper.Map<List<NewsPaper>, List<NewsPaperViewModel>>(tempNewsPapers);
+            return result;
         }
-        public void DeleteNewsPaper(int id)
+        public async Task DeleteAsync(int id)
         {
-            var NewsPaper = _newsPapersRepository.FindById(id);
-            _newsPapersRepository.Remove(NewsPaper);
+            var newsPaper = await _newsPapersRepository.FindByIdAsync(id);
+            _newsPapersRepository.Remove(newsPaper);
         }
-        public async Task<Boolean> DeleteRangeNewsPaper(List<int> id)
+        public async Task<Boolean> DeleteAsync(List<int> id)
         {
             var result = await _newsPapersRepository.RemoveRangeAsync(x => id.Contains(x.Id));
             return result;
         }
-        public void UpdateNewsPapers(NewsPaperViewModel tempNewsPaper)
+        public async Task UpdateAsync(NewsPaperViewModel tempNewsPaper)
         {
             var newsPaper = new NewsPaper();
             Mapper.Map(tempNewsPaper, newsPaper);
-            _newsPapersRepository.Update(newsPaper);
+            await _newsPapersRepository.UpdateAsync(newsPaper);
         }
-        public NewsPaperViewModel GetNewsPaper(int? id)
+        public async Task<NewsPaperViewModel> GetAsync(int? id)
         {
-            NewsPaper tempPaper = _newsPapersRepository.FindById(id);
+            NewsPaper tempPaper = await _newsPapersRepository.FindByIdAsync(id);
 
-            var newsPaper = Mapper.Map<NewsPaperViewModel>(tempPaper);
+            var result = Mapper.Map<NewsPaperViewModel>(tempPaper);
 
-            return newsPaper;
+            return result;
         }
     }
 }

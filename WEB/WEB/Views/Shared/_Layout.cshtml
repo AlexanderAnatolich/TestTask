@@ -21,19 +21,14 @@
                 @Html.ActionLink("Test MVC", "Index", "Base", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>*@
-                </ul>
+                <ul class="nav navbar-nav"></ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <hr />
     <div class="container body-content">
-        
+
         @RenderBody()
         <hr />
         <footer>
@@ -43,6 +38,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/CustomKendoUI")
+    @Scripts.Render("~/bundles/switch-menu.js")
+    @Scripts.Render("~/bundles/live-search.js")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

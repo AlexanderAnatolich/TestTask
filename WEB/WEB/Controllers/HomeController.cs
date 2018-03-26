@@ -21,17 +21,9 @@ namespace WEB.Controllers
         {
             SummaryService t = new SummaryService();
             var test = await t.Calculate();
-            var c = Json(test, JsonRequestBehavior.AllowGet);
+            var result = Json(test, JsonRequestBehavior.AllowGet);
 
-            return c;
-        }       
-        public ActionResult ToNewsPapers()
-        {
-            return RedirectToAction("Index", "NewsPapers");              
-        }
-        public ActionResult ToBooks()
-        {
-            return PartialView("Index", "Book");
+            return result;
         }
     }
 }

@@ -95,6 +95,7 @@
     <Compile Include="Models\PublishHouseViewModel\CreatePublishHousViewModel.cs" />
     <Compile Include="Models\PublishHouseViewModel\DeletePublishHouseViewModel.cs" />
     <Compile Include="Models\PublishHouseViewModel\PublishHouseViewModel.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

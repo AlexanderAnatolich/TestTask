@@ -542,16 +542,17 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\kendoUI\journal.ui-kendo.grid.js" />
+    <Content Include="Scripts\kendoUI\common_grid_method\methods.js" />
+    <Content Include="Scripts\kendoUI\Journal-kendo.grid.js" />
     <Content Include="Scripts\kendo\jszip.min.js" />
     <Content Include="Scripts\kendo\kendo.all.js" />
     <Content Include="Scripts\kendo\kendo.all.min.js" />
     <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\kendo\kendo.grid.min.js" />
     <Content Include="Scripts\kendo\kendo.timezones.min.js" />
-    <Content Include="Scripts\kendoUI\out-ui-kendo-grid.js" />
-    <Content Include="Scripts\live-search.js" />
-    <Content Include="Scripts\switch-menu.js" />
+    <Content Include="Scripts\kendoUI\Summary-kendo-grid.js" />
+    <Content Include="Scripts\LiveSearch\live-search.js" />
+    <Content Include="Scripts\SwitchMenu\switch-menu.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -568,10 +569,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\PaperPublishHouse\Index.cshtml" />
     <Content Include="Views\NewsPapers\About.cshtml" />
     <Content Include="Views\NewsPapers\Contact.cshtml" />
-    <Content Include="Views\NewsPapers\Index.cshtml" />
     <Content Include="Views\Book\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -580,18 +579,17 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Scripts\kendoUI\news.paper-ui-kendo.grid.js" />
+    <Content Include="Scripts\kendoUI\NewsPaper-kendo.grid.js" />
     <Content Include="Views\Journal\GetSearchResult.cshtml" />
     <Content Include="Views\NewsPapers\GetSearchResult.cshtml" />
-    <Content Include="Views\Journal\Index.cshtml" />
-    <Content Include="Views\Book\Index.cshtml" />
-    <Content Include="Scripts\kendoUI\book.ui-kendo.grid.js" />
+    <Content Include="Scripts\kendoUI\Book-kendo.grid.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Files\" />
     <Folder Include="Helper\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\PaperPublishHouse\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

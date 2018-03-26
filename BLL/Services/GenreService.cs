@@ -10,6 +10,7 @@ using DAL.DataContext;
 using AutoMapper;
 using System.Net;
 using System.Web.Mvc;
+using System.Threading.Tasks;
 
 namespace BLL.Services
 {
@@ -22,32 +23,32 @@ namespace BLL.Services
             _modelsContext = new DataContex(connectionString);
             _generRepository = new GenerRepository(_modelsContext);
         }
-        public void CreateGener(CreateGenerViewModel cNPDTO)
+        public async Task CreateAsync(CreateGenerViewModel model)
         {
-            Gener tempPaper = Mapper.Map<CreateGenerViewModel, Gener>(cNPDTO);
+            var tempPaper = Mapper.Map<CreateGenerViewModel, Gener>(model);
 
-            _generRepository.Create(tempPaper);
+            await _generRepository.CreateAsync(tempPaper);
         }
-        public IEnumerable<GenerViewModel> ShowAllGeners()
+        public async Task<IEnumerable<GenerViewModel>> GetAllAsync()
         {
-            IEnumerable<Gener> tempGeners = _generRepository.Get();
+            var tempGeners = await _generRepository.GetAsync();
             return Mapper.Map<IEnumerable<Gener>, List<GenerViewModel>>(tempGeners);
         }
-        public void DeleteGeners(int Id)
+        public async Task DeleteAsync(int Id)
         {
             var temGener = _generRepository.FindById(Id);
-            _generRepository.Remove(temGener);
+            await _generRepository.RemoveAsync(temGener);
         }
-        public void UpdateGener(GenerViewModel tempNewsPaper)
+        public async Task UpdateAsync(GenerViewModel tempNewsPaper)
         {
             var newsGener = new Gener();
             Mapper.Map(tempNewsPaper, newsGener);
-            _generRepository.Update(newsGener);
+            await _generRepository.UpdateAsync(newsGener);
         }
-        public GenerViewModel GetGener(int? id)
+        public async Task<GenerViewModel> Get(int? id)
         {
-            Gener tempGener = _generRepository.FindById(id);
-            GenerViewModel gener = new GenerViewModel();
+            var tempGener = await _generRepository.FindByIdAsync(id);
+            var gener = new GenerViewModel();
 
             Mapper.Map(tempGener, gener);
 

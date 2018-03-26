@@ -15,12 +15,7 @@ namespace WEB.Controllers
         JournalService _journalService;
         public JournalController()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString();
-            _journalService = new JournalService(connectionString);
-        }
-        public ActionResult Index()
-        {
-            return PartialView();
+            _journalService = new JournalService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
         }
         public ActionResult GetSearchResult(int? id)
         {

@@ -16,7 +16,6 @@ namespace BLL.Services
     {
         private BookService _bookService;
         private NewsPaperService _newsPaperService;
-        public List<BookAndPaperViewModel> convertmodel { get; private set; }
         public SummaryService()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString();
@@ -25,15 +24,15 @@ namespace BLL.Services
         }
         public async Task<List<BookAndPaperViewModel>> Calculate()
         {
-            convertmodel = new List<BookAndPaperViewModel>();
-            var allBooks = await _bookService.GelAllBooksAsync();
-            var allNewsPaper = _newsPaperService.ShowNewsPapers();
+            var Convertmodel = new List<BookAndPaperViewModel>();
+            var allBooks = await _bookService.GelAllAsync();
+            var allNewsPaper = await _newsPaperService.GetAllAsync();
             List<BookAndPaperViewModel> tempParam = new List<BookAndPaperViewModel>();
 
-            convertmodel.AddRange(Mapper.Map<IEnumerable<BookViewModel>, List<BookAndPaperViewModel>>(allBooks, tempParam));
-            convertmodel.AddRange(Mapper.Map<IEnumerable<NewsPaperViewModel>, List<BookAndPaperViewModel>>(allNewsPaper, tempParam));
+            Convertmodel.AddRange(Mapper.Map<IEnumerable<BookViewModel>, List<BookAndPaperViewModel>>(allBooks, tempParam));
+            Convertmodel.AddRange(Mapper.Map(allNewsPaper, tempParam));
 
-            return convertmodel;
+            return Convertmodel;
         }
     }
 }

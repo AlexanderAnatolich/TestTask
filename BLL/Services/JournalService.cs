@@ -21,27 +21,27 @@ namespace BLL.Services
             _modelsContext = new DataContex(connectionString);
             _journalRepository = new JournalRepository(_modelsContext);
         }
-        public void Create(CreateJournalViewModel inputItem)
+        public async Task CreateAsync(CreateJournalViewModel inputItem)
         {
             Journal tempJournal = Mapper.Map<Journal>(inputItem);
-            _journalRepository.Create(tempJournal);
+            await _journalRepository.CreateAsync(tempJournal);
         }
-        public List<JournalViewModel> GetAll()
+        public async Task<List<JournalViewModel>> GetAllAsync()
         {
-            IEnumerable<Journal> tempJournal = _journalRepository.Get();
+            IEnumerable<Journal> tempJournal = await _journalRepository.GetAsync();
             var returnValue = Mapper.Map<List<JournalViewModel>>(tempJournal);
             return returnValue;
         }
-        public void Delete(int Id)
+        public async Task DeleteAsync(int Id)
         {
             var temJournal = _journalRepository.FindById(Id);
-            _journalRepository.Remove(temJournal);
+            await _journalRepository.RemoveAsync(temJournal);
         }
-        public void Update(JournalViewModel inputJournalModel)
+        public async Task UpdateAsync(JournalViewModel inputJournalModel)
         {
             var tempJournal = new Journal();
             Mapper.Map(inputJournalModel, tempJournal);
-            _journalRepository.Update(tempJournal);
+            await _journalRepository.UpdateAsync(tempJournal);
         }
         public JournalViewModel Get(int? id)
         {
@@ -52,7 +52,7 @@ namespace BLL.Services
 
             return result;
         }
-        public async Task<Boolean> DeleteRange(List<int> id)
+        public async Task<Boolean> DeleteRangeAsync(List<int> id)
         {
             var result = await _journalRepository.RemoveRangeAsync(x => id.Contains(x.Id));
             return result;

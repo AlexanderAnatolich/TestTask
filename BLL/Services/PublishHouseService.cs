@@ -8,6 +8,7 @@ using Model.Models;
 using DAL.Repositories;
 using DAL.DataContext;
 using AutoMapper;
+using System.Threading.Tasks;
 
 namespace BLL.Services
 {
@@ -20,32 +21,32 @@ namespace BLL.Services
             _modelsContext = new DataContex(connectionString);
             _publishHouseRepository = new PublishHouseRepository(_modelsContext);
         }
-        public void CreatePublichHouse(CreatePublishHousViewModel cPPHDTO)
+        public async Task CreateAsync(CreatePublishHousViewModel model)
         {           
-            PublishHouse tempPaperPublishHous = Mapper.Map<CreatePublishHousViewModel, PublishHouse>(cPPHDTO);
-            _publishHouseRepository.Create(tempPaperPublishHous);
+            var tempPaperPublishHous = Mapper.Map<CreatePublishHousViewModel, PublishHouse>(model);
+            await _publishHouseRepository.CreateAsync(tempPaperPublishHous);
         }
-        public IEnumerable<PublishHouseViewModel> ShowPublishHouse()
+        public async Task<IEnumerable<PublishHouseViewModel>> GetAllAsync()
         {
-            var tempPublishHouse = _publishHouseRepository.Get();
+            var tempPublishHouse = await _publishHouseRepository.GetAsync();
             return Mapper.Map<IEnumerable<PublishHouse>, IEnumerable<PublishHouseViewModel>>(tempPublishHouse);
         }
-        public void DeletePublishHouse(int id)
+        public async Task DeleteAsync(int id)
         {
-            var tempPublishHouse = _publishHouseRepository.FindById(id);
+            var tempPublishHouse = await _publishHouseRepository.FindByIdAsync(id);
             _publishHouseRepository.Remove(tempPublishHouse);
         }
-        public void UpdatePublishHouse(PublishHouseViewModel tempNewsPaper)
+        public async Task UpdateAsync(PublishHouseViewModel tempNewsPaper)
         {
             var newsPaper = new PublishHouse();
             Mapper.Map(tempNewsPaper, newsPaper);
-            _publishHouseRepository.Update(newsPaper);
+            await _publishHouseRepository.UpdateAsync(newsPaper);
         }
-        public PublishHouseViewModel GetPublishHouse(int? id)
+        public async Task<PublishHouseViewModel> GetAsync(int? id)
         {
             var publichHouse = new PublishHouseViewModel();
 
-            PublishHouse tempPublishHouse = _publishHouseRepository.FindById(id);
+            PublishHouse tempPublishHouse = await _publishHouseRepository.FindByIdAsync(id);
 
             Mapper.Map(tempPublishHouse, publichHouse);
 

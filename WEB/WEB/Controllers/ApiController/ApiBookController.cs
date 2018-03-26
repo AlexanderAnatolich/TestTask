@@ -27,7 +27,7 @@ namespace WEB.Controllers.APIController
         {
             try
             {
-                var tempBooks = await _bookService.GelAllBooksAsync();
+                var tempBooks = await _bookService.GelAllAsync();
                 return Ok(tempBooks);
             }
             catch (Exception ex)
@@ -35,6 +35,7 @@ namespace WEB.Controllers.APIController
                 return BadRequest(ex.Message);
             }
         }
+        [Authorize]
         [HttpPost]
         public async Task<IHttpActionResult> Create(CreateBookViewModel model)
         {
@@ -44,7 +45,7 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                await _bookService.CreateBookAsync(model);
+                await _bookService.CreateAsync(model);
                 return Ok();
             }
             catch (Exception ex)
@@ -61,7 +62,7 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                await _bookService.UpdateBookAsync(model);
+                await _bookService.UpdateAsync(model);
                 return Ok();
             }
             catch (Exception ex)
@@ -78,7 +79,7 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                await _bookService.DeleteRangeAsync(model.Id);
+                await _bookService.DeleteAsync(model.Id);
                 return Ok();
             }
             catch (Exception ex)
