@@ -19,11 +19,11 @@ namespace WEB.Controllers.APIController
 
         }
         [HttpPost]
-        public IHttpActionResult Read([DataSourceRequest]DataSourceRequest request)
+        public async Task<IHttpActionResult> Read([DataSourceRequest]DataSourceRequest request)
         {
             try
             {
-                var tempPaper = _journalService.GetAllAsync();
+                var tempPaper = await _journalService.GetAllAsync();
                 return Ok(tempPaper);
             }
             catch (Exception ex)

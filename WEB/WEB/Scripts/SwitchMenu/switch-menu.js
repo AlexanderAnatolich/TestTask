@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
-    function SwitchMenu(target) {
+    target = '#KendoGridId';
         $('.book-load').unbind('click');
+
         $('.book-load').click(function () {
             var grid = GetBookGrid(target);
         });
@@ -19,5 +20,4 @@
         $('.Journal-load').click(function () {
             var grid = GetJournalGrid(target);
         });
-    }
 })

@@ -318,15 +318,12 @@ C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\Microsoft.DiaSymReader.Native.x
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\Microsoft.Win32.Primitives.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.AppContext.dll
-C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.Collections.Immutable.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.Console.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.Diagnostics.Process.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.Diagnostics.StackTrace.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.IO.Compression.dll
-C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.IO.FileSystem.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
-C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.IO.FileSystem.Primitives.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.IO.Pipes.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.Reflection.Metadata.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.Security.AccessControl.dll
@@ -583,3 +580,6 @@ C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Ninject.Web.Mvc.xml
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.pdb
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.dll.config
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.Collections.Immutable.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.IO.FileSystem.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.IO.FileSystem.Primitives.dll
