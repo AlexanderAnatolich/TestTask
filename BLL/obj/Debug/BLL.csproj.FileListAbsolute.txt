@@ -111,3 +111,5 @@ C:\Work\TestTask\MVC\TestTask\BLL\obj\Debug\BLL.pdb
 C:\Work\TestTask\MVC\TestTask\BLL\bin\Debug\Model.dll
 C:\Work\TestTask\MVC\TestTask\BLL\bin\Debug\Model.pdb
 C:\Work\TestTask\MVC\TestTask\BLL\bin\Debug\Model.dll.config
+C:\Work\TestTask\MVC\TestTask\BLL\bin\Debug\Dapper.dll
+C:\Work\TestTask\MVC\TestTask\BLL\bin\Debug\Dapper.xml

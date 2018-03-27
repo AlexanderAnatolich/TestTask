@@ -1,0 +1,10 @@
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\DALTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\DALTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\DALTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\DALTests\bin\Debug\DALTests.dll.config
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\DALTests\bin\Debug\DALTests.dll
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\DALTests\bin\Debug\DALTests.pdb
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DALTests\Debug\DALTests.csprojResolveAssemblyReference.cache
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DALTests\Debug\DALTests.csproj.CoreCompileInputs.cache
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DALTests\Debug\DALTests.dll
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DALTests\Debug\DALTests.pdb

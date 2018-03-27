@@ -583,3 +583,5 @@ C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.dll.config
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.Collections.Immutable.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.IO.FileSystem.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Dapper.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Dapper.xml

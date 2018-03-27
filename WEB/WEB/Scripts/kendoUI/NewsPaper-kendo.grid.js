@@ -58,6 +58,7 @@
 	return datasource;
 }
 function GetNewsPaperGrid(target) {
+    $(target).html("");
 	Target = target;
 	return $(target).kendoGrid({
 		dataSource: NewsPaperDataSource(),

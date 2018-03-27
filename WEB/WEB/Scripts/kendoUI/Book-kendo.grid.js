@@ -60,7 +60,8 @@
 	return datasource;
 }
 function GetBookGrid(target) {
-	Target = target;
+    Target = target;
+    $(target).html("");
 	var grid = $(target).kendoGrid({
 		dataSource: BookDataSource(),
 		groupable: true,

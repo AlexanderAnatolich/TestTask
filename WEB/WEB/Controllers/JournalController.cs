@@ -7,6 +7,7 @@ using BLL.Services;
 using Model.Models;
 using System.Configuration;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace WEB.Controllers
 {
@@ -17,13 +18,9 @@ namespace WEB.Controllers
         {
             _journalService = new JournalService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
         }
-        public ActionResult GetSearchResult(int? id)
+        public async Task<ActionResult> GetSearchResult(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            JournalViewModel result = _journalService.Get(id);
+            JournalViewModel result = await _journalService.Get(id);
             if (result == null)
             {
                 return HttpNotFound();

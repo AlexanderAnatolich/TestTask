@@ -86,6 +86,7 @@
     </Reference>
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\WEB\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -126,6 +127,7 @@
     <Compile Include="AuthorizationManagers\ApplicationUserManager.cs" />
     <Compile Include="DataContext\DataContext.cs" />
     <Compile Include="DataContext\Interface\IGenericRepository.cs" />
+    <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="Migrations\201803191052427_first.cs" />
     <Compile Include="Migrations\201803191052427_first.Designer.cs">
       <DependentUpon>201803191052427_first.cs</DependentUpon>
@@ -178,7 +180,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookGenerRelationsRepository.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
-    <Compile Include="Repositories\GenericRepository\EFGenericRepository.cs" />
     <Compile Include="Repositories\GenerRepository.cs" />
     <Compile Include="Repositories\JournalRepository.cs" />
     <Compile Include="Repositories\NewsPaperRepository.cs" />

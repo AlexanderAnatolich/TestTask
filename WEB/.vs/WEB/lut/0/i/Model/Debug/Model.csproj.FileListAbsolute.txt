@@ -1,0 +1,6 @@
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\WEB\Model\bin\Debug\Model.dll.config
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\WEB\Model\bin\Debug\Model.dll
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\WEB\Model\bin\Debug\Model.pdb
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\Model\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\Model\Debug\Model.dll
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\Model\Debug\Model.pdb

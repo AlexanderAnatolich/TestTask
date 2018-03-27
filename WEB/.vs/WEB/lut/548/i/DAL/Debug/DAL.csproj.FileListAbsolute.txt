@@ -1,0 +1,17 @@
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\DAL\bin\Debug\DAL.dll.config
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\DAL\bin\Debug\DAL.dll
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\b\DAL\bin\Debug\DAL.pdb
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.first.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.test.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.test_2.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.test_3.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.test_4.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.test_5.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.test_7.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.stf.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.np1.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.Migrations.Journal.resources
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.csproj.GenerateResource.Cache
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.dll
+C:\Work\TestTask\MVC\TestTask\WEB\.vs\WEB\lut\0\i\DAL\Debug\DAL.pdb

@@ -26,6 +26,7 @@
 };
 
 function GetSummaryGrid(target) {
+    $(target).html("");
     Target = target;
     return $(target).kendoGrid({
         dataSource: SummaryDataSource(),

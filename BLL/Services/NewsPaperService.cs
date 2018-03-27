@@ -16,14 +16,12 @@ namespace BLL.Services
 {
     public class NewsPaperService
     {
-        DataContex _modelsContext;
         PublishHouseRepository _publishHouseRepository;
         NewsPapersRepository _newsPapersRepository;
         public NewsPaperService(string connectionString)
         {
-            _modelsContext = new DataContex(connectionString);
-            _publishHouseRepository = new PublishHouseRepository(_modelsContext);
-            _newsPapersRepository = new NewsPapersRepository(_modelsContext);
+            _publishHouseRepository = new PublishHouseRepository(connectionString);
+            _newsPapersRepository = new NewsPapersRepository(connectionString);
         }
         public async Task CreateAsync(CreateNewsPaperViewModel cNPDTO)
         {
@@ -33,18 +31,16 @@ namespace BLL.Services
         }
         public async Task<IEnumerable<NewsPaperViewModel>> GetAllAsync()
         {
-            List<NewsPaper> tempNewsPapers = await _newsPapersRepository.GetAsync();
-            var result = Mapper.Map<List<NewsPaper>, List<NewsPaperViewModel>>(tempNewsPapers);
+            var result = await _newsPapersRepository.GetAllAsync();
             return result;
         }
         public async Task DeleteAsync(int id)
         {
-            var newsPaper = await _newsPapersRepository.FindByIdAsync(id);
-            _newsPapersRepository.Remove(newsPaper);
+            await _newsPapersRepository.RemoveAsync(id);
         }
         public async Task<Boolean> DeleteAsync(List<int> id)
         {
-            var result = await _newsPapersRepository.RemoveRangeAsync(x => id.Contains(x.Id));
+            var result = await _newsPapersRepository.RemoveAsync(id);
             return result;
         }
         public async Task UpdateAsync(NewsPaperViewModel tempNewsPaper)
@@ -53,7 +49,7 @@ namespace BLL.Services
             Mapper.Map(tempNewsPaper, newsPaper);
             await _newsPapersRepository.UpdateAsync(newsPaper);
         }
-        public async Task<NewsPaperViewModel> GetAsync(int? id)
+        public async Task<NewsPaperViewModel> GetAsync(int id)
         {
             NewsPaper tempPaper = await _newsPapersRepository.FindByIdAsync(id);
 

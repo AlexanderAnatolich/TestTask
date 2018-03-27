@@ -60,6 +60,7 @@
 
 function GetJournalGrid(target) {
     Target = target;
+    $(target).html("");
     return $(target).kendoGrid({
         dataSource: JournalDataSource(),
         groupable: true,

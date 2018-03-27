@@ -16,12 +16,10 @@ namespace BLL.Services
 {
     public class GenreService
     {
-        DataContex _modelsContext;
         GenerRepository _generRepository;
         public GenreService(string connectionString)
         {
-            _modelsContext = new DataContex(connectionString);
-            _generRepository = new GenerRepository(_modelsContext);
+            _generRepository = new GenerRepository(connectionString);
         }
         public async Task CreateAsync(CreateGenerViewModel model)
         {
@@ -31,13 +29,12 @@ namespace BLL.Services
         }
         public async Task<IEnumerable<GenerViewModel>> GetAllAsync()
         {
-            var tempGeners = await _generRepository.GetAsync();
+            var tempGeners = await _generRepository.GetAllAsync();
             return Mapper.Map<IEnumerable<Gener>, List<GenerViewModel>>(tempGeners);
         }
         public async Task DeleteAsync(int Id)
         {
-            var temGener = _generRepository.FindById(Id);
-            await _generRepository.RemoveAsync(temGener);
+            await _generRepository.RemoveAsync(Id);
         }
         public async Task UpdateAsync(GenerViewModel tempNewsPaper)
         {
@@ -45,7 +42,7 @@ namespace BLL.Services
             Mapper.Map(tempNewsPaper, newsGener);
             await _generRepository.UpdateAsync(newsGener);
         }
-        public async Task<GenerViewModel> Get(int? id)
+        public async Task<GenerViewModel> Get(int id)
         {
             var tempGener = await _generRepository.FindByIdAsync(id);
             var gener = new GenerViewModel();
