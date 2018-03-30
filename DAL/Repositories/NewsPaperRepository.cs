@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using DAL.DTO;
+using DAL.Models;
 using Dapper;
 using Model.Models;
 using System;
@@ -17,6 +18,36 @@ namespace DAL.Repositories
         {
             _connectionString = connectionString;
         }
+        public async Task<IEnumerable<NewsPaperDTO>> FirndByTitleAsync(string title)
+        {
+            try
+            {
+                using (var db = new SqlConnection(_connectionString))
+                {
+                    await db.OpenAsync();
+                    var sqlQuery = $@"SELECT *
+                                FROM [dbo].[NewsPapers] 
+                                LEFT JOIN [dbo].[PublishHouses]
+                                ON [dbo].[NewsPapers].[PublishHouseId] = [dbo].[PublishHouses].[Id]
+                                WHERE [dbo].[NewsPapers].[Title] LIKE @value";
+                    var invoiceDictionary = new Dictionary<int, NewsPaperDTO>();
+                    var queryResult = await db.QueryAsync<NewsPaperDTO, PublishHouse, NewsPaperDTO>(sqlQuery,
+                       (book, publishHouse) =>
+                       {
+                           book.PublishHouse = publishHouse;
+                           book.PublishHouse_Id = publishHouse.Id;
+                           return book;
+                       }, new { value = '%' + title + '%' });
+
+                    var result = queryResult.Distinct();
+                    return result;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(String.Format("{0}.WithConnection() experienced a SQL exception (not a timeout)", GetType().FullName), ex);
+            }
+        }
         public async Task<NewsPaper> CreateAsync(NewsPaper item)
         {
             try
@@ -31,15 +62,15 @@ namespace DAL.Repositories
                                    ,[DateInsert]
                                    ,[PublishHouseId]
                                    ,[PrintDate])
-                        VALUES
-                        @Title,@Price,@DateInsert,@PublishHouseId,@PrintDate";
-                    await db.QueryAsync<NewsPaper>(sqlQuery, new
+                        VALUES (@Title,
+                            @Price,@DateInsert,@PublishHouseId,@PrintDate)";
+                    await db.QueryAsync(sqlQuery, new
                     {
                         Title = item.Title,
                         Price = item.Price,
                         DateInsert = item.DateInsert,
-                        PublishHouseId= item.PublishHouseId,
-                        PrintDate = item.PrintDate                       
+                        PublishHouseId = item.PublishHouseId,
+                        PrintDate = item.PrintDate
                     });
                 }
                 return item;
@@ -53,45 +84,30 @@ namespace DAL.Repositories
                 throw new Exception(String.Format("{0}.WithConnection() experienced a SQL exception (not a timeout)", GetType().FullName), ex);
             }
         }
-        public async Task<Boolean> CreateAsync(IEnumerable<NewsPaper> item)
-        {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                await connection.OpenAsync();
-                SqlTransaction transaction = connection.BeginTransaction();
-                using (var bulkCopy = new SqlBulkCopy(connection, SqlBulkCopyOptions.Default, transaction))
-                {
-                    bulkCopy.BatchSize = 100;
-                    bulkCopy.DestinationTableName = "dbo.NewsPapers";
-                    try
-                    {
-                        await bulkCopy.WriteToServerAsync(item.AsDataTable());
-                    }
-                    catch (Exception)
-                    {
-                        transaction.Rollback();
-                        connection.Close();
-                    }
-                }
-                transaction.Commit();
-            }
-            return true;
-        }
-        public async Task<NewsPaper> FindByIdAsync(int id)
+        public async Task<NewsPaperDTO> FindByIdAsync(int id)
         {
             using (var db = new SqlConnection(_connectionString))
             {
                 await db.OpenAsync();
 
                 var sqlQuery = $@"SELECT *
-                                FROM [dbo].[NewsPapers]
-                                WHERE [Id]= @id";
-                var result = await db.QuerySingleAsync<NewsPaper>(sqlQuery, new { id=id });
-
+                                FROM [dbo].[NewsPapers] 
+                                LEFT JOIN [dbo].[PublishHouses]
+                                ON [dbo].[NewsPapers].[PublishHouseId] = [dbo].[PublishHouses].[Id]
+                                WHERE [dbo].[NewsPapers].[Id]=@id";
+                var queryResult = await db.QueryAsync<NewsPaperDTO, PublishHouse, NewsPaperDTO>(sqlQuery,
+                    (book, publishHouse) =>
+                    {
+                        book.PublishHouse = publishHouse;
+                        book.PublishHouse_Id = publishHouse.Id;
+                        return book;
+                    }, new { id = id }
+                    );
+                var result = queryResult.FirstOrDefault();
                 return result;
             }
         }
-        public async Task<IQueryable<NewsPaperViewModel>> GetAllAsync()
+        public async Task<IQueryable<NewsPaperDTO>> GetAllAsync()
         {
             try
             {
@@ -102,7 +118,7 @@ namespace DAL.Repositories
                                 FROM [dbo].[NewsPapers] 
                                 LEFT JOIN [dbo].[PublishHouses]
                                 ON [dbo].[NewsPapers].[PublishHouseId] = [dbo].[PublishHouses].[Id]";
-                    var queryResult = await db.QueryAsync<NewsPaperViewModel, PublishHouseViewModel, NewsPaperViewModel>(sqlQuery,
+                    var queryResult = await db.QueryAsync<NewsPaperDTO, PublishHouse, NewsPaperDTO>(sqlQuery,
                         (book, publishHouse) =>
                         {
                             book.PublishHouse = publishHouse;

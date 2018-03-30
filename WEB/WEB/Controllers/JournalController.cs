@@ -20,7 +20,7 @@ namespace WEB.Controllers
         }
         public async Task<ActionResult> GetSearchResult(int id)
         {
-            JournalViewModel result = await _journalService.Get(id);
+            JournalViewModel result = await _journalService.GetAsync(id);
             if (result == null)
             {
                 return HttpNotFound();

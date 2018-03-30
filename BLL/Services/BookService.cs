@@ -10,6 +10,7 @@ using Model.Models;
 using AutoMapper;
 using System.Net;
 using System.Web.Mvc;
+using DAL.DTO;
 
 namespace BLL.Services
 {
@@ -25,23 +26,16 @@ namespace BLL.Services
             _generRepository = new GenerRepository(connectionString);
             _bookGenerRelationsRepository = new BookGenerRelationsRepository(connectionString);
         }
-        public async Task<IQueryable<BookViewModel>> GelAllAsync()
+        public async Task<List<BookViewModel>> GelAllAsync()
         {
-            var result = await _bookRepository.GetAllAsync();
+            var resultQuery = await _bookRepository.GetAllAsync();
+            var result = Mapper.Map<List<BookViewModel>>(resultQuery.ToList());
             return result;
         }
         public async Task CreateAsync(CreateBookViewModel inputModel)
         {
-            var tempBook = Mapper.Map<Book>(inputModel);
-            var item = await _bookRepository.CreateAsync(tempBook);
-            
-            var relations = inputModel.Genre.Select(x => new BookGenerRelations()
-            {
-                BookId = item.Id,
-                GenreId = x.Id
-            });
-
-            await _bookGenerRelationsRepository.CreateAsync(relations);
+            var tempBook = Mapper.Map<BookDTO>(inputModel);
+            await _bookRepository.CreateAsync(tempBook);
         }
         public async Task UpdateAsync(BookViewModel tempNewsPaper)
         {
@@ -51,23 +45,15 @@ namespace BLL.Services
         }
         public async Task<BookViewModel> GetAsync(int id)
         {
-            Book tempBook = await _bookRepository.FindByIdAsync(id);
-
-            if (tempBook == null) return null;
-
-            var book = new BookViewModel();
-
-            Mapper.Map(tempBook, book);
-            var resultSelect = await _bookGenerRelationsRepository.GetAllAsync();
-            var nm = from q in resultSelect
-                     where q.BookId== book.Id
-                     select q;
-            var t = from q in nm
-                    where q.BookId == book.Id
-                    select q.Gener;
-            var g = t.ToList();
-            book.Genre = Mapper.Map<IEnumerable<Gener>, List<GenerViewModel>>(g);
-            return book;
+            var tempBook = await _bookRepository.FindByIdAsync(id);
+            var result = Mapper.Map<BookDTO, BookViewModel>(tempBook);
+            return result;
+        }
+        public async Task<List<BookViewModel>> FirndByTitleAsync(string title)
+        {
+            var tempBook = await _bookRepository.FirndByTitleAsync(title);
+            var result = Mapper.Map<IEnumerable<BookDTO>, List<BookViewModel>>(tempBook);
+            return result;
         }
         public async Task DeleteAsync(int id)
         {

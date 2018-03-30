@@ -545,7 +545,10 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\kendoUI\common_grid_method\methods.js" />
+    <Content Include="Scripts\kendoSearchUI\Search-Book-kendo.grid.js" />
+    <Content Include="Scripts\kendoSearchUI\Search-Journal-kendo.grid.js" />
+    <Content Include="Scripts\kendoSearchUI\Search-NewsPaper-kendo.grid.js" />
+    <Content Include="Scripts\kendoSearchUI\Summary-kendo-grid.js" />
     <Content Include="Scripts\kendoUI\Journal-kendo.grid.js" />
     <Content Include="Scripts\kendo\jszip.min.js" />
     <Content Include="Scripts\kendo\kendo.all.js" />
@@ -572,8 +575,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\NewsPapers\About.cshtml" />
-    <Content Include="Views\NewsPapers\Contact.cshtml" />
     <Content Include="Views\Book\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -592,7 +593,6 @@
     <Folder Include="Files\" />
     <Folder Include="Helper\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\PaperPublishHouse\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

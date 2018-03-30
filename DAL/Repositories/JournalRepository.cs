@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using DAL.DTO;
+using DAL.Models;
 using Dapper;
 using Model.Models;
 using System;
@@ -33,8 +34,8 @@ namespace DAL.Repositories
                                    ,[DateInsert]
                                    ,[PublishHouseId])
                         VALUES
-                        @Title,@YearOfPublish,@Price,@DateInsert,@PublishHouseId";
-                    await db.QueryAsync<Journal>(sqlQuery, new
+                        (@Title,@YearOfPublish,@Price,@DateInsert,@PublishHouseId)";
+                    var result = await db.QueryAsync<Journal>(sqlQuery, new
                     {
                         Title = item.Title,
                         YearOfPublish = item.YearOfPublish,
@@ -42,8 +43,8 @@ namespace DAL.Repositories
                         DateInsert = item.DateInsert,
                         PublishHouseId = item.PublishHouseId
                     });
+                    return result.First();
                 }
-                return item;
             }
             catch (TimeoutException ex)
             {
@@ -78,21 +79,28 @@ namespace DAL.Repositories
             }
             return true;
         }
-        public async Task<Journal> FindByIdAsync(int id)
+        public async Task<JournalDTO> FindByIdAsync(int id)
         {
             using (var db = new SqlConnection(_connectionString))
             {
                 await db.OpenAsync();
-
                 var sqlQuery = $@"SELECT *
-                                FROM [dbo].[Journals]
-                                WHERE [Id]= @id";
-                var result = await db.QuerySingleAsync<Journal>(sqlQuery, new { id = id });
-
+                                FROM [dbo].[Journals] 
+                                LEFT JOIN [dbo].[PublishHouses]
+                                ON [dbo].[Journals].[PublishHouseId] = [dbo].[PublishHouses].[Id]";
+                var queryResult = await db.QueryAsync<JournalDTO, PublishHouse, JournalDTO>(sqlQuery,
+                    (book, publishHouse) =>
+                    {
+                        book.PublishHouse = publishHouse;
+                        book.PublishHouseId = publishHouse.Id;
+                        return book;
+                    }
+                    );
+                var result = queryResult.FirstOrDefault();
                 return result;
             }
         }
-        public async Task<IQueryable<JournalViewModel>> GetAllAsync()
+        public async Task<IEnumerable<JournalViewModel>> GetAllAsync()
         {
             try
             {
@@ -111,8 +119,7 @@ namespace DAL.Repositories
                             return book;
                         }
                         );
-                    var result = queryResult.AsQueryable();
-                    return result;
+                    return queryResult;
                 }
             }
             catch (SqlException ex)
@@ -138,6 +145,35 @@ namespace DAL.Repositories
                     });
 
                     return true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(String.Format("{0}.WithConnection() experienced a SQL exception (not a timeout)", GetType().FullName), ex);
+            }
+        }
+        public async Task<IEnumerable<JournalDTO>> FirndByTitleAsync(string title)
+        {
+            try
+            {
+                using (var db = new SqlConnection(_connectionString))
+                {
+                    await db.OpenAsync();
+                    var sqlQuery = $@"SELECT* FROM[dbo].[Journals]
+                                      LEFT JOIN[dbo].[PublishHouses]
+                                      ON[dbo].[Journals].[PublishHouseId] = [dbo].[PublishHouses].[Id]
+                                      WHERE [dbo].[Journals].[Title] LIKE @value";
+                    var invoiceDictionary = new Dictionary<int, JournalDTO>();
+                    var queryResult = await db.QueryAsync<JournalDTO, PublishHouse, JournalDTO>(sqlQuery,
+                    (book, publishHouse) =>
+                    {
+                        book.PublishHouse = publishHouse;
+                        book.PublishHouseId = publishHouse.Id;
+                        return book;
+                    }, new { value = '%' + title + '%' });
+
+                    var result = queryResult.Distinct();
+                    return result;
                 }
             }
             catch (SqlException ex)

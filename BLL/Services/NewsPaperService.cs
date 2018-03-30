@@ -23,15 +23,16 @@ namespace BLL.Services
             _publishHouseRepository = new PublishHouseRepository(connectionString);
             _newsPapersRepository = new NewsPapersRepository(connectionString);
         }
-        public async Task CreateAsync(CreateNewsPaperViewModel cNPDTO)
+        public async Task CreateAsync(CreateNewsPaperViewModel model)
         {
-            NewsPaper tempPaper = Mapper.Map<NewsPaper>(cNPDTO);
+            NewsPaper tempPaper = Mapper.Map<NewsPaper>(model);
             tempPaper.PublishHouse = null;
             await _newsPapersRepository.CreateAsync(tempPaper);
         }
         public async Task<IEnumerable<NewsPaperViewModel>> GetAllAsync()
         {
-            var result = await _newsPapersRepository.GetAllAsync();
+            var resultRequest = await _newsPapersRepository.GetAllAsync();
+            var result = Mapper.Map<IEnumerable<NewsPaperViewModel>>(resultRequest);
             return result;
         }
         public async Task DeleteAsync(int id)
@@ -51,10 +52,15 @@ namespace BLL.Services
         }
         public async Task<NewsPaperViewModel> GetAsync(int id)
         {
-            NewsPaper tempPaper = await _newsPapersRepository.FindByIdAsync(id);
+            var resultQuery = await _newsPapersRepository.FindByIdAsync(id);
 
-            var result = Mapper.Map<NewsPaperViewModel>(tempPaper);
-
+            var result = Mapper.Map<NewsPaperViewModel>(resultQuery);
+            return result;
+        }
+        public async Task<List<NewsPaperViewModel>> FirndByTitleAsync(string partialTitle)
+        {
+            var resultQuery = await _newsPapersRepository.FirndByTitleAsync(partialTitle);
+            var result = Mapper.Map<List<NewsPaperViewModel>>(resultQuery);
             return result;
         }
     }

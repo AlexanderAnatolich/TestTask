@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.Models
 {
-    public class BookAndPaperViewModel
+    public class SummaryViewModel
     {
         public bool Check { get; set; }
         public string Type { get; set; }

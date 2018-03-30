@@ -127,6 +127,9 @@
     <Compile Include="AuthorizationManagers\ApplicationUserManager.cs" />
     <Compile Include="DataContext\DataContext.cs" />
     <Compile Include="DataContext\Interface\IGenericRepository.cs" />
+    <Compile Include="DTO\BookDTO.cs" />
+    <Compile Include="DTO\JournalDTO.cs" />
+    <Compile Include="DTO\NewPaperDTO.cs" />
     <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="Migrations\201803191052427_first.cs" />
     <Compile Include="Migrations\201803191052427_first.Designer.cs">

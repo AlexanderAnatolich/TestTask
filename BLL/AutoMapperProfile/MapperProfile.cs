@@ -7,6 +7,8 @@ using DAL.Models;
 using DAL.Models.AuthorizationModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using DAL.DTO;
+using System.Collections.Generic;
 
 namespace BLL.AutoMapperProfile
 {
@@ -37,6 +39,18 @@ namespace BLL.AutoMapperProfile
             CreateMap<PublishHouse, CreatePublishHousViewModel>();
             CreateMap<PublishHouseViewModel, PublishHouse>();
 
+            CreateMap<BookDTO, BookViewModel>()
+                .ForMember(item => item.Genre, opt => opt.MapFrom(gh=>gh.Genre))
+                .ForMember(item => item.PublishHouse, opt => opt.MapFrom(gh => gh.PublishHouse));           
+            CreateMap<CreateBookViewModel, BookDTO>()
+                .ForMember(item => item.Genre, opt => opt.MapFrom(gh => gh.Genre))
+                .ForMember(item => item.PublishHouse, opt => opt.MapFrom(gh => gh.PublishHouse))
+                .ForMember(item=>item.Id,opt=>opt.Ignore());
+
+            CreateMap<NewsPaperDTO, NewsPaperViewModel>()
+                .ForMember(item => item.PublishHouse_Id, opt => opt.MapFrom(gh => gh.PublishHouse.Id))
+                .ForMember(item => item.PublishHouse, opt => opt.MapFrom(gh => gh.PublishHouse));
+
             CreateMap<BookViewModel, Book>()
                 .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id));
             CreateMap<Book, BookViewModel>()
@@ -63,10 +77,10 @@ namespace BLL.AutoMapperProfile
                  .ForMember(item => item.Id, opt => opt.Ignore())
                  .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id));
 
-            CreateMap<BookViewModel, BookAndPaperViewModel>()
+            CreateMap<BookViewModel, SummaryViewModel>()
                 .ForMember(item => item.Type, opt => opt.UseValue("Book"))
                 .ForMember(item => item.Check, opt => opt.UseValue(false));
-            CreateMap<NewsPaperViewModel, BookAndPaperViewModel>()
+            CreateMap<NewsPaperViewModel, SummaryViewModel>()
                 .ForMember(item => item.Type, opt => opt.UseValue("News Paper"))
                 .ForMember(item => item.Author, opt => opt.UseValue("-"))
                 .ForMember(item => item.YearOfPublish, opt => opt.MapFrom(src => src.PrintDate))
@@ -76,8 +90,12 @@ namespace BLL.AutoMapperProfile
                 .ForMember(item => item.Id, opt => opt.Ignore())
                 .ForMember(item => item.PublishHouseId, opt => opt.MapFrom(src => src.PublishHouse.Id))
                 .ForMember(item => item.PublishHouse, opt => opt.Ignore());
+
             CreateMap<JournalViewModel, Journal>();
             CreateMap<Journal, JournalViewModel>();
+
+            CreateMap<JournalDTO, JournalViewModel>();
+
         }
     }
 }

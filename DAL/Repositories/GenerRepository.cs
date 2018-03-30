@@ -60,7 +60,7 @@ namespace DAL.Repositories
                 return result;
             }
         }
-        public async Task<IQueryable<Gener>> GetAllAsync()
+        public async Task<IEnumerable<Gener>> GetAllAsync()
         {
             try
             {
@@ -70,8 +70,7 @@ namespace DAL.Repositories
                     var sqlQuery = $@"SELECT *
                                 FROM [dbo].[Geners]";
                     var queryResult = await db.QueryAsync<Gener>(sqlQuery);
-                    var result = queryResult.AsQueryable();
-                    return result;
+                    return queryResult;
                 }
             }
             catch (SqlException ex)

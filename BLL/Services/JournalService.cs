@@ -39,18 +39,23 @@ namespace BLL.Services
             Mapper.Map(inputJournalModel, tempJournal);
             await _journalRepository.UpdateAsync(tempJournal);
         }
-        public async Task<JournalViewModel> Get(int id)
+        public async Task<JournalViewModel> GetAsync(int id)
         {
-            Journal tempJournal = await  _journalRepository.FindByIdAsync(id);
-            JournalViewModel result = new JournalViewModel();
+            var tempJournal = await  _journalRepository.FindByIdAsync(id);
 
-            Mapper.Map(tempJournal, result);
+            var result = Mapper.Map<JournalViewModel>(tempJournal);
 
             return result;
         }
         public async Task<Boolean> DeleteRangeAsync(List<int> id)
         {
             var result = await _journalRepository.RemoveAsync(id);
+            return result;
+        }
+        public async Task<List<JournalViewModel>> FirndByTitleAsync(string partialTitle)
+        {
+            var resultQuery = await _journalRepository.FirndByTitleAsync(partialTitle);
+            var result = Mapper.Map<List<JournalViewModel>>(resultQuery);
             return result;
         }
     }

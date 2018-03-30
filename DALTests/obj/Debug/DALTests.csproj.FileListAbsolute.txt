@@ -53,3 +53,5 @@ C:\Work\TestTask\MVC\TestTask\DALTests\bin\Debug\System.Web.WebPages.xml
 C:\Work\TestTask\MVC\TestTask\DALTests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Work\TestTask\MVC\TestTask\DALTests\bin\Debug\System.Web.Razor.xml
 C:\Work\TestTask\MVC\TestTask\DALTests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Work\TestTask\MVC\TestTask\DALTests\bin\Debug\DALTests.dll.CodeAnalysisLog.xml
+C:\Work\TestTask\MVC\TestTask\DALTests\bin\Debug\DALTests.dll.lastcodeanalysissucceeded

@@ -48,5 +48,33 @@ namespace DAL.Repositories.Tests
                     ).Distinct().AsQueryable();
             }
         }
+
+        [TestMethod()]
+        public async Task CreateAsyncTestBGAsync()
+        {
+            List<BookGenerRelations> item= new List<BookGenerRelations>()
+            {
+                new BookGenerRelations(){ BookId=43,GenreId=1 },
+                new BookGenerRelations(){ BookId=43,GenreId=3 },
+                new BookGenerRelations(){ BookId=43,GenreId=4 }
+            };
+            using (SqlConnection connection = new SqlConnection(@"data source=DESKTOP-1RUU7VH\ANATOLICHDB;initial catalog=MyDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
+            {
+                await connection.OpenAsync();
+                
+
+                var sql = $@"INSERT INTO [dbo].[BookGenerRelations]
+                          ([BookId],[GenreId])
+                          VALUES(@BookId,@GenreId)";
+                try
+                {
+                    await connection.ExecuteAsync(sql, item);
+                }
+                catch (Exception e)
+                { 
+                    connection.Close();
+                }
+            }
+        }
     }
 }
