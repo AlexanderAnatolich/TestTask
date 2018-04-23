@@ -24,8 +24,9 @@ C:\Work\TestTask\MVC\TestTask\WEB\Model\bin\Release\System.Web.Razor.xml
 C:\Work\TestTask\MVC\TestTask\WEB\Model\bin\Release\System.Web.WebPages.xml
 C:\Work\TestTask\MVC\TestTask\WEB\Model\bin\Release\System.Web.WebPages.Deployment.xml
 C:\Work\TestTask\MVC\TestTask\WEB\Model\bin\Release\System.Web.WebPages.Razor.xml
-C:\Work\TestTask\MVC\TestTask\WEB\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
 C:\Work\TestTask\MVC\TestTask\WEB\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
 C:\Work\TestTask\MVC\TestTask\WEB\Model\obj\Release\Model.csproj.CopyComplete
 C:\Work\TestTask\MVC\TestTask\WEB\Model\obj\Release\Model.dll
 C:\Work\TestTask\MVC\TestTask\WEB\Model\obj\Release\Model.pdb
+C:\Work\TestTask\MVC\TestTask\WEB\Model\bin\Release\Model.dll.CodeAnalysisLog.xml
+C:\Work\TestTask\MVC\TestTask\WEB\Model\bin\Release\Model.dll.lastcodeanalysissucceeded

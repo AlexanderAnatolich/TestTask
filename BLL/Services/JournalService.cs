@@ -14,12 +14,10 @@ namespace BLL.Services
     
     public class JournalService
     {
-        private DataContex _modelsContext;
         private JournalRepository _journalRepository;
         public JournalService(string connectionString)
         {
-            _modelsContext = new DataContex(connectionString);
-            _journalRepository = new JournalRepository(_modelsContext);
+            _journalRepository = new JournalRepository(connectionString);
         }
         public async Task CreateAsync(CreateJournalViewModel inputItem)
         {
@@ -28,14 +26,12 @@ namespace BLL.Services
         }
         public async Task<List<JournalViewModel>> GetAllAsync()
         {
-            IEnumerable<Journal> tempJournal = await _journalRepository.GetAsync();
-            var returnValue = Mapper.Map<List<JournalViewModel>>(tempJournal);
-            return returnValue;
+            var returnValue = await _journalRepository.GetAllAsync();
+            return returnValue.ToList();
         }
         public async Task DeleteAsync(int Id)
         {
-            var temJournal = _journalRepository.FindById(Id);
-            await _journalRepository.RemoveAsync(temJournal);
+            await _journalRepository.RemoveAsync(Id);
         }
         public async Task UpdateAsync(JournalViewModel inputJournalModel)
         {
@@ -43,18 +39,23 @@ namespace BLL.Services
             Mapper.Map(inputJournalModel, tempJournal);
             await _journalRepository.UpdateAsync(tempJournal);
         }
-        public JournalViewModel Get(int? id)
+        public async Task<JournalViewModel> GetAsync(int id)
         {
-            Journal tempJournal = _journalRepository.FindById(id);
-            JournalViewModel result = new JournalViewModel();
+            var tempJournal = await  _journalRepository.FindByIdAsync(id);
 
-            Mapper.Map(tempJournal, result);
+            var result = Mapper.Map<JournalViewModel>(tempJournal);
 
             return result;
         }
         public async Task<Boolean> DeleteRangeAsync(List<int> id)
         {
-            var result = await _journalRepository.RemoveRangeAsync(x => id.Contains(x.Id));
+            var result = await _journalRepository.RemoveAsync(id);
+            return result;
+        }
+        public async Task<List<JournalViewModel>> FirndByTitleAsync(string partialTitle)
+        {
+            var resultQuery = await _journalRepository.FirndByTitleAsync(partialTitle);
+            var result = Mapper.Map<List<JournalViewModel>>(resultQuery);
             return result;
         }
     }

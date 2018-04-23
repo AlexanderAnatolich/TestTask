@@ -67,3 +67,5 @@ C:\Work\TestTask\MVC\TestTask\DAL\obj\Release\DAL.Migrations.np1.resources
 C:\Work\TestTask\MVC\TestTask\DAL\obj\Release\DAL.Migrations.Journal.resources
 C:\Work\TestTask\MVC\TestTask\DAL\obj\Release\DAL.csproj.GenerateResource.cache
 C:\Work\TestTask\MVC\TestTask\DAL\obj\Release\DAL.csproj.CopyComplete
+C:\Work\TestTask\MVC\TestTask\DAL\bin\Release\DAL.dll.CodeAnalysisLog.xml
+C:\Work\TestTask\MVC\TestTask\DAL\bin\Release\DAL.dll.lastcodeanalysissucceeded

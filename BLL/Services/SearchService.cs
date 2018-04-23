@@ -13,29 +13,25 @@ namespace BLL.Services
         private BookService _bookService;
         private NewsPaperService _newsPaperService;
         private JournalService _journalService;
-
-        public async Task<List<BookViewModel>> GetBooks(string partialTitle)
+        public SearchService(string _connectionString)
         {
-            _bookService = new BookService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
-            var books = await _bookService.GelAllAsync();
-            var resultSearch = books.Where(s => s.Title.Contains(partialTitle)).ToList();
+            _journalService = new JournalService(_connectionString);
+            _bookService = new BookService(_connectionString);
+            _newsPaperService = new NewsPaperService(_connectionString);
+        }
+        public async Task<List<BookViewModel>> FindBookByTitleAsync(string partialTitle)
+        {           
+            var resultSearch = await _bookService.FirndByTitleAsync(partialTitle);
             return resultSearch;
         }
-        public async Task<List<NewsPaperViewModel>> GetNewsPaper(string partialTitle)
-        {
-            _newsPaperService = new NewsPaperService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
-            var newsPaper = await _newsPaperService.GetAllAsync();
-            var resultSearch = newsPaper.Where(s => s.Title.Contains(partialTitle)).ToList();
+        public async Task<List<NewsPaperViewModel>> FindNewsPaperByTitleAsync(string partialTitle)
+        {           
+            var resultSearch = await _newsPaperService.FirndByTitleAsync(partialTitle);
             return resultSearch;
         }
-        public async Task<List<JournalViewModel>> GetJournal(string partialTitle)
+        public async Task<List<JournalViewModel>> FindJournalByTitleAsync(string partialTitle)
         {
-            _journalService = new JournalService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
-
-            var allJournal = await _journalService.GetAllAsync();
-            var SearchList = (from m in allJournal
-                              select m).ToList();
-            var resultSearch = SearchList.Where(s => s.Title.Contains(partialTitle)).ToList();
+            var resultSearch = await _journalService.FirndByTitleAsync(partialTitle);
             return resultSearch;
         }
     }

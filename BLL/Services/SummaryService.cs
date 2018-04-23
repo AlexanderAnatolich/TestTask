@@ -22,14 +22,14 @@ namespace BLL.Services
             _bookService = new BookService(connectionString);
             _newsPaperService = new NewsPaperService(connectionString);
         }
-        public async Task<List<BookAndPaperViewModel>> Calculate()
+        public async Task<List<SummaryViewModel>> Calculate()
         {
-            var Convertmodel = new List<BookAndPaperViewModel>();
+            var Convertmodel = new List<SummaryViewModel>();
             var allBooks = await _bookService.GelAllAsync();
             var allNewsPaper = await _newsPaperService.GetAllAsync();
-            List<BookAndPaperViewModel> tempParam = new List<BookAndPaperViewModel>();
+            List<SummaryViewModel> tempParam = new List<SummaryViewModel>();
 
-            Convertmodel.AddRange(Mapper.Map<IEnumerable<BookViewModel>, List<BookAndPaperViewModel>>(allBooks, tempParam));
+            Convertmodel.AddRange(Mapper.Map<IEnumerable<BookViewModel>, List<SummaryViewModel>>(allBooks, tempParam));
             Convertmodel.AddRange(Mapper.Map(allNewsPaper, tempParam));
 
             return Convertmodel;

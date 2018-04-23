@@ -21,19 +21,22 @@ namespace WEB.Controllers
         {
             bookService = new BookService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
         }
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(int id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                BookViewModel book = await bookService.GetAsync(id);
+                if (book == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView(book);
             }
-            BookViewModel book = await bookService.GetAsync(id);
-            if (book == null)
+            catch(Exception e)
             {
-                return HttpNotFound();
+                var t = e.Message;
             }
-            return PartialView(book);
+            return PartialView();
         }
     }
 }

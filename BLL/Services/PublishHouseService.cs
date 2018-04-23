@@ -14,12 +14,10 @@ namespace BLL.Services
 {
     public class PublishHouseService
     {
-        DataContex _modelsContext;
         PublishHouseRepository _publishHouseRepository;
         public PublishHouseService(string connectionString)
         {
-            _modelsContext = new DataContex(connectionString);
-            _publishHouseRepository = new PublishHouseRepository(_modelsContext);
+            _publishHouseRepository = new PublishHouseRepository(connectionString);
         }
         public async Task CreateAsync(CreatePublishHousViewModel model)
         {           
@@ -28,13 +26,13 @@ namespace BLL.Services
         }
         public async Task<IEnumerable<PublishHouseViewModel>> GetAllAsync()
         {
-            var tempPublishHouse = await _publishHouseRepository.GetAsync();
+            var tempPublishHouse = await _publishHouseRepository.GetAllAsync();
             return Mapper.Map<IEnumerable<PublishHouse>, IEnumerable<PublishHouseViewModel>>(tempPublishHouse);
         }
         public async Task DeleteAsync(int id)
         {
             var tempPublishHouse = await _publishHouseRepository.FindByIdAsync(id);
-            _publishHouseRepository.Remove(tempPublishHouse);
+            await _publishHouseRepository.RemoveAsync(tempPublishHouse.Id);
         }
         public async Task UpdateAsync(PublishHouseViewModel tempNewsPaper)
         {
@@ -42,7 +40,7 @@ namespace BLL.Services
             Mapper.Map(tempNewsPaper, newsPaper);
             await _publishHouseRepository.UpdateAsync(newsPaper);
         }
-        public async Task<PublishHouseViewModel> GetAsync(int? id)
+        public async Task<PublishHouseViewModel> GetAsync(int id)
         {
             var publichHouse = new PublishHouseViewModel();
 
