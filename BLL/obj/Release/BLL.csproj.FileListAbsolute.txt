@@ -53,3 +53,7 @@ C:\Work\TestTask\MVC\TestTask\BLL\obj\Release\BLL.csprojResolveAssemblyReference
 C:\Work\TestTask\MVC\TestTask\BLL\obj\Release\BLL.csproj.CoreCompileInputs.cache
 C:\Work\TestTask\MVC\TestTask\BLL\obj\Release\BLL.dll
 C:\Work\TestTask\MVC\TestTask\BLL\obj\Release\BLL.pdb
+C:\Work\TestTask\MVC\TestTask\BLL\bin\Release\Model.dll
+C:\Work\TestTask\MVC\TestTask\BLL\bin\Release\Model.pdb
+C:\Work\TestTask\MVC\TestTask\BLL\bin\Release\Model.dll.config
+C:\Work\TestTask\MVC\TestTask\BLL\obj\Release\BLL.csproj.CopyComplete

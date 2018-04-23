@@ -282,3 +282,9 @@ C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Twilio.xml
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\AutoMapper.xml
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\obj\Release\WEB.dll
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\obj\Release\WEB.pdb
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Dapper.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.dll
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.pdb
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.dll.config
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Dapper.xml
+C:\Work\TestTask\MVC\TestTask\WEB\WEB\obj\Release\WEB.csproj.CopyComplete

@@ -110,3 +110,6 @@ C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\System.Web.Razor.xml
 C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\System.Web.WebPages.xml
 C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\Dapper.dll
+C:\Work\TestTask\MVC\TestTask\DAL\bin\Debug\Dapper.xml
+C:\Work\TestTask\MVC\TestTask\DAL\obj\Debug\DAL.csproj.CopyComplete
