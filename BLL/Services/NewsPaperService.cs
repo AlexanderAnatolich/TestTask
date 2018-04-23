@@ -16,32 +16,35 @@ namespace BLL.Services
 {
     public class NewsPaperService
     {
+        DataContex _modelsContext;
         PublishHouseRepository _publishHouseRepository;
         NewsPapersRepository _newsPapersRepository;
         public NewsPaperService(string connectionString)
         {
-            _publishHouseRepository = new PublishHouseRepository(connectionString);
-            _newsPapersRepository = new NewsPapersRepository(connectionString);
+            _modelsContext = new DataContex(connectionString);
+            _publishHouseRepository = new PublishHouseRepository(_modelsContext);
+            _newsPapersRepository = new NewsPapersRepository(_modelsContext);
         }
-        public async Task CreateAsync(CreateNewsPaperViewModel model)
+        public async Task CreateAsync(CreateNewsPaperViewModel cNPDTO)
         {
-            NewsPaper tempPaper = Mapper.Map<NewsPaper>(model);
+            NewsPaper tempPaper = Mapper.Map<NewsPaper>(cNPDTO);
             tempPaper.PublishHouse = null;
             await _newsPapersRepository.CreateAsync(tempPaper);
         }
         public async Task<IEnumerable<NewsPaperViewModel>> GetAllAsync()
         {
-            var resultRequest = await _newsPapersRepository.GetAllAsync();
-            var result = Mapper.Map<IEnumerable<NewsPaperViewModel>>(resultRequest);
+            List<NewsPaper> tempNewsPapers = await _newsPapersRepository.GetAsync();
+            var result = Mapper.Map<List<NewsPaper>, List<NewsPaperViewModel>>(tempNewsPapers);
             return result;
         }
         public async Task DeleteAsync(int id)
         {
-            await _newsPapersRepository.RemoveAsync(id);
+            var newsPaper = await _newsPapersRepository.FindByIdAsync(id);
+            _newsPapersRepository.Remove(newsPaper);
         }
         public async Task<Boolean> DeleteAsync(List<int> id)
         {
-            var result = await _newsPapersRepository.RemoveAsync(id);
+            var result = await _newsPapersRepository.RemoveRangeAsync(x => id.Contains(x.Id));
             return result;
         }
         public async Task UpdateAsync(NewsPaperViewModel tempNewsPaper)
@@ -50,17 +53,12 @@ namespace BLL.Services
             Mapper.Map(tempNewsPaper, newsPaper);
             await _newsPapersRepository.UpdateAsync(newsPaper);
         }
-        public async Task<NewsPaperViewModel> GetAsync(int id)
+        public async Task<NewsPaperViewModel> GetAsync(int? id)
         {
-            var resultQuery = await _newsPapersRepository.FindByIdAsync(id);
+            NewsPaper tempPaper = await _newsPapersRepository.FindByIdAsync(id);
 
-            var result = Mapper.Map<NewsPaperViewModel>(resultQuery);
-            return result;
-        }
-        public async Task<List<NewsPaperViewModel>> FirndByTitleAsync(string partialTitle)
-        {
-            var resultQuery = await _newsPapersRepository.FirndByTitleAsync(partialTitle);
-            var result = Mapper.Map<List<NewsPaperViewModel>>(resultQuery);
+            var result = Mapper.Map<NewsPaperViewModel>(tempPaper);
+
             return result;
         }
     }

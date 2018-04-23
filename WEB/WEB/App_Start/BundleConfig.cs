@@ -25,17 +25,15 @@ namespace WEB
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/kendo.bootstrap-v4.min.css"));
-            
+                      "~/Content/site.css"));
             bundles.Add(new ScriptBundle("~/bundles/CustomKendoUI").Include(
-                "~/Scripts/kendo/jszip.min.js",
-                "~/Scripts/kendo/kendo.all.js",
+                "~/Scripts/kendoUI/common_grid_method/methods.js",
                 "~/Scripts/kendoUI/Book-kendo.grid.js",
                 "~/Scripts/kendoUI/Journal-kendo.grid.js",
                 "~/Scripts/kendoUI/NewsPaper-kendo.grid.js",
                 "~/Scripts/kendoUI/Summary-kendo-grid.js"              
                 ));
+
             bundles.Add(new ScriptBundle("~/bundles/switch-menu.js").Include(
                 "~/Scripts/SwitchMenu/switch-menu.js"
                 ));

@@ -1,22 +1,23 @@
 ﻿$(document).ready(function () {
+    target = '#KendoGridId';
         $('.book-load').unbind('click');
 
         $('.book-load').click(function () {
-            var grid = GetBookGrid('#KendoGridId');
+            var grid = GetBookGrid(target);
         });
 
         $('.Summary-load').unbind('click');
         $('.Summary-load').click(function () {
-            var grid = GetSummaryGrid('#KendoGridId');
+            var grid = GetSummaryGrid(target);
         });
 
         $('.News-Paper').unbind('click');
         $('.News-Paper').click(function () {
-            var grid = GetNewsPaperGrid('#KendoGridId');
+            var grid = GetNewsPaperGrid(target);
         });
 
         $('.Journal-load').unbind('click');
         $('.Journal-load').click(function () {
-            var grid = GetJournalGrid('#KendoGridId');
+            var grid = GetJournalGrid(target);
         });
 })

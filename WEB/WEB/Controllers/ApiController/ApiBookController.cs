@@ -35,7 +35,7 @@ namespace WEB.Controllers.APIController
                 return BadRequest(ex.Message);
             }
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IHttpActionResult> Create(CreateBookViewModel model)
         {
@@ -53,7 +53,6 @@ namespace WEB.Controllers.APIController
                 return BadRequest(ex.Message);
             }
         }
-
         [HttpPost]
         public async Task<IHttpActionResult> Update(BookViewModel model)
         {
@@ -71,9 +70,8 @@ namespace WEB.Controllers.APIController
                 return BadRequest(ex.Message);
             }
         }
-
         [HttpPost]
-        public async Task<IHttpActionResult> Delete(GetIdViewModel model)
+        public async Task<IHttpActionResult> Delete(DeleteDTO model)
         {
             if (!ModelState.IsValid)
             {
@@ -83,20 +81,6 @@ namespace WEB.Controllers.APIController
             {
                 await _bookService.DeleteAsync(model.Id);
                 return Ok();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpPost]
-        public async Task<IHttpActionResult> GetById(GetIdViewModel request)
-        {
-            try
-            {
-                var tempBooks = await _bookService.GetAsync(request.Id);
-                return Ok(tempBooks);
             }
             catch (Exception ex)
             {

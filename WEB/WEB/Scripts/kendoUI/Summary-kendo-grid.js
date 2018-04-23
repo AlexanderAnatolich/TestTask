@@ -1,55 +1,4 @@
-﻿'use strict'
-var CheckedType = [];
-var CheckedId = [];
-var CheckedRow = [];
-var Target;
-
-function SaveAsXML() {
-    var url = 'Save/SaveAsXML' + "?";
-
-    for (var i = 0; i < CheckedId.length; ++i) {
-        url += "CId=" + CheckedId[i] + "&" + "CT=" + CheckedType[i] + "&";
-    }
-    window.location.href = url;
-};
-
-function SaveAsJSON() {
-    var url = 'Save/SaveAsJSON' + "?";
-
-    for (var i = 0; i < CheckedId.length; ++i) {
-        url += "CId=" + CheckedId[i] + "&" + "CT=" + CheckedType[i] + "&";
-    }
-    window.location.href = url;
-};
-
-var _dateToString = function (date) {
-    return kendo.toString(kendo.parseDate(date), "G");
-};
-
-function onChange(e) {
-    CheckedType = [];
-    CheckedId = [];
-    var rows = e.sender.select();
-    rows.each(function (e) {
-        var grid = $(Target).data("kendoGrid");
-        var dataItem = grid.dataItem(this);
-        CheckedType.push(dataItem['Type']);
-        CheckedId.push(dataItem['Id']);
-        CheckedRow.push(dataItem);
-    });
-};
-function whenYourDeleteButtonIsClicked() {
-    if (CheckedId.length === 0) {
-        alert("You don't select anything");
-    }
-    var grid = $(Target).data("kendoGrid");
-    var finde = $(Target).find("input:checked");
-    finde.each(function () {
-        var row = $(this).closest('tr');
-        grid.removeRow(row);
-    })
-}
-function SummaryDataSource() {
+﻿function SummaryDataSource() {
     var datasource = new kendo.data.DataSource({
         transport: {
             read: {
@@ -78,7 +27,6 @@ function SummaryDataSource() {
 
 function GetSummaryGrid(target) {
     Target = target;
-    $(target).empty().html("");
     return $(target).kendoGrid({
         dataSource: SummaryDataSource(),
         groupable: true,

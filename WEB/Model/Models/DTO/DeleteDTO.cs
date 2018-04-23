@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model.Models.DTO
 {
-    public class GetIdViewModel
+    public class DeleteDTO
     {
-        public int Id { get; set; }
+        public List<int> Id { get; set; }
     }
 }

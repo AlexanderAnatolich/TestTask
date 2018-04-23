@@ -11,6 +11,7 @@ namespace DAL.Models
         public DateTime YearOfPublish { get; set; }
         public double Price { get; set; }
         public DateTime DateInsert { get; set; }
+        [ForeignKey("PublishHouse")]
         public int PublishHouseId { get; set; }
         public virtual PublishHouse PublishHouse { get; set; }
     }

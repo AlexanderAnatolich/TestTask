@@ -9,8 +9,12 @@
         <input id="SeachInput" type="text" />
         <div id="resultSearchContainer">
             <h5>Search Result</h5>
+            <select id="resultSearch">
+                <option selected disabled>Don't find products</option>
+            </select>
         </div>
         <h2></h2>
+        <button id="search">Show select product</button>
         <div id="searchResults">
         </div>
     </div>
@@ -28,8 +32,8 @@
         </div>
     </div>
 </div>
-@section scripts {
-    <script src="~/Scripts/kendoSearchUI/Search-Book-kendo.grid.js"></script>
-    <script src="~/Scripts/kendoSearchUI/Search-NewsPaper-kendo.grid.js"></script>
-    <script src="~/Scripts/kendoSearchUI/Search-Journal-kendo.grid.js"></script>
-}
+@section Scripts {
+    <link href="~/Content/kendo.bootstrap-v4.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/jszip.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.all.js"></script>
+    }

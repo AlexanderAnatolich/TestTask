@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using DAL.Interface;
 using DAL.Models;
 using Model.Models;
@@ -15,10 +16,12 @@ namespace BLL.Services
 {
     public class GenreService
     {
+        DataContex _modelsContext;
         GenerRepository _generRepository;
         public GenreService(string connectionString)
         {
-            _generRepository = new GenerRepository(connectionString);
+            _modelsContext = new DataContex(connectionString);
+            _generRepository = new GenerRepository(_modelsContext);
         }
         public async Task CreateAsync(CreateGenerViewModel model)
         {
@@ -28,12 +31,13 @@ namespace BLL.Services
         }
         public async Task<IEnumerable<GenerViewModel>> GetAllAsync()
         {
-            var tempGeners = await _generRepository.GetAllAsync();
+            var tempGeners = await _generRepository.GetAsync();
             return Mapper.Map<IEnumerable<Gener>, List<GenerViewModel>>(tempGeners);
         }
         public async Task DeleteAsync(int Id)
         {
-            await _generRepository.RemoveAsync(Id);
+            var temGener = _generRepository.FindById(Id);
+            await _generRepository.RemoveAsync(temGener);
         }
         public async Task UpdateAsync(GenerViewModel tempNewsPaper)
         {
@@ -41,7 +45,7 @@ namespace BLL.Services
             Mapper.Map(tempNewsPaper, newsGener);
             await _generRepository.UpdateAsync(newsGener);
         }
-        public async Task<GenerViewModel> Get(int id)
+        public async Task<GenerViewModel> Get(int? id)
         {
             var tempGener = await _generRepository.FindByIdAsync(id);
             var gener = new GenerViewModel();

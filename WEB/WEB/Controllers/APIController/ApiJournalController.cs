@@ -66,7 +66,7 @@ namespace WEB.Controllers.APIController
             }
         }
         [HttpPost]
-        public async Task<IHttpActionResult> Delete(GetIdViewModel model)
+        public async Task<IHttpActionResult> Delete(DeleteDTO model)
         {
             if (!ModelState.IsValid)
             {
@@ -74,21 +74,8 @@ namespace WEB.Controllers.APIController
             }
             try
             {
-                await _journalService.DeleteAsync(model.Id);
+                await _journalService.DeleteRangeAsync(model.Id);
                 return Ok();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-        [HttpPost]
-        public async Task<IHttpActionResult> GetById(GetIdViewModel request)
-        {
-            try
-            {
-                var tempBooks = await _journalService.GetAsync(request.Id);
-                return Ok(tempBooks);
             }
             catch (Exception ex)
             {

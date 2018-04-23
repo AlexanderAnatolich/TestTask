@@ -8,8 +8,6 @@ using System.Net.Http;
 using System.Web.Http;
 using Model.Models;
 using System.Threading.Tasks;
-using Kendo.Mvc.UI;
-using Newtonsoft.Json;
 
 namespace WEB.Controllers.APIController
 {
@@ -19,49 +17,29 @@ namespace WEB.Controllers.APIController
         private SearchService _searchService;
         public ApiSearchController()
         {
-            _searchService = new SearchService(ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString());
+            _searchService = new SearchService();
         }
-        [HttpGet]
-        public async Task<IHttpActionResult> SearchJournal(string anotherParam)
+        [HttpPost]
+        public IHttpActionResult Search([FromBody]SearchModel mod)
         {
-            try
+            if (String.IsNullOrEmpty(mod.Name)) return BadRequest();
+
+            if (mod.Type == "Books")
             {
-                if (String.IsNullOrEmpty(anotherParam)) throw new FormatException();
-                var resultSearch = await _searchService.FindJournalByTitleAsync(anotherParam);
+                var resultSearch = _searchService.GetBooks(mod.Name);
                 return Ok(resultSearch);
             }
-            catch (Exception ex)
+            if (mod.Type == "Newspapers")
             {
-                return BadRequest("Error" + ex.Message);
-            }
-        }
-        [HttpGet]
-        public async Task<IHttpActionResult> SearchBooks(string anotherParam)
-        {
-            try
-            {
-                if (String.IsNullOrEmpty(anotherParam)) throw new FormatException();
-                var resultSearch = await _searchService.FindBookByTitleAsync(anotherParam);
+                var resultSearch = _searchService.GetNewsPaper(mod.Name);
                 return Ok(resultSearch);
             }
-            catch (Exception ex)
+            if (mod.Type == "Journal")
             {
-                return BadRequest("Error" + ex.Message);
-            }
-        }
-        [HttpGet ]
-        public async Task<IHttpActionResult> SearchNewspapers(string anotherParam)
-        {
-            try
-            {
-                if (String.IsNullOrEmpty(anotherParam)) throw new FormatException();
-                var resultSearch = await _searchService.FindNewsPaperByTitleAsync(anotherParam);
+                var resultSearch = _searchService.GetJournal(mod.Name);
                 return Ok(resultSearch);
             }
-            catch (Exception ex)
-            {
-                return BadRequest("Error"+ ex.Message);
-            }
-        }
+            return BadRequest("Incorrect Search Type");
+        }                     
     }
 }

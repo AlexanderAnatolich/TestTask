@@ -19,9 +19,15 @@ namespace WEB.Controllers
             var connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ToString();
             paperService = new NewsPaperService(connectionString);
         }
-        public async Task<ActionResult> GetSearchResult(int id)
+        public ActionResult GetSearchResult(int? id)
         {
-            var tempNewPaper = await paperService.GetAsync(id);
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var tempNewPaper = paperService.GetAsync(id);
 
             if (tempNewPaper == null)
             {
