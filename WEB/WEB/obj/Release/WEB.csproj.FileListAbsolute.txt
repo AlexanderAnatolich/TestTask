@@ -288,5 +288,3 @@ C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.pdb
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Model.dll.config
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\Dapper.xml
 C:\Work\TestTask\MVC\TestTask\WEB\WEB\obj\Release\WEB.csproj.CopyComplete
-C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\WEB.dll.CodeAnalysisLog.xml
-C:\Work\TestTask\MVC\TestTask\WEB\WEB\bin\WEB.dll.lastcodeanalysissucceeded

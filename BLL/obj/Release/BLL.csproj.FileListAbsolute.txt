@@ -59,5 +59,3 @@ C:\Work\TestTask\MVC\TestTask\BLL\bin\Release\Model.pdb
 C:\Work\TestTask\MVC\TestTask\BLL\bin\Release\Model.dll.config
 C:\Work\TestTask\MVC\TestTask\BLL\bin\Release\Dapper.xml
 C:\Work\TestTask\MVC\TestTask\BLL\obj\Release\BLL.csproj.CopyComplete
-C:\Work\TestTask\MVC\TestTask\BLL\bin\Release\BLL.dll.CodeAnalysisLog.xml
-C:\Work\TestTask\MVC\TestTask\BLL\bin\Release\BLL.dll.lastcodeanalysissucceeded
